@@ -252,11 +252,17 @@
   border-radius: var(--radius);
 }
 
-.option-btn:hover { border-color: var(--paper); }
+.option-btn:hover {
+  border-color: var(--paper);
+  background: rgba(244,241,234,0.05);
+  transform: translateY(-2px);
+}
 
 .option-btn.active {
   background: var(--red);
   border-color: var(--red);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(220,38,38,0.35);
 }
 
 .option-btn .ob-size {
@@ -304,9 +310,18 @@
   border-radius: var(--radius);
 }
 
-.zone-btn:hover { border-color: var(--paper); }
+.zone-btn:hover {
+  border-color: var(--paper);
+  background: rgba(244,241,234,0.05);
+  transform: translateY(-2px);
+}
 
-.zone-btn.active { background: var(--red); border-color: var(--red); }
+.zone-btn.active {
+  background: var(--red);
+  border-color: var(--red);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(220,38,38,0.35);
+}
 
 .zone-btn .zb-num {
   font-family: var(--font-display);
@@ -645,6 +660,21 @@
   display: flex;
   align-items: center;
   gap: 16px;
+  transition: background .25s, transform .25s;
+  position: relative;
+}
+
+.audience-item:hover {
+  background: var(--paper-2);
+  transform: translateX(2px);
+}
+
+.section-dark .audience-item:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+.audience-item:hover .a-icon {
+  background: var(--ink);
 }
 
 .audience-item:nth-child(2n) { border-right: none; }

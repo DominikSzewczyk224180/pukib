@@ -202,23 +202,56 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   padding: 10px 14px;
   border-radius: var(--radius);
   position: relative;
-  transition: color 0.2s;
+  transition: color 0.2s, background 0.2s;
 }
 
-.nav a:hover { color: var(--red); }
-
-.nav a.active {
-  color: var(--red);
-}
-
-.nav a.active::after {
+.nav a:not(.nav-cta):not(.nav-cennik)::after {
   content: '';
   position: absolute;
   left: 14px;
   right: 14px;
-  bottom: 4px;
-  height: 2px;
+  bottom: 6px;
+  height: 1.5px;
   background: var(--red);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.nav a:not(.nav-cta):not(.nav-cennik):hover {
+  color: var(--red);
+}
+
+.nav a:not(.nav-cta):not(.nav-cennik):hover::after {
+  transform: scaleX(1);
+}
+
+.nav a.active:not(.nav-cta):not(.nav-cennik) {
+  color: var(--red);
+}
+
+.nav a.active:not(.nav-cta):not(.nav-cennik)::after {
+  transform: scaleX(1);
+}
+
+/* Cennik link distinct: bordered chip styling, sets it apart from anchors */
+.nav-cennik {
+  border: 1px solid var(--ink);
+  font-weight: 700 !important;
+  margin-right: 4px;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.nav-cennik:hover {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+
+.nav-cennik.active {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
 }
 
 .nav-cta {

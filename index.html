@@ -40,7 +40,7 @@
       <a href="#biznes">Dla biznesu</a>
       <a href="#faq">FAQ</a>
       <a href="#fb">Aktualności</a>
-      <a href="cennik.html">Cennik · Zamów</a>
+      <a href="cennik.html" class="nav-cennik">Cennik · Zamów</a>
       <a href="#kontakt">Kontakt</a>
       <a href="cennik.html#zamow" class="nav-cta">
         Zamów kontener
@@ -180,7 +180,7 @@
     <div class="interstitial-overlay"></div>
     <div class="interstitial-content">
       <div class="kicker">/ W terenie</div>
-      <h2>Niewidzialna logistyka.<br>Widoczne efekty.</h2>
+      <h2>Każda trasa policzona.<br>Każdy ładunek na czas.</h2>
     </div>
   </section>
 
@@ -318,7 +318,7 @@
     </div>
   </section>
 
-  <!-- Facebook section: curated post mosaic (iframe Plugin disabled because the FB URL is a personal profile, not a Page) -->
+  <!-- Facebook section: live Meta SDK Page Plugin + curated post mosaic below -->
   <section class="fb-section" id="fb">
     <div class="fb-inner">
       <div class="section-head">
@@ -326,35 +326,60 @@
           <div class="kicker">05 / Aktualności</div>
           <h2 class="section-title">Znajdź nas <em>na Facebooku.</em></h2>
         </div>
-        <p class="section-intro">Tam publikujemy zdjęcia z realizacji, ciekawostki branżowe i okazjonalne promocje. Poniżej, wybrane materiały z ostatnich kampanii.</p>
+        <p class="section-intro">Powyżej, żywy feed z naszego profilu (ładowany przez Meta SDK). Niżej, wybrane materiały z ostatnich kampanii.</p>
       </div>
 
-      <div class="fb-feed-grid">
-        <!-- Sidebar with FB icon, copy and CTA -->
-        <div class="fb-sidebar">
-          <div class="fb-icon">
-            <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+      <!-- Live FB Page Plugin via Meta SDK -->
+      <div class="fb-live-wrap">
+        <div class="fb-live-header">
+          <div class="fb-live-header-inner">
+            <span class="fb-live-dot"></span>
+            <span>LIVE / Profile feed loaded via Meta SDK</span>
           </div>
-          <h3>Aktualności <em>na FB.</em></h3>
-          <p>Trzy ostatnie kampanie marketingowe naszej firmy. Pełną aktywność zobaczysz na profilu.</p>
-          <div class="fb-stats">
-            <div class="fb-stat">
-              <div class="num">14</div>
-              <div class="label">lat aktywności</div>
-            </div>
-            <div class="fb-stat">
-              <div class="num">300+</div>
-              <div class="label">postów / rok</div>
-            </div>
-          </div>
-          <a href="https://www.facebook.com/people/PUKiB-Sp-zoo/61550223431423/" class="fb-handle" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            facebook.com / PUKiB
+          <a href="https://www.facebook.com/people/PUKiB-Sp-zoo/61550223431423/" class="fb-live-link" target="_blank" rel="noopener">
+            facebook.com / PUKiB &nbsp;→
           </a>
         </div>
 
-        <!-- Mosaic of posts (each links to FB) -->
-        <a class="fb-post fb-post-1" href="https://www.facebook.com/people/PUKiB-Sp-zoo/61550223431423/" target="_blank" rel="noopener">
+        <div class="fb-live-frame">
+          <!-- Skeleton loading shown until iframe renders, then visually overlapped -->
+          <div class="fb-live-skeleton" aria-hidden="true">
+            <div class="fb-skel-line w70"></div>
+            <div class="fb-skel-line w90"></div>
+            <div class="fb-skel-line w50"></div>
+            <div class="fb-skel-img"></div>
+            <div class="fb-skel-line w80"></div>
+            <div class="fb-skel-line w60"></div>
+          </div>
+
+          <!-- Official Facebook Page Plugin
+               Note: works fully for FB Pages. For personal profile URLs (/people/...),
+               will display only profile header. To show full timeline of posts,
+               convert FB profile to Business Page in Facebook settings. -->
+          <div class="fb-page"
+            data-href="https://www.facebook.com/people/PUKiB-Sp-zoo/61550223431423/"
+            data-tabs="timeline"
+            data-width="500"
+            data-height="600"
+            data-small-header="false"
+            data-adapt-container-width="true"
+            data-hide-cover="false"
+            data-show-facepile="true">
+            <blockquote cite="https://www.facebook.com/people/PUKiB-Sp-zoo/61550223431423/" class="fb-xfbml-parse-ignore">
+              <a href="https://www.facebook.com/people/PUKiB-Sp-zoo/61550223431423/">PUKiB Sp. z o.o.</a>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+
+      <!-- Curated mosaic below (always visible) -->
+      <div class="fb-curated-head">
+        <div class="kicker">/ Wybrane kampanie</div>
+        <p>Trzy ostatnie materiały z naszego profilu.</p>
+      </div>
+
+      <div class="fb-curated-grid">
+        <a class="fb-post" href="https://www.facebook.com/people/PUKiB-Sp-zoo/61550223431423/" target="_blank" rel="noopener">
           <div class="fb-post-meta">
             <span class="fb-post-tag">Kampania</span>
             <span class="fb-post-date">PUKiB.pl</span>
@@ -365,7 +390,7 @@
             <p>Pełna oferta wynajmu, transport i utylizacja, jeden wykonawca na całym Śląsku.</p>
           </div>
         </a>
-        <a class="fb-post fb-post-2" href="https://www.facebook.com/people/PUKiB-Sp-zoo/61550223431423/" target="_blank" rel="noopener">
+        <a class="fb-post" href="https://www.facebook.com/people/PUKiB-Sp-zoo/61550223431423/" target="_blank" rel="noopener">
           <div class="fb-post-meta">
             <span class="fb-post-tag">Edukacja</span>
             <span class="fb-post-date">Mandat?</span>
@@ -376,7 +401,7 @@
             <p>Źle wyrzucone odpady to nie tylko problem ekologiczny, ale też niepotrzebne koszty.</p>
           </div>
         </a>
-        <a class="fb-post fb-post-3" href="https://www.facebook.com/people/PUKiB-Sp-zoo/61550223431423/" target="_blank" rel="noopener">
+        <a class="fb-post" href="https://www.facebook.com/people/PUKiB-Sp-zoo/61550223431423/" target="_blank" rel="noopener">
           <div class="fb-post-meta">
             <span class="fb-post-tag">Ciekawostka</span>
             <span class="fb-post-date">Budowlana</span>
@@ -390,6 +415,12 @@
       </div>
     </div>
   </section>
+
+  <!-- Facebook SDK loader (renders fb-page widget above) -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/pl_PL/sdk.js#xfbml=1&version=v19.0"
+    nonce="pukib_fb_sdk"></script>
 
   <!-- Kontakt (#kontakt) -->
   <section class="section section-dark" id="kontakt">
