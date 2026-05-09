@@ -1,88 +1,91 @@
 # PUKiB.pl — strona internetowa
 
-Statyczna strona dla **PUKiB Sp. z o.o.** — wynajem kontenerów i wywóz odpadów na terenie całego Śląska.
-Zaprojektowana do hostowania na **GitHub Pages** (lub dowolnym statycznym serwerze).
+Statyczna strona dla **PUKiB Sp. z o.o.** — wynajem kontenerów i wywóz odpadów na Śląsku.
+Zaprojektowana do hostowania na **GitHub Pages** lub dowolnym statycznym serwerze.
 
 ---
 
-## Struktura
-
-5 stron HTML — w v2 zredukowane z 7 (wywalone Blog i FAQ jako osobne sekcje):
+## Struktura — tylko 2 strony
 
 ```
 pukib/
-├── index.html           # Strona główna — hero, usługi, kontenery, cały Śląsk, FAQ, FB, CTA
-├── cennik.html          # Cennik 2026 — formularz zamówienia NA GÓRZE, potem tabele cen i strefy
-├── o-firmie.html        # O firmie — krótki intro, statystyki, zespół (skrócone z poprzedniej wersji)
-├── dla-biznesu.html     # Dla biznesu — audience, 4-step process (skrócone)
-├── kontakt.html         # Kontakt — telefony, e-maile, dwie lokalizacje na Google Maps
+├── index.html           # Wszystko poza zamówieniem: hero, usługi, o firmie,
+│                        # dla biznesu, FAQ, FB, kontakt — jedna płynna
+│                        # strona z anchor-nawigacją (#o-nas, #biznes, #kontakt)
+│
+├── cennik.html          # Cennik 2026 + formularz zamówienia z animowaną
+│                        # mini-wizualizacją kontenera obok formularza —
+│                        # gdy wybierasz rozmiar, kontener się zmienia w skali
+│                        # z sylwetką człowieka 1,80 m dla porównania
 │
 ├── css/
-│   ├── style.css        # Design system (tokeny, header, footer, buttony, marquee, page-hero)
-│   ├── home.css         # Style strony głównej (hero split, isometric containers, FB section, FAQ embed)
-│   └── pages.css        # Style podstron (cennik, formularz, about, biznes audience, kontakt)
+│   ├── style.css        # Design tokens, header, footer, buttons, page-hero, marquee
+│   ├── home.css         # Hero split, services, about-compact, FB feed, locations
+│   └── pages.css        # Cennik, formularz, mini-viz, audience, kontakt-team
 │
 ├── js/
-│   └── main.js          # Mobile menu, hero video poster fade, scroll reveal, container switcher,
-│                        # FAQ accordion (FIXED), order form recalc, marquee duplication
+│   └── main.js          # Mobile menu, scroll reveal, FAQ accordion (FIXED),
+│                        # form recalc, container size → visualization sync
 │
 └── assets/
     ├── img/             # logo (transparent bg), truck, postery
-    ├── posters/         # poster frames dla video
-    └── videos/          # hero.mp4 (drone), secondary.mp4 (top-down drone)
+    ├── posters/         # poster frames dla video w hero
+    └── videos/          # hero.mp4 (drone — Mercedes Atego)
 ```
 
 ---
 
-## Co się zmieniło w v2 (na podstawie feedbacku)
+## Co zostało zrobione w v3 (wg feedbacku)
 
-### Wywalone
-- `blog.html` (osobna strona) — zastąpiona sekcją FB na home
-- `faq.html` (osobna strona) — 6 pytań wbudowanych na home
-- Sekcja "Wartości" (4 wartości) z o-firmie
-- Sekcja "Dla kogo" (audience cards) z o-firmie
-- Sekcja "Czas. Niezawodność." (6 punktów) z dla-biznesu
-- Sekcja "Pojemności na każdą skalę" (4 kontenery) z dla-biznesu
-- Mapa Śląska na home (sekcja "Cały Śląsk") — zastąpiona czystą typografią z 3 strefami i listami miast
-- ~480 linii nieużywanego CSS w pages.css
+### Logo
+Wycięte czystym algorytmem: zostają **tylko piksele wystarczająco czerwone** (R>110, G<90, B<90, R znacznie dominuje) **+ czarne shading przylegające do czerwieni** (3D efekt). Reszta — transparent. Bez szarych obrysów.
 
-### Naprawione / przebudowane
-- **Logo** — wycięte czarne tło flood-fillem od krawędzi (czarne shading w literach zachowany)
-- **FAQ accordion** — JS poprawiony, klikanie pytania otwiera odpowiedź (bug: poprzednio działało tylko pierwsze)
-- **Hero strony głównej** — z full-screen video → split layout: duża typografia po lewej, video w 16:9 framed boxie z 12px hard shadow po prawej. Mniej dominujący video, więcej oddechu i czytelności.
-- **3D kontenery** — z CSS 3D cube (glitchy) → **SVG izometryczny widok 30°/30°**:
-  - 3 kontenery (7/10/36 m³) w prawdziwych proporcjach
-  - sylwetka człowieka 1.80 m dla skali (człowiek wyższy od 7m³, znacznie niższy od 36m³)
-  - linie wymiarowe z czerwonymi mono labelkami
-  - stencil "PUKiB.pl" + badge "97" na boku
-  - drop shadow, vertical ribs (industrial detail)
-  - background siatka jak na rysunku architektonicznym
-  - duża etykieta "X m³ / typ kontenera" w rogu + volume bar
-- **Mapy Google** w kontakcie zamiast OSM (no API key — używa "share embed")
+### Struktura — tylko 2 strony
+- **index.html** zawiera wszystko poza zamówieniem: hero, 3 usługi, o firmie (zwięzły paragraf + zdjęcie ciężarówki), dla biznesu (6 typów klientów), FAQ (4 pytania), FB feed, kontakt (zespół + 2 lokalizacje na Google Maps). Każda treść w **jednym miejscu** — bez powtórzeń.
+- **cennik.html** ma cennik + formularz zamówienia z **animowaną mini-wizualizacją** kontenera obok formularza. Strefy transportu są tu (a nie na home — bo ich miejsce jest przy zamawianiu).
 
-### Przesunięte
-- Formularz "Zamów" — w cenniku przeniesiony NAD tabele cen (na górę strony)
+### Wizualizacja kontenera w cenniku
+- SVG izometryczny widok 30°/30°, skala 1:38, kompaktowa (700×360 viewBox)
+- Sylwetka człowieka **1,80 m** stała, kontener animuje się przy zmianie rozmiaru
+- Smooth fade transition (0.4s) między 7 / 10 / 36 m³
+- Wymiary z czerwonymi mono-labelkami, stencil "PUKiB.pl" + badge "97" na boku
+- Background grid jak na rysunku architektonicznym
+- Klikasz size button w formularzu → kontener obok się zmienia w skali
+
+### Facebook integracja
+W sekcji FB jest **Facebook Page Plugin iframe** (oficjalny, darmowy widget od FB), który wyświetla najnowsze posty z timeline.
+
+**Ważna uwaga:** Page Plugin działa tylko dla **Facebook Pages** (stron firmowych), **nie dla profili osobowych** (URL `/people/...`). Aktualny URL `facebook.com/people/PUKiB-Sp-zoo/61550223431423/` wskazuje na profil osobowy. Jeśli posty się nie pokazują:
+
+1. **Przekonwertuj profil na Page** — w ustawieniach FB → "Utwórz stronę z profilu"
+2. Po konwersji zaktualizuj URL w `index.html` (sekcja `<!-- FB Page Plugin -->`)
+3. Posty zaczną się ładować automatycznie
+
+Alternatywnie, jeśli profil nie może zostać przekonwertowany — iframe pokaże nagłówek profilu z przyciskiem "Otwórz profil" (graceful fallback).
 
 ---
 
-## Dane firmy (twarde fakty w stopce + kontakcie)
+## Dane firmy
 
 ```
 PUKiB Sp. z o.o.
 Siedziba: ul. Chudoby 4/1, 44-100 Gliwice
 Baza:     ul. Dębina 16, 44-335 Jastrzębie-Zdrój
-NIP: 631 262 02 53 · KRS: 0003645589 · BDO: 000011532 · Kapitał: 100 000 PLN
+NIP: 631 262 02 53 · KRS: 0003645589 · BDO: 000011532
 
 Tel:    503 759 504 (Przemysław Pilorz, Dyr. Handlowy)
+        515 829 174 (Artur Obszański, Logistyk)
+        780 069 290 (Przemysław Ostałowski, Logistyk)
+        502 195 472 (Jakub Jasiurkowski, Logistyk)
+        601 407 116 (Aneta Jasiurkowska, Faktury · BDO)
+
 E-mail: kontenery@pukib.pl · dyspozytor@pukib.pl · bok@pukib.pl
 FB:     facebook.com/people/PUKiB-Sp-zoo/61550223431423/
 ```
 
 ---
 
-## Uruchomienie lokalnie
-
-Strona jest w 100% statyczna. Aby zobaczyć ją lokalnie:
+## Lokalne uruchomienie
 
 ```bash
 cd pukib
@@ -90,15 +93,15 @@ python3 -m http.server 8000
 # otwórz http://localhost:8000
 ```
 
-Lub otwórz `index.html` bezpośrednio w przeglądarce (pamiętając, że niektóre zasoby — fonty Google, embed Google Maps — wymagają połączenia z internetem).
+W produkcji (GitHub Pages, Netlify, Vercel) wszystko zadziała — fonty Google, mapy Google, FB Page Plugin (jeśli jest Page).
 
 ---
 
 ## Deploy na GitHub Pages
 
-1. Utwórz repo na GitHub i wgraj zawartość katalogu `pukib/`
-2. W Settings → Pages wybierz branch `main` i folder `/` (root)
-3. Po kilku minutach strona będzie dostępna pod `https://<user>.github.io/<repo>/`
+1. Wgraj zawartość katalogu `pukib/` do repo na GitHub
+2. Settings → Pages → Branch: `main`, folder `/` (root)
+3. Po kilku minutach strona pod `https://<user>.github.io/<repo>/`
 
 Dla domeny `pukib.pl` — w Settings → Pages → Custom domain wpisać domenę i ustawić rekordy A/CNAME u rejestratora.
 
@@ -107,9 +110,9 @@ Dla domeny `pukib.pl` — w Settings → Pages → Custom domain wpisać domenę
 ## Stack
 
 - **HTML5** semantyczny
-- **CSS3** (custom properties, grid, clamp(), container queries gdzie potrzeba)
-- **Vanilla JS** — bez frameworka i bundlera, ~200 linii
+- **CSS3** custom properties, grid, clamp(), aspect-ratio
+- **Vanilla JS** ~220 linii, bez frameworka i bundlera
 - **Fonty Google**: Big Shoulders Display (display), Archivo (body), JetBrains Mono (technical labels)
 - **Brak zależności**, brak builda, brak node_modules — czysty static site
 
-Design opiera się na palecie: czerwony `#dc2626`, czarny `#0a0a0a`, kremowy `#f4f1ea`, zielony `#4d8c2f` (kolor prawdziwych kontenerów PUKiB).
+Paleta: czerwony `#dc2626`, czarny `#0a0a0a`, kremowy `#f4f1ea`, zielony kontenerowy `#4d8c2f`.

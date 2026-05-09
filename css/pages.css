@@ -723,3 +723,89 @@
 
 .contact-cell .info a:hover { color: var(--red); }
 
+
+/* Dark-section overrides for process / audience inside #biznes */
+.section-dark .process-step,
+.section-dark .audience-item {
+  background: var(--ink-2);
+  border-color: rgba(255,255,255,0.12);
+}
+.section-dark .process-step h4,
+.section-dark .audience-item h4 {
+  color: var(--paper);
+}
+.section-dark .process-step p,
+.section-dark .audience-item p {
+  color: var(--paper-3);
+}
+.section-dark .process-step .ps-num {
+  color: var(--red);
+}
+
+/* Team cards inside dark section — phones/emails legible */
+.section-dark .team-card .contact {
+  border-color: rgba(255,255,255,0.12);
+  color: var(--paper-3);
+}
+.section-dark .team-card .contact a {
+  color: var(--paper);
+}
+.section-dark .team-card .contact a:hover { color: var(--red); }
+.section-dark .team-card .role { color: var(--red); }
+
+/* =========================================================
+   Mini visualization in cennik order section
+   ========================================================= */
+
+.order-viz {
+  position: relative;
+  background: var(--ink-2);
+  border: 1px solid rgba(244,241,234,0.10);
+  margin-bottom: 32px;
+  overflow: hidden;
+  aspect-ratio: 700 / 360;
+  width: 100%;
+}
+
+.order-viz-corner {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.order-viz-corner .kicker {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.order-viz-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.order-viz-svg .stage {
+  opacity: 0;
+  transition: opacity .4s ease;
+  pointer-events: none;
+}
+
+.order-viz-svg .stage.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Override darker text colors for stages on dark bg */
+.order-viz-svg .stage text[fill="#0a0a0a"] {
+  fill: var(--paper);
+}
+
+/* dimension labels stay legible — switch their fill background */
+.order-viz-svg .stage rect[fill="#ebe7dc"] {
+  fill: var(--ink-2);
+  stroke: var(--red);
+}

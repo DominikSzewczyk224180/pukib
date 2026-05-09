@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cennik · Zamów kontener — PUKiB</title>
-  <meta name="description" content="Aktualny cennik 2026 wynajmu kontenerów i transportu. Zamów kontener online — wybierz rozmiar i strefę, otrzymasz wycenę i termin podstawienia.">
+  <meta name="description" content="Aktualny cennik 2026 wynajmu kontenerów. Zamów online — wybierz rozmiar, strefę i podaj dane.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
@@ -35,10 +35,10 @@
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span></button>
     <nav class="nav">
       <a href="index.html">Strona główna</a>
-      <a href="o-firmie.html">O firmie</a>
-      <a href="dla-biznesu.html">Dla biznesu</a>
+      <a href="index.html#o-nas">O firmie</a>
+      <a href="index.html#biznes">Dla biznesu</a>
       <a href="cennik.html" class="active">Cennik · Zamów</a>
-      <a href="kontakt.html">Kontakt</a>
+      <a href="index.html#kontakt">Kontakt</a>
       <a href="#zamow" class="nav-cta">
         Zamów kontener
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -48,7 +48,6 @@
 
   <!-- Page hero -->
   <section class="page-hero">
-    <div class="page-hero-decoration"></div>
     <div class="page-hero-grid">
       <div>
         <div class="page-hero-meta">
@@ -64,39 +63,178 @@
     </div>
   </section>
 
-  <!-- ORDER FORM FIRST -->
+  <!-- ORDER SECTION — form + animated mini visualization side-by-side -->
   <section class="section order-section" id="zamow">
     <div class="container">
-      <div class="section-head reveal" style="margin-bottom:32px;">
+      <div class="section-head" style="margin-bottom:32px;">
         <div>
           <div class="kicker" style="color: var(--paper-3); margin-bottom:16px;">/ Krok po kroku</div>
           <h2 class="display section-title">Zamów <em>kontener</em>.</h2>
         </div>
-        <p class="section-intro">Wybierz kontener i strefę, podaj dane — wyślemy potwierdzenie i ustalimy termin podstawienia. Najczęściej oddzwaniamy w ciągu godziny w dni robocze.</p>
+        <p class="section-intro">Wybierz kontener i strefę, podaj dane — wyślemy potwierdzenie i ustalimy termin podstawienia. Po lewej widzisz wybrany kontener w skali z człowiekiem 1,80 m dla porównania.</p>
       </div>
 
-      <form class="order-grid" data-order-form onsubmit="return false;">
+      <form class="order-grid order-grid-with-viz" data-order-form onsubmit="return false;">
+        <!-- Left column: Visualization + Form steps -->
         <div>
-          <!-- Step 1 -->
+          <!-- MINI ANIMATED CONTAINER VISUALIZATION (changes with size selection) -->
+          <div class="order-viz" data-showcase>
+            <div class="order-viz-corner">
+              <span class="kicker" style="color:var(--paper-3);">/ Wizualizacja w skali 1:38</span>
+            </div>
+            <svg viewBox="0 0 700 360" class="order-viz-svg" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <filter id="softblur" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="3"/>
+                </filter>
+                <marker id="arrm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+                  <path d="M 0 0 L 10 5 L 0 10 Z" fill="#dc2626"/>
+                </marker>
+              </defs>
+              <!-- background grid -->
+              <defs>
+                <pattern id="vizgrid" width="20" height="20" patternUnits="userSpaceOnUse">
+                  <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(244,241,234,0.04)" stroke-width="1"/>
+                </pattern>
+              </defs>
+              <rect width="700" height="360" fill="url(#vizgrid)"/>
+
+              <!-- Reference human at SVG (140, 220) — 1.80 m at scale 38 = ~68 px -->
+              <g class="human" transform="translate(140, 212)">
+                <ellipse cx="0" cy="4" rx="4.5" ry="5" fill="#dcd4c2"/>
+                <path d="M -6 11 L 6 11 L 5 32 L -5 32 Z" fill="#dcd4c2"/>
+                <path d="M -7.5 12 L -10 28 L -6.5 28 L -5.5 12 Z" fill="#dcd4c2"/>
+                <path d="M 7.5 12 L 10 28 L 6.5 28 L 5.5 12 Z" fill="#dcd4c2"/>
+                <path d="M -5 32 L 0 32 L -1.5 68 L -5.5 68 Z" fill="#dcd4c2"/>
+                <path d="M 0 32 L 5 32 L 5.5 68 L 1.5 68 Z" fill="#dcd4c2"/>
+              </g>
+              <line x1="115" y1="212" x2="115" y2="280" stroke="#dc2626" stroke-width="0.9" marker-start="url(#arrm)" marker-end="url(#arrm)"/>
+              <rect x="98" y="240" width="34" height="13" fill="#1a1a1a" stroke="#dc2626" stroke-width="0.6"/>
+              <text x="115" y="250" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#dc2626" text-anchor="middle">1,80 m</text>
+
+  <!-- Auto-generated mini stages -->
+    <g class="stage" data-size-stage="7">
+      <polygon points="280.0,280.0 378.7,337.0 322.8,369.3 224.1,312.3" fill="rgba(10,10,10,0.18)" filter="url(#softblur)" transform="translate(6 10)"/>
+      <polygon points="280.0,226.8 378.7,283.8 322.8,316.1 224.1,259.1" fill="#5fa83a" stroke="#1a3d10" stroke-width="1.3" stroke-linejoin="round"/>
+      <polygon points="280.0,280.0 378.7,337.0 378.7,283.8 280.0,226.8" fill="#4d8c2f" stroke="#1a3d10" stroke-width="1.3" stroke-linejoin="round"/>
+      <polygon points="280.0,280.0 224.1,312.3 224.1,259.1 280.0,226.8" fill="#3a6f1f" stroke="#1a3d10" stroke-width="1.3" stroke-linejoin="round"/>
+      <g opacity="0.45">
+        <line x1="296.5" y1="289.5" x2="296.5" y2="236.3" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="312.9" y1="299.0" x2="312.9" y2="245.8" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="329.4" y1="308.5" x2="329.4" y2="255.3" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="345.8" y1="318.0" x2="345.8" y2="264.8" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="362.3" y1="327.5" x2="362.3" y2="274.3" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="252.0" y1="296.1" x2="252.0" y2="242.9" stroke="#1a3d10" stroke-width="0.8"/>
+      </g>
+      <polyline points="280.0,226.8 378.7,283.8 322.8,316.1 224.1,259.1 280.0,226.8" fill="none" stroke="#1a3d10" stroke-width="1.6"/>
+      <line x1="284.0" y1="298.0" x2="382.7" y2="355.0" stroke="#dc2626" stroke-width="1.1" marker-start="url(#arrm)" marker-end="url(#arrm)"/>
+      <rect x="315.35" y="319.5" width="36" height="14" fill="#ebe7dc" stroke="#dc2626" stroke-width="0.6"/>
+      <text x="333.35" y="329.5" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#dc2626" text-anchor="middle">3 m</text>
+      <line x1="262.0" y1="276.0" x2="206.1" y2="308.3" stroke="#dc2626" stroke-width="1.1" marker-start="url(#arrm)" marker-end="url(#arrm)"/>
+      <rect x="216.05" y="285.15" width="36" height="14" fill="#ebe7dc" stroke="#dc2626" stroke-width="0.6"/>
+      <text x="234.05" y="295.15" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#dc2626" text-anchor="middle">1,7 m</text>
+      <line x1="230.0" y1="280.0" x2="230.0" y2="226.8" stroke="#dc2626" stroke-width="1.1" marker-start="url(#arrm)" marker-end="url(#arrm)"/>
+      <rect x="212.0" y="246.4" width="36" height="14" fill="#ebe7dc" stroke="#dc2626" stroke-width="0.6"/>
+      <text x="230.0" y="256.4" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#dc2626" text-anchor="middle">1,4 m</text>
+      <text x="640" y="80" font-family="Big Shoulders Display" font-weight="900" font-size="68" fill="#0a0a0a" text-anchor="end" letter-spacing="-0.02em">7<tspan font-size="28" font-weight="800" dy="-26">m³</tspan></text>
+      <text x="640" y="100" font-family="JetBrains Mono" font-size="9" font-weight="700" letter-spacing="0.18em" fill="#0a0a0a" text-anchor="end">BRAMOWIEC MAŁY</text>
+    </g>
+
+    <g class="stage" data-size-stage="10">
+      <polygon points="280.0,280.0 395.2,346.5 335.9,380.7 220.8,314.2" fill="rgba(10,10,10,0.18)" filter="url(#softblur)" transform="translate(6 10)"/>
+      <polygon points="280.0,219.2 395.2,285.7 335.9,319.9 220.8,253.4" fill="#5fa83a" stroke="#1a3d10" stroke-width="1.3" stroke-linejoin="round"/>
+      <polygon points="280.0,280.0 395.2,346.5 395.2,285.7 280.0,219.2" fill="#4d8c2f" stroke="#1a3d10" stroke-width="1.3" stroke-linejoin="round"/>
+      <polygon points="280.0,280.0 220.8,314.2 220.8,253.4 280.0,219.2" fill="#3a6f1f" stroke="#1a3d10" stroke-width="1.3" stroke-linejoin="round"/>
+      <g opacity="0.45">
+        <line x1="296.5" y1="289.5" x2="296.5" y2="228.7" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="312.9" y1="299.0" x2="312.9" y2="238.2" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="329.4" y1="308.5" x2="329.4" y2="247.7" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="345.8" y1="318.0" x2="345.8" y2="257.2" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="362.3" y1="327.5" x2="362.3" y2="266.7" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="378.7" y1="337.0" x2="378.7" y2="276.2" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="260.3" y1="291.4" x2="260.3" y2="230.6" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="240.5" y1="302.8" x2="240.5" y2="242.0" stroke="#1a3d10" stroke-width="0.8"/>
+      </g>
+      <polyline points="280.0,219.2 395.2,285.7 335.9,319.9 220.8,253.4 280.0,219.2" fill="none" stroke="#1a3d10" stroke-width="1.6"/>
+      <g transform="matrix(0.8660 0.5000 0 1 280 280)">
+        <text x="53.2" y="-30.4" font-family="Big Shoulders Display, Impact, sans-serif" font-weight="900" font-size="18.2" fill="rgba(245,241,234,0.92)" text-anchor="middle" letter-spacing="0.5">PUKiB.pl</text>
+        <circle cx="119.7" cy="-30.4" r="11" fill="rgba(245,241,234,0.95)" stroke="#1a3d10" stroke-width="1"/>
+        <text x="119.7" y="-26.0" font-family="Big Shoulders Display" font-weight="900" font-size="15.4" fill="#1a3d10" text-anchor="middle">97</text>
+      </g>
+      <line x1="284.0" y1="298.0" x2="399.2" y2="364.5" stroke="#dc2626" stroke-width="1.1" marker-start="url(#arrm)" marker-end="url(#arrm)"/>
+      <rect x="323.6" y="324.25" width="36" height="14" fill="#ebe7dc" stroke="#dc2626" stroke-width="0.6"/>
+      <text x="341.6" y="334.25" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#dc2626" text-anchor="middle">3,5 m</text>
+      <line x1="262.0" y1="276.0" x2="202.8" y2="310.2" stroke="#dc2626" stroke-width="1.1" marker-start="url(#arrm)" marker-end="url(#arrm)"/>
+      <rect x="214.4" y="286.1" width="36" height="14" fill="#ebe7dc" stroke="#dc2626" stroke-width="0.6"/>
+      <text x="232.4" y="296.1" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#dc2626" text-anchor="middle">1,8 m</text>
+      <line x1="230.0" y1="280.0" x2="230.0" y2="219.2" stroke="#dc2626" stroke-width="1.1" marker-start="url(#arrm)" marker-end="url(#arrm)"/>
+      <rect x="212.0" y="242.6" width="36" height="14" fill="#ebe7dc" stroke="#dc2626" stroke-width="0.6"/>
+      <text x="230.0" y="252.6" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#dc2626" text-anchor="middle">1,6 m</text>
+      <text x="640" y="80" font-family="Big Shoulders Display" font-weight="900" font-size="68" fill="#0a0a0a" text-anchor="end" letter-spacing="-0.02em">10<tspan font-size="28" font-weight="800" dy="-26">m³</tspan></text>
+      <text x="640" y="100" font-family="JetBrains Mono" font-size="9" font-weight="700" letter-spacing="0.18em" fill="#0a0a0a" text-anchor="end">BRAMOWIEC ŚREDNI</text>
+    </g>
+
+    <g class="stage" data-size-stage="36">
+      <polygon points="280.0,280.0 477.5,394.0 398.5,439.6 201.0,325.6" fill="rgba(10,10,10,0.18)" filter="url(#softblur)" transform="translate(6 10)"/>
+      <polygon points="280.0,185.0 477.5,299.0 398.5,344.6 201.0,230.6" fill="#5fa83a" stroke="#1a3d10" stroke-width="1.3" stroke-linejoin="round"/>
+      <polygon points="280.0,280.0 477.5,394.0 477.5,299.0 280.0,185.0" fill="#4d8c2f" stroke="#1a3d10" stroke-width="1.3" stroke-linejoin="round"/>
+      <polygon points="280.0,280.0 201.0,325.6 201.0,230.6 280.0,185.0" fill="#3a6f1f" stroke="#1a3d10" stroke-width="1.3" stroke-linejoin="round"/>
+      <g opacity="0.45">
+        <line x1="299.7" y1="291.4" x2="299.7" y2="196.4" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="319.5" y1="302.8" x2="319.5" y2="207.8" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="339.2" y1="314.2" x2="339.2" y2="219.2" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="359.0" y1="325.6" x2="359.0" y2="230.6" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="378.7" y1="337.0" x2="378.7" y2="242.0" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="398.5" y1="348.4" x2="398.5" y2="253.4" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="418.2" y1="359.8" x2="418.2" y2="264.8" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="438.0" y1="371.2" x2="438.0" y2="276.2" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="457.7" y1="382.6" x2="457.7" y2="287.6" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="260.3" y1="291.4" x2="260.3" y2="196.4" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="240.5" y1="302.8" x2="240.5" y2="207.8" stroke="#1a3d10" stroke-width="0.8"/>
+        <line x1="220.8" y1="314.2" x2="220.8" y2="219.2" stroke="#1a3d10" stroke-width="0.8"/>
+      </g>
+      <polyline points="280.0,185.0 477.5,299.0 398.5,344.6 201.0,230.6 280.0,185.0" fill="none" stroke="#1a3d10" stroke-width="1.6"/>
+      <g transform="matrix(0.8660 0.5000 0 1 280 280)">
+        <text x="91.2" y="-47.5" font-family="Big Shoulders Display, Impact, sans-serif" font-weight="900" font-size="20" fill="rgba(245,241,234,0.92)" text-anchor="middle" letter-spacing="0.5">PUKiB.pl</text>
+        <circle cx="205.2" cy="-47.5" r="11" fill="rgba(245,241,234,0.95)" stroke="#1a3d10" stroke-width="1"/>
+        <text x="205.2" y="-43.1" font-family="Big Shoulders Display" font-weight="900" font-size="15.4" fill="#1a3d10" text-anchor="middle">97</text>
+      </g>
+      <line x1="284.0" y1="298.0" x2="481.5" y2="412.0" stroke="#dc2626" stroke-width="1.1" marker-start="url(#arrm)" marker-end="url(#arrm)"/>
+      <rect x="364.75" y="348.0" width="36" height="14" fill="#ebe7dc" stroke="#dc2626" stroke-width="0.6"/>
+      <text x="382.75" y="358.0" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#dc2626" text-anchor="middle">6 m</text>
+      <line x1="262.0" y1="276.0" x2="183.0" y2="321.6" stroke="#dc2626" stroke-width="1.1" marker-start="url(#arrm)" marker-end="url(#arrm)"/>
+      <rect x="204.5" y="291.8" width="36" height="14" fill="#ebe7dc" stroke="#dc2626" stroke-width="0.6"/>
+      <text x="222.5" y="301.8" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#dc2626" text-anchor="middle">2,4 m</text>
+      <line x1="230.0" y1="280.0" x2="230.0" y2="185.0" stroke="#dc2626" stroke-width="1.1" marker-start="url(#arrm)" marker-end="url(#arrm)"/>
+      <rect x="212.0" y="225.5" width="36" height="14" fill="#ebe7dc" stroke="#dc2626" stroke-width="0.6"/>
+      <text x="230.0" y="235.5" font-family="JetBrains Mono, monospace" font-size="9" font-weight="700" fill="#dc2626" text-anchor="middle">2,5 m</text>
+      <text x="640" y="80" font-family="Big Shoulders Display" font-weight="900" font-size="68" fill="#0a0a0a" text-anchor="end" letter-spacing="-0.02em">36<tspan font-size="28" font-weight="800" dy="-26">m³</tspan></text>
+      <text x="640" y="100" font-family="JetBrains Mono" font-size="9" font-weight="700" letter-spacing="0.18em" fill="#0a0a0a" text-anchor="end">HAKOWIEC DUŻY</text>
+    </g>
+
+            </svg>
+          </div>
+
+          <!-- Step 1 - sizes -->
           <div class="order-step">
             <h3 data-step="1">Wybierz kontener</h3>
             <div class="option-row">
-              <button type="button" class="option-btn active" data-size-btn="gruz-7">
+              <button type="button" class="option-btn active" data-size-btn="gruz-7" data-stage-size="7">
                 <div class="ob-size">7m³</div>
                 <div class="ob-name">Gruz</div>
                 <div class="ob-price">900 zł</div>
               </button>
-              <button type="button" class="option-btn" data-size-btn="mix-7">
+              <button type="button" class="option-btn" data-size-btn="mix-7" data-stage-size="7">
                 <div class="ob-size">7m³</div>
                 <div class="ob-name">Mieszane</div>
                 <div class="ob-price">1 300 zł</div>
               </button>
-              <button type="button" class="option-btn" data-size-btn="mix-10">
+              <button type="button" class="option-btn" data-size-btn="mix-10" data-stage-size="10">
                 <div class="ob-size">10m³</div>
                 <div class="ob-name">Mieszane</div>
                 <div class="ob-price">1 800 zł</div>
               </button>
-              <button type="button" class="option-btn" data-size-btn="mix-36">
+              <button type="button" class="option-btn" data-size-btn="mix-36" data-stage-size="36">
                 <div class="ob-size">36m³</div>
                 <div class="ob-name">Mieszane</div>
                 <div class="ob-price">3 700 zł</div>
@@ -104,7 +242,7 @@
             </div>
           </div>
 
-          <!-- Step 2 -->
+          <!-- Step 2 - zone -->
           <div class="order-step">
             <h3 data-step="2">Wybierz strefę transportu</h3>
             <div class="zone-row">
@@ -126,7 +264,7 @@
             </div>
           </div>
 
-          <!-- Step 3 -->
+          <!-- Step 3 - data -->
           <div class="order-step">
             <h3 data-step="3">Twoje dane</h3>
             <div class="field-row">
@@ -166,7 +304,7 @@
           </div>
         </div>
 
-        <!-- Summary -->
+        <!-- Sticky summary aside -->
         <aside class="order-summary">
           <h4>Podsumowanie</h4>
           <div class="summary-row">
@@ -183,7 +321,6 @@
             </div>
             <div class="summary-value" data-summary-transport>100 zł</div>
           </div>
-
           <div class="summary-total">
             <div>
               <span class="total-label">Razem</span>
@@ -191,11 +328,9 @@
             </div>
             <div class="total-amount" data-summary-total>1 080 zł</div>
           </div>
-
           <button class="summary-submit" data-submit type="submit">
             Wyślij zamówienie →
           </button>
-
           <p class="summary-note">Otworzymy Twój klient pocztowy z gotowym zamówieniem.<br>Albo zadzwoń: <a href="tel:503759504" style="color:var(--paper); border-bottom:1px solid var(--paper);">503 759 504</a></p>
         </aside>
       </form>
@@ -243,7 +378,6 @@
         </tbody>
       </table>
 
-      <!-- Sorted waste -->
       <div class="kicker" style="margin-bottom:16px; margin-top:64px;">/ 02 — Odpady do segregacji</div>
       <div class="pricing-grid">
         <div class="pricing-cell">
@@ -272,7 +406,6 @@
         </div>
       </div>
 
-      <!-- Transport zones -->
       <div class="kicker" style="margin-bottom:16px; margin-top:64px;">/ 03 — Transport · Strefy</div>
       <h2 class="display" style="font-size:clamp(36px,5vw,64px); margin-bottom:32px; max-width:18ch;">Trzy <em style="font-style:normal;color:var(--red);">strefy</em>, jasne stawki.</h2>
 
@@ -300,7 +433,6 @@
         </div>
       </div>
 
-      <!-- Other waste -->
       <div style="background:var(--paper-2); border:1px solid var(--line); padding:32px; margin-top:48px;">
         <div class="kicker" style="margin-bottom:12px;">/ 04 — Pozostałe odpady</div>
         <h3 class="display" style="font-size:28px; margin-bottom:12px;">Odbieramy również:</h3>
@@ -322,10 +454,10 @@
         <div class="footer-col">
           <h4>Strona</h4>
           <ul>
-            <li><a href="o-firmie.html">O firmie</a></li>
-            <li><a href="dla-biznesu.html">Dla biznesu</a></li>
+            <li><a href="index.html#o-nas">O firmie</a></li>
+            <li><a href="index.html#biznes">Dla biznesu</a></li>
             <li><a href="cennik.html">Cennik · Zamów</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
+            <li><a href="index.html#kontakt">Kontakt</a></li>
           </ul>
         </div>
         <div class="footer-col">

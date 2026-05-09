@@ -124,6 +124,16 @@
         sizeButtons.forEach(x => x.classList.remove('active'));
         b.classList.add('active');
         state.product = b.dataset.sizeBtn;
+        // also drive the showcase visualization (if present)
+        const stageSize = b.dataset.stageSize;
+        if (stageSize) {
+          const showcase = document.querySelector('[data-showcase]');
+          if (showcase) {
+            showcase.querySelectorAll('[data-size-stage]').forEach(s => {
+              s.classList.toggle('active', s.dataset.sizeStage === stageSize);
+            });
+          }
+        }
         recalc();
       });
     });
@@ -136,6 +146,18 @@
         recalc();
       });
     });
+
+    // Initialize showcase visualization on page load
+    const initialSizeBtn = orderForm.querySelector('[data-size-btn].active[data-stage-size]');
+    if (initialSizeBtn) {
+      const initSize = initialSizeBtn.dataset.stageSize;
+      const showcase = document.querySelector('[data-showcase]');
+      if (showcase) {
+        showcase.querySelectorAll('[data-size-stage]').forEach(s => {
+          s.classList.toggle('active', s.dataset.sizeStage === initSize);
+        });
+      }
+    }
 
     if (submitBtn) {
       submitBtn.addEventListener('click', (e) => {
