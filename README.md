@@ -45,7 +45,7 @@ Wycięte czystym algorytmem: zostają **tylko piksele wystarczająco czerwone** 
 - **cennik.html** ma cennik + formularz zamówienia z **animowaną mini-wizualizacją** kontenera obok formularza. Strefy transportu są tu (a nie na home — bo ich miejsce jest przy zamawianiu).
 
 ### Wizualizacja kontenera w cenniku
-- SVG izometryczny widok 30°/30°, skala 1:38, kompaktowa (700×360 viewBox)
+- 2D widok z boku (side elevation), skala 1:38, kompaktowy (360×210 viewBox), umieszczony w sticky sidebarze obok podsumowania
 - Sylwetka człowieka **1,80 m** stała, kontener animuje się przy zmianie rozmiaru
 - Smooth fade transition (0.4s) między 7 / 10 / 36 m³
 - Wymiary z czerwonymi mono-labelkami, stencil "PUKiB.pl" + badge "97" na boku

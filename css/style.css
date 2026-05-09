@@ -1,5 +1,5 @@
 /* =========================================================
-   PUKiB — Industrial editorial design system
+   PUKiB, Industrial editorial design system
    ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;800;900&family=Archivo:wght@400;500;600;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
@@ -20,7 +20,7 @@
   --line: #1a1a1a;
   --line-soft: rgba(10, 10, 10, 0.12);
 
-  /* Accent — green from the actual containers */
+  /* Accent, green from the actual containers */
   --green: #4d8c2f;
 
   /* Type */
@@ -96,7 +96,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .kicker.no-line::before { display: none; }
 
 /* =========================================================
-   Topbar — technical industrial info bar
+   Topbar, technical industrial info bar
    ========================================================= */
 
 .topbar {

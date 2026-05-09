@@ -48,7 +48,7 @@
     revealEls.forEach(el => el.classList.add('in'));
   }
 
-  /* ============== Container showcase — SVG isometric switcher ============== */
+  /* ============== Container showcase, SVG isometric switcher ============== */
   const showcase = document.querySelector('[data-showcase]');
   if (showcase) {
     const buttons = showcase.querySelectorAll('[data-size-pick]');
@@ -96,9 +96,9 @@
     };
 
     const TRANSPORT = {
-      strefa1: { net: 100, label: 'Strefa I — Jastrzębie · Rybnik · Żory' },
-      strefa2: { net: 200, label: 'Strefa II — Pszczyna · Cieszyn · Knurów' },
-      strefa3: { net: 300, label: 'Strefa III — Katowice · Gliwice · Bielsko' },
+      strefa1: { net: 100, label: 'Strefa I, Jastrzębie · Rybnik · Żory' },
+      strefa2: { net: 200, label: 'Strefa II, Pszczyna · Cieszyn · Knurów' },
+      strefa3: { net: 300, label: 'Strefa III, Katowice · Gliwice · Bielsko' },
     };
 
     let state = {
@@ -173,31 +173,31 @@
         const notes = orderForm.querySelector('[name="notes"]')?.value || '';
 
         if (!name || !phone) {
-          alert('Wypełnij imię i numer telefonu — bez tego nie zamówimy kontenera.');
+          alert('Wypełnij imię i numer telefonu, bez tego nie zamówimy kontenera.');
           return;
         }
 
         const total = Math.round((p.net + t.net) * 1.08);
-        const subject = `Zamówienie kontenera — ${p.label}`;
+        const subject = `Zamówienie kontenera, ${p.label}`;
         const body =
 `Dzień dobry,
 
 Chciał(a)bym zamówić kontener:
 
-— Kontener: ${p.label} (${fmt(p.net)} zł netto)
-— Transport: ${t.label} (${fmt(t.net)} zł netto)
-— RAZEM Z VAT 8%: ${fmt(total)} zł brutto
+- Kontener: ${p.label} (${fmt(p.net)} zł netto)
+- Transport: ${t.label} (${fmt(t.net)} zł netto)
+- RAZEM Z VAT 8%: ${fmt(total)} zł brutto
 
 Dane kontaktowe:
-— Imię i nazwisko: ${name}
-— Telefon: ${phone}
-— E-mail: ${email}
-— Adres podstawienia: ${address}
-— Miejscowość: ${city}
-— Preferowany termin: ${date}
+- Imię i nazwisko: ${name}
+- Telefon: ${phone}
+- E-mail: ${email}
+- Adres podstawienia: ${address}
+- Miejscowość: ${city}
+- Preferowany termin: ${date}
 
 Dodatkowe informacje:
-${notes || '—'}
+${notes || '-'}
 
 Pozdrawiam.`;
 
@@ -209,7 +209,7 @@ Pozdrawiam.`;
     recalc();
   }
 
-  /* ============== FAQ accordion (FIXED — iterates over each .faq-item) ============== */
+  /* ============== FAQ accordion (FIXED, iterates over each .faq-item) ============== */
   document.querySelectorAll('[data-faq] .faq-item').forEach(item => {
     const q = item.querySelector('[data-faq-q]');
     if (!q) return;

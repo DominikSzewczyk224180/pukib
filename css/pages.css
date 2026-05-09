@@ -1,5 +1,5 @@
 /* =========================================================
-   PAGES — shared inner-page styles
+   PAGES, shared inner-page styles
    ========================================================= */
 
 /* ---------- Cennik / Pricing tables ---------- */
@@ -742,7 +742,7 @@
   color: var(--red);
 }
 
-/* Team cards inside dark section — phones/emails legible */
+/* Team cards inside dark section, phones/emails legible */
 .section-dark .team-card .contact {
   border-color: rgba(255,255,255,0.12);
   color: var(--paper-3);
@@ -753,59 +753,40 @@
 .section-dark .team-card .contact a:hover { color: var(--red); }
 .section-dark .team-card .role { color: var(--red); }
 
+
 /* =========================================================
-   Mini visualization in cennik order section
+   Mini 2D visualization (inside sticky summary aside)
    ========================================================= */
 
-.order-viz {
+.order-viz-mini {
   position: relative;
-  background: var(--ink-2);
-  border: 1px solid rgba(244,241,234,0.10);
-  margin-bottom: 32px;
-  overflow: hidden;
-  aspect-ratio: 700 / 360;
-  width: 100%;
+  margin: -28px -32px 24px;        /* extend to aside edges */
+  padding: 16px 20px 12px;
+  background: var(--ink);
+  border-bottom: 1px solid rgba(244,241,234,0.10);
 }
 
-.order-viz-corner {
-  position: absolute;
-  top: 16px;
-  left: 20px;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.order-viz-corner .kicker {
+.order-viz-mini-label {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 9px;
   letter-spacing: 0.18em;
+  color: var(--paper-3);
+  margin-bottom: 8px;
   text-transform: uppercase;
 }
 
-.order-viz-svg {
+.order-viz-mini-svg {
   width: 100%;
-  height: 100%;
+  height: auto;
   display: block;
 }
 
-.order-viz-svg .stage {
+.order-viz-mini-svg .stage {
   opacity: 0;
-  transition: opacity .4s ease;
+  transition: opacity .35s ease;
   pointer-events: none;
 }
 
-.order-viz-svg .stage.active {
+.order-viz-mini-svg .stage.active {
   opacity: 1;
-  pointer-events: auto;
-}
-
-/* Override darker text colors for stages on dark bg */
-.order-viz-svg .stage text[fill="#0a0a0a"] {
-  fill: var(--paper);
-}
-
-/* dimension labels stay legible — switch their fill background */
-.order-viz-svg .stage rect[fill="#ebe7dc"] {
-  fill: var(--ink-2);
-  stroke: var(--red);
 }
