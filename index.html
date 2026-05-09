@@ -38,6 +38,8 @@
       <a href="#hero">Strona główna</a>
       <a href="#o-nas">O firmie</a>
       <a href="#biznes">Dla biznesu</a>
+      <a href="#faq">FAQ</a>
+      <a href="#fb">Aktualności</a>
       <a href="cennik.html">Cennik · Zamów</a>
       <a href="#kontakt">Kontakt</a>
       <a href="cennik.html#zamow" class="nav-cta">
@@ -169,7 +171,18 @@
     </div>
   </section>
 
-  <!-- Coverage and interstitial removed, strefy live in cennik.html only -->
+  <!-- Interstitial video strip -->
+  <section class="interstitial" data-hero-video-wrap>
+    <img class="interstitial-poster" src="assets/posters/secondary.jpg" alt="">
+    <video data-hero-video autoplay muted loop playsinline preload="metadata">
+      <source src="assets/videos/secondary.mp4" type="video/mp4">
+    </video>
+    <div class="interstitial-overlay"></div>
+    <div class="interstitial-content">
+      <div class="kicker">/ W terenie</div>
+      <h2>Niewidzialna logistyka.<br>Widoczne efekty.</h2>
+    </div>
+  </section>
 
   <!-- O firmie compact (#o-nas) -->
   <section class="section about-compact" id="o-nas">
@@ -305,7 +318,7 @@
     </div>
   </section>
 
-  <!-- Facebook section, real Page Plugin embed -->
+  <!-- Facebook section: curated post mosaic (iframe Plugin disabled because the FB URL is a personal profile, not a Page) -->
   <section class="fb-section" id="fb">
     <div class="fb-inner">
       <div class="section-head">
@@ -313,43 +326,67 @@
           <div class="kicker">05 / Aktualności</div>
           <h2 class="section-title">Znajdź nas <em>na Facebooku.</em></h2>
         </div>
-        <p class="section-intro">Tam publikujemy zdjęcia z realizacji, ciekawostki branżowe i okazjonalne promocje. Poniżej, aktualny feed prosto z naszego profilu FB.</p>
+        <p class="section-intro">Tam publikujemy zdjęcia z realizacji, ciekawostki branżowe i okazjonalne promocje. Poniżej, wybrane materiały z ostatnich kampanii.</p>
       </div>
 
-      <div class="fb-grid">
-        <div class="fb-statement">
+      <div class="fb-feed-grid">
+        <!-- Sidebar with FB icon, copy and CTA -->
+        <div class="fb-sidebar">
           <div class="fb-icon">
             <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
           </div>
-          <h3>Najświeższe wpisy <em>prosto z FB.</em></h3>
-          <p>Po prawej, żywy feed z naszego profilu (ładowany bezpośrednio przez Facebook Page Plugin). Pełen dostęp do wszystkich postów po kliknięciu, przeniesiemy Cię na profil.</p>
+          <h3>Aktualności <em>na FB.</em></h3>
+          <p>Trzy ostatnie kampanie marketingowe naszej firmy. Pełną aktywność zobaczysz na profilu.</p>
+          <div class="fb-stats">
+            <div class="fb-stat">
+              <div class="num">14</div>
+              <div class="label">lat aktywności</div>
+            </div>
+            <div class="fb-stat">
+              <div class="num">300+</div>
+              <div class="label">postów / rok</div>
+            </div>
+          </div>
           <a href="https://www.facebook.com/people/PUKiB-Sp-zoo/61550223431423/" class="fb-handle" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             facebook.com / PUKiB
           </a>
         </div>
 
-        <!-- FB Page Plugin: real timeline embed
-             Note: works best with Facebook *Pages* (not personal profiles).
-             If the page isn't a Page (i.e. it's a profile under /people/),
-             the iframe will show a "page not found" message, in that case
-             the static fallback below is used. -->
-        <div class="fb-feed">
-          <iframe
-            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpeople%2FPUKiB-Sp-zoo%2F61550223431423%2F&tabs=timeline&width=500&height=620&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=false"
-            width="100%"
-            height="620"
-            style="border:0; overflow:hidden; background:#fff;"
-            scrolling="no"
-            frameborder="0"
-            allowfullscreen="true"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-            loading="lazy"
-            title="PUKiB na Facebooku, najnowsze posty"></iframe>
-          <noscript>
-            <a href="https://www.facebook.com/people/PUKiB-Sp-zoo/61550223431423/">Otwórz nasz profil na Facebooku</a>
-          </noscript>
-        </div>
+        <!-- Mosaic of posts (each links to FB) -->
+        <a class="fb-post fb-post-1" href="https://www.facebook.com/people/PUKiB-Sp-zoo/61550223431423/" target="_blank" rel="noopener">
+          <div class="fb-post-meta">
+            <span class="fb-post-tag">Kampania</span>
+            <span class="fb-post-date">PUKiB.pl</span>
+          </div>
+          <img src="assets/img/poster-kontenery.jpg" alt="Kontenery na każdy odpad">
+          <div class="fb-post-caption">
+            <h4>Kontenery na każdy odpad</h4>
+            <p>Pełna oferta wynajmu, transport i utylizacja, jeden wykonawca na całym Śląsku.</p>
+          </div>
+        </a>
+        <a class="fb-post fb-post-2" href="https://www.facebook.com/people/PUKiB-Sp-zoo/61550223431423/" target="_blank" rel="noopener">
+          <div class="fb-post-meta">
+            <span class="fb-post-tag">Edukacja</span>
+            <span class="fb-post-date">Mandat?</span>
+          </div>
+          <img src="assets/img/poster-mandat.jpg" alt="Mandat za źle wyrzucone odpady">
+          <div class="fb-post-caption">
+            <h4>Możesz dostać mandat</h4>
+            <p>Źle wyrzucone odpady to nie tylko problem ekologiczny, ale też niepotrzebne koszty.</p>
+          </div>
+        </a>
+        <a class="fb-post fb-post-3" href="https://www.facebook.com/people/PUKiB-Sp-zoo/61550223431423/" target="_blank" rel="noopener">
+          <div class="fb-post-meta">
+            <span class="fb-post-tag">Ciekawostka</span>
+            <span class="fb-post-date">Budowlana</span>
+          </div>
+          <img src="assets/img/poster-budowa.jpg" alt="Ciekawostka budowlana">
+          <div class="fb-post-caption">
+            <h4>Ile waży gruz z remontu?</h4>
+            <p>Kilka ton odpadów może powstać podczas typowego remontu, sprawdź ile dokładnie.</p>
+          </div>
+        </a>
       </div>
     </div>
   </section>
