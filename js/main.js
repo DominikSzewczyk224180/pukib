@@ -22,15 +22,15 @@
     });
   }
 
-  /* ============== Hero video: hide poster when ready ============== */
-  const heroVideo = document.querySelector('.hero-video');
-  const heroEl = document.querySelector('.hero');
-  if (heroVideo && heroEl) {
-    const markReady = () => heroEl.classList.add('video-ready');
-    if (heroVideo.readyState >= 3) markReady();
-    heroVideo.addEventListener('canplay', markReady, { once: true });
-    heroVideo.addEventListener('playing', markReady, { once: true });
-  }
+  /* ============== Hero video poster fade-out when video is ready ============== */
+  document.querySelectorAll('[data-hero-video]').forEach(video => {
+    const wrap = video.closest('[data-hero-video-wrap]');
+    if (!wrap) return;
+    const markReady = () => wrap.classList.add('video-ready');
+    if (video.readyState >= 3) markReady();
+    video.addEventListener('canplay', markReady, { once: true });
+    video.addEventListener('playing', markReady, { once: true });
+  });
 
   /* ============== Scroll reveal ============== */
   const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
@@ -48,34 +48,20 @@
     revealEls.forEach(el => el.classList.add('in'));
   }
 
-  /* ============== Container showcase interactions ============== */
-  const containerItems = document.querySelectorAll('.container-item');
-  const cube = document.querySelector('.cube');
-  if (containerItems.length && cube) {
-    containerItems.forEach(item => {
-      item.addEventListener('click', () => {
-        containerItems.forEach(i => i.classList.remove('active'));
-        item.classList.add('active');
-        const size = item.getAttribute('data-size');
-        cube.setAttribute('data-size', size);
-      });
-      item.addEventListener('mouseenter', () => {
-        const size = item.getAttribute('data-size');
-        if (size) cube.setAttribute('data-size', size);
-      });
-    });
-  }
-
-  /* ============== Time/date for topbar live status ============== */
-  const liveTime = document.querySelector('[data-live-time]');
-  if (liveTime) {
-    const update = () => {
-      const d = new Date();
-      const t = d.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit' });
-      liveTime.textContent = t;
+  /* ============== Container showcase — SVG isometric switcher ============== */
+  const showcase = document.querySelector('[data-showcase]');
+  if (showcase) {
+    const buttons = showcase.querySelectorAll('[data-size-pick]');
+    const stages = showcase.querySelectorAll('[data-size-stage]');
+    const setSize = (size) => {
+      buttons.forEach(b => b.classList.toggle('active', b.dataset.sizePick === size));
+      stages.forEach(s => s.classList.toggle('active', s.dataset.sizeStage === size));
     };
-    update();
-    setInterval(update, 30 * 1000);
+    buttons.forEach(b => {
+      b.addEventListener('click', () => setSize(b.dataset.sizePick));
+    });
+    const initial = showcase.querySelector('[data-size-pick].active');
+    if (initial) setSize(initial.dataset.sizePick);
   }
 
   /* ============== Smooth section scroll for anchor links ============== */
@@ -97,36 +83,27 @@
     const sizeButtons = orderForm.querySelectorAll('[data-size-btn]');
     const wasteButtons = orderForm.querySelectorAll('[data-waste-btn]');
     const summarySize = orderForm.querySelector('[data-summary-size]');
-    const summaryWaste = orderForm.querySelector('[data-summary-waste]');
     const summaryPrice = orderForm.querySelector('[data-summary-price]');
     const summaryTransport = orderForm.querySelector('[data-summary-transport]');
     const totalEl = orderForm.querySelector('[data-summary-total]');
-    const cityInput = orderForm.querySelector('[data-city]');
-    const messageBody = orderForm.querySelector('[data-msg-body]');
     const submitBtn = orderForm.querySelector('[data-submit]');
 
     const PRICE = {
-      'gruz-7':       { net: 900,  label: 'Gruz 7m³' },
-      'mix-7':        { net: 1300, label: 'Odpady zmieszane 7m³' },
-      'mix-10':       { net: 1800, label: 'Odpady zmieszane 10m³' },
-      'mix-36':       { net: 3700, label: 'Odpady zmieszane 36m³' },
+      'gruz-7':       { net: 900,  label: 'Gruz · 7 m³' },
+      'mix-7':        { net: 1300, label: 'Odpady mieszane · 7 m³' },
+      'mix-10':       { net: 1800, label: 'Odpady mieszane · 10 m³' },
+      'mix-36':       { net: 3700, label: 'Odpady mieszane · 36 m³' },
     };
 
     const TRANSPORT = {
-      strefa1: { net: 100, label: 'Strefa I (Jastrzębie/Rybnik/Żory)' },
-      strefa2: { net: 200, label: 'Strefa II (Pszczyna/Cieszyn/Knurów)' },
-      strefa3: { net: 300, label: 'Strefa III (Katowice/Gliwice/Bielsko)' },
+      strefa1: { net: 100, label: 'Strefa I — Jastrzębie · Rybnik · Żory' },
+      strefa2: { net: 200, label: 'Strefa II — Pszczyna · Cieszyn · Knurów' },
+      strefa3: { net: 300, label: 'Strefa III — Katowice · Gliwice · Bielsko' },
     };
 
     let state = {
       product: 'gruz-7',
       transport: 'strefa1',
-      city: '',
-      name: '',
-      email: '',
-      phone: '',
-      address: '',
-      date: ''
     };
 
     const fmt = (n) => new Intl.NumberFormat('pl-PL').format(n);
@@ -160,15 +137,6 @@
       });
     });
 
-    ['name','email','phone','address','date','city'].forEach(field => {
-      const el = orderForm.querySelector(`[name="${field}"]`);
-      if (el) {
-        el.addEventListener('input', () => {
-          state[field] = el.value;
-        });
-      }
-    });
-
     if (submitBtn) {
       submitBtn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -188,7 +156,6 @@
         }
 
         const total = Math.round((p.net + t.net) * 1.08);
-
         const subject = `Zamówienie kontenera — ${p.label}`;
         const body =
 `Dzień dobry,
@@ -220,8 +187,8 @@ Pozdrawiam.`;
     recalc();
   }
 
-  /* ============== FAQ accordion ============== */
-  document.querySelectorAll('[data-faq]').forEach(item => {
+  /* ============== FAQ accordion (FIXED — iterates over each .faq-item) ============== */
+  document.querySelectorAll('[data-faq] .faq-item').forEach(item => {
     const q = item.querySelector('[data-faq-q]');
     if (!q) return;
     q.addEventListener('click', () => {

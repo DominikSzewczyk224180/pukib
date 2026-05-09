@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cennik i zamówienie kontenera — PUKiB</title>
-  <meta name="description" content="Aktualny cennik kontenerów na gruz, odpady mieszane i budowlane. Zamów online — wycenimy Twoje zlecenie i podstawimy kontener nawet w 24h.">
+  <title>Cennik · Zamów kontener — PUKiB</title>
+  <meta name="description" content="Aktualny cennik 2026 wynajmu kontenerów i transportu. Zamów kontener online — wybierz rozmiar i strefę, otrzymasz wycenę i termin podstawienia.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
@@ -13,7 +13,6 @@
 </head>
 <body>
 
-  <!-- Topbar -->
   <div class="topbar">
     <div class="topbar-left">
       <span><span class="topbar-dot"></span>Pracujemy — pn–pt 7:00–17:00</span>
@@ -25,7 +24,6 @@
     </div>
   </div>
 
-  <!-- Header -->
   <header class="header">
     <a href="index.html" class="brand">
       <img src="assets/img/logo.png" alt="" class="brand-logo">
@@ -40,8 +38,6 @@
       <a href="o-firmie.html">O firmie</a>
       <a href="dla-biznesu.html">Dla biznesu</a>
       <a href="cennik.html" class="active">Cennik · Zamów</a>
-      <a href="blog.html">Blog</a>
-      <a href="faq.html">FAQ</a>
       <a href="kontakt.html">Kontakt</a>
       <a href="#zamow" class="nav-cta">
         Zamów kontener
@@ -52,14 +48,14 @@
 
   <!-- Page hero -->
   <section class="page-hero">
-    <div class="hero-grid-decoration" style="position:absolute;inset:0;background-image:linear-gradient(rgba(244,241,234,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(244,241,234,0.04) 1px,transparent 1px);background-size:80px 80px;"></div>
+    <div class="page-hero-decoration"></div>
     <div class="page-hero-grid">
       <div>
         <div class="page-hero-meta">
           <div class="crumb"><span><a href="index.html">Strona główna</a></span><span>Cennik · Zamów</span></div>
-          <div>Aktualny cennik 2026</div>
+          <div>Cennik 2026 · Zamówienie</div>
         </div>
-        <h1>Cennik <em>2026</em>.</h1>
+        <h1>Zamów. <em>Wycena</em> w kilka sekund.</h1>
       </div>
       <div class="page-hero-meta" style="text-align:right;">
         <div>Wszystkie ceny netto · 8% VAT</div>
@@ -68,122 +64,15 @@
     </div>
   </section>
 
-  <!-- Pricing section -->
-  <section class="section pricing-section">
-    <div class="container">
-
-      <!-- Containers -->
-      <div class="kicker" style="margin-bottom:16px;">01 — Kontenery</div>
-      <h2 class="display" style="font-size:clamp(36px,5vw,64px); margin-bottom:32px; max-width:18ch;">Cennik <em style="font-style:normal;color:var(--red);">kontenerów</em>.</h2>
-
-      <table class="pricing-table">
-        <thead>
-          <tr>
-            <th>Rodzaj odpadów</th>
-            <th>Pojemność</th>
-            <th style="text-align:right;">Cena netto</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Gruz</strong><br><span style="color:var(--ink-3); font-size:13px;">Większe ilości — wycena indywidualna</span></td>
-            <td>7 m³</td>
-            <td class="price-cell">900 zł</td>
-          </tr>
-          <tr>
-            <td rowspan="3"><strong>Odpady zmieszane budowlane</strong></td>
-            <td>7 m³</td>
-            <td class="price-cell">1 300 zł</td>
-          </tr>
-          <tr>
-            <td>10 m³</td>
-            <td class="price-cell">1 800 zł</td>
-          </tr>
-          <tr>
-            <td>36 m³</td>
-            <td class="price-cell">3 700 zł</td>
-          </tr>
-          <tr>
-            <td colspan="2"><strong>Dzierżawa kontenera powyżej 5 dni</strong><br><span style="color:var(--ink-3); font-size:13px;">Każdy dodatkowy dzień</span></td>
-            <td class="price-cell" style="font-size:18px;">25 zł / 24h</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <!-- Sorted waste -->
-      <div class="kicker" style="margin-bottom:16px; margin-top:64px;">02 — Odpady do segregacji</div>
-      <div class="pricing-grid">
-        <div class="pricing-cell">
-          <div class="label">Odpady budowlane do segregacji</div>
-          <h3>Do 1 Mg (tony)</h3>
-          <p class="desc">Pierwsza tona odpadów budowlanych przeznaczonych do segregacji.</p>
-          <div class="pr">1 200 zł<small style="font-family:var(--font-mono); font-size:11px; font-weight:500; color:var(--ink-3); display:block; text-transform:uppercase; letter-spacing:.1em; margin-top:8px;">netto + 8% VAT</small></div>
-        </div>
-        <div class="pricing-cell">
-          <div class="label">Odpady budowlane do segregacji</div>
-          <h3>Każda kolejna Mg</h3>
-          <p class="desc">Każda dodatkowa tona ponad pierwszą.</p>
-          <div class="pr">1 000 zł<small style="font-family:var(--font-mono); font-size:11px; font-weight:500; color:var(--ink-3); display:block; text-transform:uppercase; letter-spacing:.1em; margin-top:8px;">netto + 8% VAT</small></div>
-        </div>
-        <div class="pricing-cell">
-          <div class="label">Odpady wielkogabarytowe</div>
-          <h3>Do 1 Mg (tony)</h3>
-          <p class="desc">Meble, AGD, materace, dywany, opony i inne odpady wielkogabarytowe.</p>
-          <div class="pr">1 200 zł<small style="font-family:var(--font-mono); font-size:11px; font-weight:500; color:var(--ink-3); display:block; text-transform:uppercase; letter-spacing:.1em; margin-top:8px;">netto + 8% VAT</small></div>
-        </div>
-        <div class="pricing-cell">
-          <div class="label">Odpady wielkogabarytowe</div>
-          <h3>Każda kolejna Mg</h3>
-          <p class="desc">Każda dodatkowa tona ponad pierwszą.</p>
-          <div class="pr">1 100 zł<small style="font-family:var(--font-mono); font-size:11px; font-weight:500; color:var(--ink-3); display:block; text-transform:uppercase; letter-spacing:.1em; margin-top:8px;">netto + 8% VAT</small></div>
-        </div>
-      </div>
-
-      <!-- Transport zones -->
-      <div class="kicker" style="margin-bottom:16px; margin-top:64px;">03 — Transport · Strefy</div>
-      <h2 class="display" style="font-size:clamp(36px,5vw,64px); margin-bottom:32px; max-width:18ch;">Trzy <em style="font-style:normal;color:var(--red);">strefy</em>, jasne stawki.</h2>
-
-      <div class="zones-grid">
-        <div class="zone-card">
-          <div class="zone-num">STREFA I</div>
-          <div class="zone-price">100 zł<small>netto + 8% VAT</small></div>
-          <div class="zone-cities">
-            <span>Jastrzębie-Zdrój</span><span>Mszana</span><span>Godów</span><span>Gorzyce</span><span>Świerklany</span><span>Wodzisław Śląski</span><span>Pawłowice</span><span>Rybnik</span><span>Żory</span><span>Suszec</span><span>Strumień</span><span>Zebrzydowice</span><span>Hażlach</span>
-          </div>
-        </div>
-        <div class="zone-card">
-          <div class="zone-num">STREFA II</div>
-          <div class="zone-price">200 zł<small>netto + 8% VAT</small></div>
-          <div class="zone-cities">
-            <span>Hażlach</span><span>Dębowiec</span><span>Skoczów</span><span>Chybie</span><span>Pszczyna</span><span>Goczałkowice-Zdrój</span><span>Orzesze</span><span>Radlin</span><span>Knurów</span><span>Czerwionka-Leszczyny</span><span>Pszów</span><span>Pilchowice</span><span>Gierałtowice</span>
-          </div>
-        </div>
-        <div class="zone-card">
-          <div class="zone-num">STREFA III</div>
-          <div class="zone-price">300 zł<small>netto + 8% VAT</small></div>
-          <div class="zone-cities">
-            <span>Cieszyn</span><span>Goleszów</span><span>Ustroń</span><span>Jasienica</span><span>Czechowice-Dziedzice</span><span>Bielsko-Biała</span><span>Miedźna</span><span>Bojszowy</span><span>Kobiór</span><span>Gliwice</span><span>Tychy</span><span>Mikołów</span><span>Katowice</span><span>Ruda Śląska</span><span>Zabrze</span><span>Kornowac</span><span>Racibórz</span><span>Krzanowice</span><span>Nędza</span><span>Bieruń</span><span>Lędziny</span><span>Mysłowice</span><span>Wyry</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Other waste -->
-      <div style="background:var(--paper-2); border:1px solid var(--line); padding:32px;">
-        <div class="kicker" style="margin-bottom:12px;">04 — Pozostałe odpady</div>
-        <h3 class="display" style="font-size:28px; margin-bottom:12px;">Odbieramy również:</h3>
-        <p style="margin-bottom:8px; font-size:15px; color: var(--ink-3);">Papa · Styropian · Wełna mineralna · Makulatura · Tworzywa sztuczne · Szkło · I wiele innych.</p>
-        <p style="font-size:13px; color: var(--ink-3); font-family: var(--font-mono); letter-spacing:.05em;">W tym przypadku prosimy o kontakt telefoniczny w celu indywidualnej wyceny.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Order form -->
+  <!-- ORDER FORM FIRST -->
   <section class="section order-section" id="zamow">
     <div class="container">
       <div class="section-head reveal" style="margin-bottom:32px;">
-        <h2 class="display section-title">Zamów <em>kontener</em>.</h2>
-        <p class="section-intro">Wybierz kontener i strefę, podaj dane — wyślemy Ci wycenę i ustalimy termin podstawienia.</p>
+        <div>
+          <div class="kicker" style="color: var(--paper-3); margin-bottom:16px;">/ Krok po kroku</div>
+          <h2 class="display section-title">Zamów <em>kontener</em>.</h2>
+        </div>
+        <p class="section-intro">Wybierz kontener i strefę, podaj dane — wyślemy potwierdzenie i ustalimy termin podstawienia. Najczęściej oddzwaniamy w ciągu godziny w dni robocze.</p>
       </div>
 
       <form class="order-grid" data-order-form onsubmit="return false;">
@@ -283,7 +172,7 @@
           <div class="summary-row">
             <div>
               <span class="summary-label">Kontener</span>
-              <span data-summary-size>Gruz 7m³</span>
+              <span data-summary-size>Gruz · 7 m³</span>
             </div>
             <div class="summary-value" data-summary-price>900 zł</div>
           </div>
@@ -313,6 +202,115 @@
     </div>
   </section>
 
+  <!-- Pricing tables -->
+  <section class="section pricing-section">
+    <div class="container">
+
+      <div class="kicker" style="margin-bottom:16px;">/ 01 — Kontenery</div>
+      <h2 class="display" style="font-size:clamp(36px,5vw,64px); margin-bottom:32px; max-width:18ch;">Cennik <em style="font-style:normal;color:var(--red);">kontenerów</em>.</h2>
+
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th>Rodzaj odpadów</th>
+            <th>Pojemność</th>
+            <th style="text-align:right;">Cena netto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Gruz</strong><br><span style="color:var(--ink-3); font-size:13px;">Większe ilości — wycena indywidualna</span></td>
+            <td>7 m³</td>
+            <td class="price-cell">900 zł</td>
+          </tr>
+          <tr>
+            <td rowspan="3"><strong>Odpady mieszane budowlane</strong></td>
+            <td>7 m³</td>
+            <td class="price-cell">1 300 zł</td>
+          </tr>
+          <tr>
+            <td>10 m³</td>
+            <td class="price-cell">1 800 zł</td>
+          </tr>
+          <tr>
+            <td>36 m³</td>
+            <td class="price-cell">3 700 zł</td>
+          </tr>
+          <tr>
+            <td colspan="2"><strong>Dzierżawa kontenera powyżej 5 dni</strong><br><span style="color:var(--ink-3); font-size:13px;">Każdy dodatkowy dzień</span></td>
+            <td class="price-cell" style="font-size:18px;">25 zł / 24h</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Sorted waste -->
+      <div class="kicker" style="margin-bottom:16px; margin-top:64px;">/ 02 — Odpady do segregacji</div>
+      <div class="pricing-grid">
+        <div class="pricing-cell">
+          <div class="label">Odpady budowlane do segregacji</div>
+          <h3>Do 1 Mg (tony)</h3>
+          <p class="desc">Pierwsza tona odpadów budowlanych przeznaczonych do segregacji.</p>
+          <div class="pr">1 200 zł<small style="font-family:var(--font-mono); font-size:11px; font-weight:500; color:var(--ink-3); display:block; text-transform:uppercase; letter-spacing:.1em; margin-top:8px;">netto + 8% VAT</small></div>
+        </div>
+        <div class="pricing-cell">
+          <div class="label">Odpady budowlane do segregacji</div>
+          <h3>Każda kolejna Mg</h3>
+          <p class="desc">Każda dodatkowa tona ponad pierwszą.</p>
+          <div class="pr">1 000 zł<small style="font-family:var(--font-mono); font-size:11px; font-weight:500; color:var(--ink-3); display:block; text-transform:uppercase; letter-spacing:.1em; margin-top:8px;">netto + 8% VAT</small></div>
+        </div>
+        <div class="pricing-cell">
+          <div class="label">Odpady wielkogabarytowe</div>
+          <h3>Do 1 Mg (tony)</h3>
+          <p class="desc">Meble, AGD, materace, dywany, opony i inne odpady wielkogabarytowe.</p>
+          <div class="pr">1 200 zł<small style="font-family:var(--font-mono); font-size:11px; font-weight:500; color:var(--ink-3); display:block; text-transform:uppercase; letter-spacing:.1em; margin-top:8px;">netto + 8% VAT</small></div>
+        </div>
+        <div class="pricing-cell">
+          <div class="label">Odpady wielkogabarytowe</div>
+          <h3>Każda kolejna Mg</h3>
+          <p class="desc">Każda dodatkowa tona ponad pierwszą.</p>
+          <div class="pr">1 100 zł<small style="font-family:var(--font-mono); font-size:11px; font-weight:500; color:var(--ink-3); display:block; text-transform:uppercase; letter-spacing:.1em; margin-top:8px;">netto + 8% VAT</small></div>
+        </div>
+      </div>
+
+      <!-- Transport zones -->
+      <div class="kicker" style="margin-bottom:16px; margin-top:64px;">/ 03 — Transport · Strefy</div>
+      <h2 class="display" style="font-size:clamp(36px,5vw,64px); margin-bottom:32px; max-width:18ch;">Trzy <em style="font-style:normal;color:var(--red);">strefy</em>, jasne stawki.</h2>
+
+      <div class="zones-grid">
+        <div class="zone-card">
+          <div class="zone-num">STREFA I</div>
+          <div class="zone-price">100 zł<small>netto + 8% VAT</small></div>
+          <div class="zone-cities">
+            <span>Jastrzębie-Zdrój</span><span>Mszana</span><span>Godów</span><span>Gorzyce</span><span>Świerklany</span><span>Wodzisław Śląski</span><span>Pawłowice</span><span>Rybnik</span><span>Żory</span><span>Suszec</span><span>Strumień</span><span>Zebrzydowice</span><span>Hażlach</span>
+          </div>
+        </div>
+        <div class="zone-card">
+          <div class="zone-num">STREFA II</div>
+          <div class="zone-price">200 zł<small>netto + 8% VAT</small></div>
+          <div class="zone-cities">
+            <span>Hażlach</span><span>Dębowiec</span><span>Skoczów</span><span>Chybie</span><span>Pszczyna</span><span>Goczałkowice-Zdrój</span><span>Orzesze</span><span>Radlin</span><span>Knurów</span><span>Czerwionka-Leszczyny</span><span>Pszów</span><span>Pilchowice</span><span>Gierałtowice</span>
+          </div>
+        </div>
+        <div class="zone-card">
+          <div class="zone-num">STREFA III</div>
+          <div class="zone-price">300 zł<small>netto + 8% VAT</small></div>
+          <div class="zone-cities">
+            <span>Cieszyn</span><span>Goleszów</span><span>Ustroń</span><span>Jasienica</span><span>Czechowice-Dziedzice</span><span>Bielsko-Biała</span><span>Miedźna</span><span>Bojszowy</span><span>Kobiór</span><span>Gliwice</span><span>Tychy</span><span>Mikołów</span><span>Katowice</span><span>Ruda Śląska</span><span>Zabrze</span><span>Kornowac</span><span>Racibórz</span><span>Krzanowice</span><span>Nędza</span><span>Bieruń</span><span>Lędziny</span><span>Mysłowice</span><span>Wyry</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Other waste -->
+      <div style="background:var(--paper-2); border:1px solid var(--line); padding:32px; margin-top:48px;">
+        <div class="kicker" style="margin-bottom:12px;">/ 04 — Pozostałe odpady</div>
+        <h3 class="display" style="font-size:28px; margin-bottom:12px;">Odbieramy również:</h3>
+        <p style="margin-bottom:8px; font-size:15px; color: var(--ink-3);">Papa · Styropian · Wełna mineralna · Makulatura · Tworzywa sztuczne · Szkło · I wiele innych.</p>
+        <p style="font-size:13px; color: var(--ink-3); font-family: var(--font-mono); letter-spacing:.05em;">W tym przypadku prosimy o kontakt telefoniczny w celu indywidualnej wyceny.</p>
+      </div>
+
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
@@ -326,9 +324,7 @@
           <ul>
             <li><a href="o-firmie.html">O firmie</a></li>
             <li><a href="dla-biznesu.html">Dla biznesu</a></li>
-            <li><a href="cennik.html">Cennik</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="cennik.html">Cennik · Zamów</a></li>
             <li><a href="kontakt.html">Kontakt</a></li>
           </ul>
         </div>

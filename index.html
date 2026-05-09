@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PUKiB — Kontenery na odpady i wywóz gruzu na Śląsku</title>
-  <meta name="description" content="Wynajem kontenerów na odpady, gruz, śmieci budowlane na terenie całego Śląska. Szybki transport, uczciwe ceny, podstawienie nawet w 24h. PUKiB — 14 lat doświadczenia.">
+  <title>PUKiB — Kontenery i wywóz odpadów na Śląsku</title>
+  <meta name="description" content="Wynajem kontenerów na gruz, odpady budowlane i mieszane. Wywóz odpadów z całego Śląska. 14 lat doświadczenia, 18 500 zrealizowanych zleceń.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
@@ -13,7 +13,7 @@
 </head>
 <body>
 
-  <!-- ====================== TOPBAR ====================== -->
+  <!-- Topbar -->
   <div class="topbar">
     <div class="topbar-left">
       <span><span class="topbar-dot"></span>Pracujemy — pn–pt 7:00–17:00</span>
@@ -25,9 +25,9 @@
     </div>
   </div>
 
-  <!-- ====================== HEADER ====================== -->
+  <!-- Header -->
   <header class="header">
-    <a href="index.html" class="brand" aria-label="PUKiB — strona główna">
+    <a href="index.html" class="brand">
       <img src="assets/img/logo.png" alt="" class="brand-logo">
       <div>
         <div class="brand-text">PUKiB</div>
@@ -35,13 +35,11 @@
       </div>
     </a>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span></button>
-    <nav class="nav" aria-label="Główna nawigacja">
+    <nav class="nav">
       <a href="index.html" class="active">Strona główna</a>
       <a href="o-firmie.html">O firmie</a>
       <a href="dla-biznesu.html">Dla biznesu</a>
       <a href="cennik.html">Cennik · Zamów</a>
-      <a href="blog.html">Blog</a>
-      <a href="faq.html">FAQ</a>
       <a href="kontakt.html">Kontakt</a>
       <a href="cennik.html#zamow" class="nav-cta">
         Zamów kontener
@@ -50,459 +48,523 @@
     </nav>
   </header>
 
-  <!-- ====================== HERO ====================== -->
+  <!-- HERO (split: text left, video right framed) -->
   <section class="hero">
-    <img src="assets/posters/hero.jpg" alt="" class="hero-poster" aria-hidden="true">
-    <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="assets/posters/hero.jpg">
-      <source src="assets/videos/hero.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay"></div>
-    <div class="hero-grid-decoration" aria-hidden="true"></div>
-
-    <div class="hero-inner">
-      <div class="hero-tags">
-        <div class="tag-block">
-          <span><strong>PUKiB / 01</strong></span>
-          <span>Przedsiębiorstwo Usług Komunalnych i Bytowych</span>
-        </div>
-        <div class="tag-block" style="text-align:right;align-items:flex-end;">
-          <span><strong>OPERATIONAL</strong></span>
-          <span>Śląsk · 50.27°N 18.99°E</span>
-        </div>
+    <div class="hero-tags">
+      <div class="tag-block">
+        <span>PUKiB / 01</span>
+        <strong>Przedsiębiorstwo Usług Komunalnych i Bytowych</strong>
       </div>
+      <div class="tag-block" style="text-align:right;">
+        <span>OPERATIONAL</span>
+        <strong>Śląsk · 50.27°N 18.99°E</strong>
+      </div>
+    </div>
 
-      <div class="hero-content">
-        <p class="hero-pre">Wynajem kontenerów · Wywóz odpadów · Cały Śląsk</p>
-        <h1 class="hero-headline">
-          <span>Kontener</span>
-          <span class="accent">pod twój</span>
-          <span>remont.</span>
+    <div class="hero-grid">
+      <div class="hero-text">
+        <div class="kicker">Wynajem kontenerów · Wywóz odpadów</div>
+        <h1 class="hero-title">
+          Kontener
+          <em>pod twój<br>remont.</em>
         </h1>
-        <p class="hero-sub">Podstawimy kontener na gruz, odpady budowlane lub mieszane — często jeszcze tego samego dnia. 14 lat doświadczenia, 18 500 odebranych kontenerów, transport po całym Śląsku.</p>
-        <div class="hero-actions">
+        <p class="hero-lead">
+          Podstawimy kontener na gruz, odpady budowlane lub mieszane —
+          często jeszcze tego samego dnia. 14 lat doświadczenia,
+          18 500 odebranych kontenerów, transport po całym Śląsku.
+        </p>
+        <div class="hero-cta">
           <a href="cennik.html#zamow" class="btn btn-primary">
             Zamów kontener
-            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <a href="cennik.html" class="btn btn-ghost">
-            Sprawdź cennik
-            <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
+          <a href="cennik.html" class="btn btn-ghost">Sprawdź cennik</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="num">14</div>
+            <div class="label">lat na rynku</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">18 500</div>
+            <div class="label">kontenerów</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num">300+</div>
+            <div class="label">partnerów B2B</div>
+          </div>
         </div>
       </div>
 
-      <div class="hero-bottom">
-        <div class="hero-stat">
-          <div class="num">14</div>
-          <div class="label">Lat doświadczenia</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num">18 500</div>
-          <div class="label">Odebranych kontenerów</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num">300+</div>
-          <div class="label">Stałych partnerów</div>
-        </div>
-        <div class="hero-stat">
-          <div class="num">24h</div>
-          <div class="label">Czas podstawienia</div>
+      <div class="hero-video-frame" data-hero-video-wrap>
+        <img class="hero-poster" src="assets/posters/hero.jpg" alt="">
+        <video data-hero-video autoplay muted loop playsinline preload="metadata" poster="assets/posters/hero.jpg">
+          <source src="assets/videos/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-video-caption">
+          <span class="dot"></span>
+          REC · DRONE · MERCEDES ATEGO
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ====================== CITIES MARQUEE ====================== -->
-  <div class="cities-strip" aria-label="Obsługiwane miasta">
-    <div class="marquee">
-      <div class="marquee-track">
-        <span class="marquee-item">Gliwice</span>
-        <span class="marquee-item">Katowice</span>
-        <span class="marquee-item">Rybnik</span>
-        <span class="marquee-item">Jastrzębie-Zdrój</span>
-        <span class="marquee-item">Żory</span>
-        <span class="marquee-item">Bielsko-Biała</span>
-        <span class="marquee-item">Tychy</span>
-        <span class="marquee-item">Cieszyn</span>
-        <span class="marquee-item">Mikołów</span>
-        <span class="marquee-item">Pszczyna</span>
-        <span class="marquee-item">Zabrze</span>
-        <span class="marquee-item">Mysłowice</span>
-        <span class="marquee-item">Knurów</span>
-        <span class="marquee-item">Racibórz</span>
-      </div>
+  <!-- City marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Jastrzębie-Zdrój</span>
+      <span>Rybnik</span>
+      <span>Żory</span>
+      <span>Wodzisław</span>
+      <span>Pszczyna</span>
+      <span>Cieszyn</span>
+      <span>Gliwice</span>
+      <span>Katowice</span>
+      <span>Tychy</span>
+      <span>Mikołów</span>
+      <span>Zabrze</span>
+      <span>Bielsko-Biała</span>
+      <span>Knurów</span>
+      <span>Mysłowice</span>
+      <span>Racibórz</span>
     </div>
   </div>
 
-  <!-- ====================== SERVICES ====================== -->
-  <section class="section services">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2 class="display section-title">Co <em>robimy</em>.</h2>
-        <p class="section-intro">Trzy proste rzeczy, w których jesteśmy bardzo dobrzy. Bez ukrytych kosztów, bez czekania tygodniami, bez problemu.</p>
+  <!-- Services -->
+  <section class="services">
+    <div class="services-inner">
+      <div class="section-head">
+        <div>
+          <div class="kicker">01 — Co robimy</div>
+          <h2 class="section-title">Trzy <em>usługi.</em><br>Bez kombinowania.</h2>
+        </div>
+        <p class="section-intro">Klient indywidualny, firma budowlana, deweloper — niezależnie od skali, robimy to samo: dostarczamy kontener, odbieramy odpady, wystawiamy fakturę.</p>
       </div>
 
       <div class="services-grid reveal-stagger">
-        <a href="cennik.html" class="service-card">
-          <div class="num">01 · KONTENERY</div>
-          <h3>Wynajem<br>kontenerów</h3>
-          <p>Pojemności od 7 do 36 m³ — na gruz, odpady budowlane, mieszane lub wielkogabarytowe. Podstawiamy nawet tego samego dnia.</p>
-          <span class="arrow-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </span>
-        </a>
-
-        <a href="dla-biznesu.html" class="service-card">
-          <div class="num">02 · TRANSPORT</div>
-          <h3>Wywóz<br>odpadów</h3>
-          <p>Transport po całym Śląsku — od Cieszyna po Gliwice, od Pszczyny po Katowice. Trzy strefy cenowe, jasne stawki.</p>
-          <span class="arrow-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </span>
-        </a>
-
-        <a href="dla-biznesu.html" class="service-card">
-          <div class="num">03 · B2B</div>
-          <h3>Stała obsługa<br>firm</h3>
-          <p>Budowy, deweloperzy, zakłady produkcyjne, spółdzielnie. Stałe harmonogramy, faktury, BDO, zero formalności po Twojej stronie.</p>
-          <span class="arrow-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </span>
-        </a>
+        <div class="service-card">
+          <div class="num">/ 01</div>
+          <h3>Wynajem kontenerów</h3>
+          <p>Cztery rozmiary — od 7 m³ na drobny remont po 36 m³ na większą inwestycję. Kontener stoi do 5 dni roboczych bez dodatkowych opłat.</p>
+          <div class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </div>
+        <div class="service-card">
+          <div class="num">/ 02</div>
+          <h3>Wywóz odpadów</h3>
+          <p>Gruz, mieszane budowlane, wielkogabarytowe, papa, styropian — odbieramy i kierujemy do uprawnionych instalacji odzysku i utylizacji.</p>
+          <div class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </div>
+        <div class="service-card">
+          <div class="num">/ 03</div>
+          <h3>Stała obsługa B2B</h3>
+          <p>Cykliczne odbiory dla firm budowlanych, deweloperów, magazynów. Faktury VAT, raporty BDO, indywidualne ramówki rozliczeniowe.</p>
+          <div class="arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ====================== INTERSTITIAL VIDEO ====================== -->
-  <div class="interstitial">
-    <video autoplay muted loop playsinline preload="metadata" poster="assets/posters/secondary.jpg">
+  <!-- Container showcase — the centerpiece -->
+  <section class="showcase">
+    <div class="showcase-inner">
+      <div class="section-head">
+        <div>
+          <div class="kicker">02 — Wybierz kontener</div>
+          <h2 class="section-title">Trzy rozmiary. <em>Każdy przemyślany.</em></h2>
+        </div>
+        <p class="section-intro">Człowiek 1,80 m wysoki dla porównania. Wybierz rozmiar — zobacz wymiary, pojemność i typ kontenera w skali.</p>
+      </div>
+
+      <div data-showcase>
+      <div class="showcase-stage-wrap">
+        <div class="showcase-corner tl">
+          / KONTENERY · WIZUALIZACJA<br>
+          <strong>Skala 1:50</strong>
+        </div>
+        <div class="showcase-corner tr">
+          WIDOK IZOMETRYCZNY 30°/30°<br>
+          <strong>Wymiary w metrach</strong>
+        </div>
+
+        <svg viewBox="0 0 1100 620" class="showcase-svg" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="softblur" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="4"/>
+            </filter>
+            <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 Z" fill="#dc2626"/>
+            </marker>
+          </defs>
+
+          <!-- Reference human (constant across all stages, 1.80 m tall) -->
+          <g class="human" transform="translate(180, 290)">
+            <ellipse cx="0" cy="6" rx="6" ry="6.5" fill="#1a1a1a"/>
+            <path d="M -8 14 L 8 14 L 6 42 L -6 42 Z" fill="#1a1a1a"/>
+            <path d="M -10 16 L -13 38 L -9 38 L -7 16 Z" fill="#1a1a1a"/>
+            <path d="M 10 16 L 13 38 L 9 38 L 7 16 Z" fill="#1a1a1a"/>
+            <path d="M -6 42 L 0 42 L -2 90 L -7 90 Z" fill="#1a1a1a"/>
+            <path d="M 0 42 L 6 42 L 7 90 L 2 90 Z" fill="#1a1a1a"/>
+          </g>
+          <line x1="146" y1="290" x2="146" y2="380" stroke="#dc2626" stroke-width="1.2" marker-start="url(#arr)" marker-end="url(#arr)"/>
+          <rect x="124" y="327" width="44" height="16" fill="#ebe7dc" stroke="#dc2626" stroke-width="0.8"/>
+          <text x="146" y="338" font-family="JetBrains Mono, monospace" font-size="10" font-weight="700" fill="#dc2626" text-anchor="middle">1,80 m</text>
+          <text x="180" y="280" font-family="JetBrains Mono, monospace" font-size="9" letter-spacing="0.18em" fill="#2a2a2a" text-anchor="middle">CZŁOWIEK / 1,80 m</text>
+
+  <!-- Auto-generated stages -->
+    <g class="stage" data-size-stage="7">
+      <polygon points="340.0,380.0 469.9,455.0 396.3,497.5 266.4,422.5" fill="rgba(10,10,10,0.18)" filter="url(#softblur)" transform="translate(8 14)"/>
+      <polygon points="340.0,310.0 469.9,385.0 396.3,427.5 266.4,352.5" fill="#5fa83a" stroke="#1a3d10" stroke-width="1.5" stroke-linejoin="round"/>
+      <polygon points="340.0,380.0 469.9,455.0 469.9,385.0 340.0,310.0" fill="#4d8c2f" stroke="#1a3d10" stroke-width="1.5" stroke-linejoin="round"/>
+      <polygon points="340.0,380.0 266.4,422.5 266.4,352.5 340.0,310.0" fill="#3a6f1f" stroke="#1a3d10" stroke-width="1.5" stroke-linejoin="round"/>
+      <!-- ribs -->
+      <g opacity="0.45">
+        <line x1="361.7" y1="392.5" x2="361.7" y2="322.5" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="383.3" y1="405.0" x2="383.3" y2="335.0" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="405.0" y1="417.5" x2="405.0" y2="347.5" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="426.6" y1="430.0" x2="426.6" y2="360.0" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="448.3" y1="442.5" x2="448.3" y2="372.5" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="303.2" y1="401.2" x2="303.2" y2="331.2" stroke="#1a3d10" stroke-width="1"/>
+      </g>
+      <polyline points="340.0,310.0 469.9,385.0 396.3,427.5 266.4,352.5 340.0,310.0" fill="none" stroke="#1a3d10" stroke-width="2"/>
+      <!-- length -->
+      <line x1="346.0" y1="406.0" x2="475.9" y2="481.0" stroke="#dc2626" stroke-width="1.4" marker-start="url(#arr)" marker-end="url(#arr)"/>
+      <rect x="388.95" y="434.5" width="44" height="18" fill="#ebe7dc" stroke="#dc2626" stroke-width="0.8"/>
+      <text x="410.95" y="447.5" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#dc2626" text-anchor="middle" letter-spacing="0.05em">3 m</text>
+      <!-- width -->
+      <line x1="316.0" y1="374.0" x2="242.39999999999998" y2="416.5" stroke="#dc2626" stroke-width="1.4" marker-start="url(#arr)" marker-end="url(#arr)"/>
+      <rect x="257.2" y="386.25" width="44" height="18" fill="#ebe7dc" stroke="#dc2626" stroke-width="0.8"/>
+      <text x="279.2" y="399.25" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#dc2626" text-anchor="middle" letter-spacing="0.05em">1,7 m</text>
+      <!-- height -->
+      <line x1="270.0" y1="380.0" x2="270.0" y2="310.0" stroke="#dc2626" stroke-width="1.4" marker-start="url(#arr)" marker-end="url(#arr)"/>
+      <rect x="248.0" y="336.0" width="44" height="18" fill="#ebe7dc" stroke="#dc2626" stroke-width="0.8"/>
+      <text x="270.0" y="349.0" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#dc2626" text-anchor="middle" letter-spacing="0.05em">1,4 m</text>
+      <!-- capacity badge -->
+      <text x="1070" y="130" font-family="Big Shoulders Display" font-weight="900" font-size="110" fill="#0a0a0a" text-anchor="end" letter-spacing="-0.02em">7<tspan font-size="44" font-weight="800" dy="-44">m³</tspan></text>
+      <text x="1070" y="160" font-family="JetBrains Mono" font-size="11" font-weight="700" letter-spacing="0.18em" fill="#0a0a0a" text-anchor="end">BRAMOWIEC MAŁY</text>
+      <text x="1070" y="180" font-family="JetBrains Mono" font-size="11" font-weight="500" letter-spacing="0.05em" fill="#2a2a2a" text-anchor="end">Gruz · poremontowe</text>
+      <line x1="790" y1="200" x2="1070" y2="200" stroke="#d8d3c4" stroke-width="3"/>
+      <line x1="1015.6" y1="200" x2="1070" y2="200" stroke="#dc2626" stroke-width="3"/>
+      <text x="790" y="218" font-family="JetBrains Mono" font-size="9" letter-spacing="0.18em" fill="#2a2a2a">/ POJEMNOŚĆ 7 / 36</text>
+    </g>
+
+    <g class="stage" data-size-stage="10">
+      <polygon points="340.0,380.0 491.6,467.5 413.6,512.5 262.1,425.0" fill="rgba(10,10,10,0.18)" filter="url(#softblur)" transform="translate(8 14)"/>
+      <polygon points="340.0,300.0 491.6,387.5 413.6,432.5 262.1,345.0" fill="#5fa83a" stroke="#1a3d10" stroke-width="1.5" stroke-linejoin="round"/>
+      <polygon points="340.0,380.0 491.6,467.5 491.6,387.5 340.0,300.0" fill="#4d8c2f" stroke="#1a3d10" stroke-width="1.5" stroke-linejoin="round"/>
+      <polygon points="340.0,380.0 262.1,425.0 262.1,345.0 340.0,300.0" fill="#3a6f1f" stroke="#1a3d10" stroke-width="1.5" stroke-linejoin="round"/>
+      <!-- ribs -->
+      <g opacity="0.45">
+        <line x1="361.7" y1="392.5" x2="361.7" y2="312.5" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="383.3" y1="405.0" x2="383.3" y2="325.0" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="405.0" y1="417.5" x2="405.0" y2="337.5" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="426.6" y1="430.0" x2="426.6" y2="350.0" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="448.3" y1="442.5" x2="448.3" y2="362.5" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="469.9" y1="455.0" x2="469.9" y2="375.0" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="314.0" y1="395.0" x2="314.0" y2="315.0" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="288.0" y1="410.0" x2="288.0" y2="330.0" stroke="#1a3d10" stroke-width="1"/>
+      </g>
+      <polyline points="340.0,300.0 491.6,387.5 413.6,432.5 262.1,345.0 340.0,300.0" fill="none" stroke="#1a3d10" stroke-width="2"/>
+      <!-- PUKiB.pl stencil on long face (no y-flip) -->
+      <g transform="matrix(0.8660 0.5000 0 1 340 380)">
+        <text x="70.0" y="-40.0" font-family="Big Shoulders Display, Impact, sans-serif" font-weight="900" font-size="24.0" fill="rgba(245,241,234,0.92)" text-anchor="middle" letter-spacing="0.5">PUKiB.pl</text>
+        <circle cx="157.5" cy="-40.0" r="15" fill="rgba(245,241,234,0.95)" stroke="#1a3d10" stroke-width="1.5"/>
+        <text x="157.5" y="-34.0" font-family="Big Shoulders Display" font-weight="900" font-size="21.0" fill="#1a3d10" text-anchor="middle">97</text>
+      </g>
+      <!-- length -->
+      <line x1="346.0" y1="406.0" x2="497.6" y2="493.5" stroke="#dc2626" stroke-width="1.4" marker-start="url(#arr)" marker-end="url(#arr)"/>
+      <rect x="399.8" y="440.75" width="44" height="18" fill="#ebe7dc" stroke="#dc2626" stroke-width="0.8"/>
+      <text x="421.8" y="453.75" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#dc2626" text-anchor="middle" letter-spacing="0.05em">3,5 m</text>
+      <!-- width -->
+      <line x1="316.0" y1="374.0" x2="238.10000000000002" y2="419.0" stroke="#dc2626" stroke-width="1.4" marker-start="url(#arr)" marker-end="url(#arr)"/>
+      <rect x="255.05" y="387.5" width="44" height="18" fill="#ebe7dc" stroke="#dc2626" stroke-width="0.8"/>
+      <text x="277.05" y="400.5" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#dc2626" text-anchor="middle" letter-spacing="0.05em">1,8 m</text>
+      <!-- height -->
+      <line x1="270.0" y1="380.0" x2="270.0" y2="300.0" stroke="#dc2626" stroke-width="1.4" marker-start="url(#arr)" marker-end="url(#arr)"/>
+      <rect x="248.0" y="331.0" width="44" height="18" fill="#ebe7dc" stroke="#dc2626" stroke-width="0.8"/>
+      <text x="270.0" y="344.0" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#dc2626" text-anchor="middle" letter-spacing="0.05em">1,6 m</text>
+      <!-- capacity badge -->
+      <text x="1070" y="130" font-family="Big Shoulders Display" font-weight="900" font-size="110" fill="#0a0a0a" text-anchor="end" letter-spacing="-0.02em">10<tspan font-size="44" font-weight="800" dy="-44">m³</tspan></text>
+      <text x="1070" y="160" font-family="JetBrains Mono" font-size="11" font-weight="700" letter-spacing="0.18em" fill="#0a0a0a" text-anchor="end">BRAMOWIEC ŚREDNI</text>
+      <text x="1070" y="180" font-family="JetBrains Mono" font-size="11" font-weight="500" letter-spacing="0.05em" fill="#2a2a2a" text-anchor="end">Mieszane · budowlane</text>
+      <line x1="790" y1="200" x2="1070" y2="200" stroke="#d8d3c4" stroke-width="3"/>
+      <line x1="992.2" y1="200" x2="1070" y2="200" stroke="#dc2626" stroke-width="3"/>
+      <text x="790" y="218" font-family="JetBrains Mono" font-size="9" letter-spacing="0.18em" fill="#2a2a2a">/ POJEMNOŚĆ 10 / 36</text>
+    </g>
+
+    <g class="stage" data-size-stage="36">
+      <polygon points="340.0,380.0 599.8,530.0 495.9,590.0 236.1,440.0" fill="rgba(10,10,10,0.18)" filter="url(#softblur)" transform="translate(8 14)"/>
+      <polygon points="340.0,255.0 599.8,405.0 495.9,465.0 236.1,315.0" fill="#5fa83a" stroke="#1a3d10" stroke-width="1.5" stroke-linejoin="round"/>
+      <polygon points="340.0,380.0 599.8,530.0 599.8,405.0 340.0,255.0" fill="#4d8c2f" stroke="#1a3d10" stroke-width="1.5" stroke-linejoin="round"/>
+      <polygon points="340.0,380.0 236.1,440.0 236.1,315.0 340.0,255.0" fill="#3a6f1f" stroke="#1a3d10" stroke-width="1.5" stroke-linejoin="round"/>
+      <!-- ribs -->
+      <g opacity="0.45">
+        <line x1="366.0" y1="395.0" x2="366.0" y2="270.0" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="392.0" y1="410.0" x2="392.0" y2="285.0" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="417.9" y1="425.0" x2="417.9" y2="300.0" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="443.9" y1="440.0" x2="443.9" y2="315.0" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="469.9" y1="455.0" x2="469.9" y2="330.0" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="495.9" y1="470.0" x2="495.9" y2="345.0" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="521.9" y1="485.0" x2="521.9" y2="360.0" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="547.8" y1="500.0" x2="547.8" y2="375.0" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="573.8" y1="515.0" x2="573.8" y2="390.0" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="314.0" y1="395.0" x2="314.0" y2="270.0" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="288.0" y1="410.0" x2="288.0" y2="285.0" stroke="#1a3d10" stroke-width="1"/>
+        <line x1="262.1" y1="425.0" x2="262.1" y2="300.0" stroke="#1a3d10" stroke-width="1"/>
+      </g>
+      <polyline points="340.0,255.0 599.8,405.0 495.9,465.0 236.1,315.0 340.0,255.0" fill="none" stroke="#1a3d10" stroke-width="2"/>
+      <!-- PUKiB.pl stencil on long face (no y-flip) -->
+      <g transform="matrix(0.8660 0.5000 0 1 340 380)">
+        <text x="120.0" y="-62.5" font-family="Big Shoulders Display, Impact, sans-serif" font-weight="900" font-size="26" fill="rgba(245,241,234,0.92)" text-anchor="middle" letter-spacing="0.5">PUKiB.pl</text>
+        <circle cx="270.0" cy="-62.5" r="15" fill="rgba(245,241,234,0.95)" stroke="#1a3d10" stroke-width="1.5"/>
+        <text x="270.0" y="-56.5" font-family="Big Shoulders Display" font-weight="900" font-size="21.0" fill="#1a3d10" text-anchor="middle">97</text>
+      </g>
+      <!-- length -->
+      <line x1="346.0" y1="406.0" x2="605.8" y2="556.0" stroke="#dc2626" stroke-width="1.4" marker-start="url(#arr)" marker-end="url(#arr)"/>
+      <rect x="453.9" y="472.0" width="44" height="18" fill="#ebe7dc" stroke="#dc2626" stroke-width="0.8"/>
+      <text x="475.9" y="485.0" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#dc2626" text-anchor="middle" letter-spacing="0.05em">6 m</text>
+      <!-- width -->
+      <line x1="316.0" y1="374.0" x2="212.1" y2="434.0" stroke="#dc2626" stroke-width="1.4" marker-start="url(#arr)" marker-end="url(#arr)"/>
+      <rect x="242.05" y="395.0" width="44" height="18" fill="#ebe7dc" stroke="#dc2626" stroke-width="0.8"/>
+      <text x="264.05" y="408.0" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#dc2626" text-anchor="middle" letter-spacing="0.05em">2,4 m</text>
+      <!-- height -->
+      <line x1="270.0" y1="380.0" x2="270.0" y2="255.0" stroke="#dc2626" stroke-width="1.4" marker-start="url(#arr)" marker-end="url(#arr)"/>
+      <rect x="248.0" y="308.5" width="44" height="18" fill="#ebe7dc" stroke="#dc2626" stroke-width="0.8"/>
+      <text x="270.0" y="321.5" font-family="JetBrains Mono, monospace" font-size="11" font-weight="700" fill="#dc2626" text-anchor="middle" letter-spacing="0.05em">2,5 m</text>
+      <!-- capacity badge -->
+      <text x="1070" y="130" font-family="Big Shoulders Display" font-weight="900" font-size="110" fill="#0a0a0a" text-anchor="end" letter-spacing="-0.02em">36<tspan font-size="44" font-weight="800" dy="-44">m³</tspan></text>
+      <text x="1070" y="160" font-family="JetBrains Mono" font-size="11" font-weight="700" letter-spacing="0.18em" fill="#0a0a0a" text-anchor="end">HAKOWIEC DUŻY</text>
+      <text x="1070" y="180" font-family="JetBrains Mono" font-size="11" font-weight="500" letter-spacing="0.05em" fill="#2a2a2a" text-anchor="end">Inwestycje · wyburzenia</text>
+      <line x1="790" y1="200" x2="1070" y2="200" stroke="#d8d3c4" stroke-width="3"/>
+      <line x1="790.0" y1="200" x2="1070" y2="200" stroke="#dc2626" stroke-width="3"/>
+      <text x="790" y="218" font-family="JetBrains Mono" font-size="9" letter-spacing="0.18em" fill="#2a2a2a">/ POJEMNOŚĆ 36 / 36</text>
+    </g>
+
+        </svg>
+      </div>
+
+      <div class="showcase-controls">
+        <button class="showcase-pick active" data-size-pick="7">
+          <span class="pick-tag">/ MAŁY</span>
+          <span class="pick-size">7 m³</span>
+          <span class="pick-name">Bramowiec</span>
+        </button>
+        <button class="showcase-pick" data-size-pick="10">
+          <span class="pick-tag">/ ŚREDNI</span>
+          <span class="pick-size">10 m³</span>
+          <span class="pick-name">Bramowiec</span>
+        </button>
+        <button class="showcase-pick" data-size-pick="36">
+          <span class="pick-tag">/ DUŻY</span>
+          <span class="pick-size">36 m³</span>
+          <span class="pick-name">Hakowiec</span>
+        </button>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interstitial video strip -->
+  <section class="interstitial" data-hero-video-wrap>
+    <img class="interstitial-poster" src="assets/posters/secondary.jpg" alt="">
+    <video data-hero-video autoplay muted loop playsinline preload="metadata">
       <source src="assets/videos/secondary.mp4" type="video/mp4">
     </video>
-    <div class="interstitial-text">
-      <p class="quote">Kontener to <em>najprostsze</em> rozwiązanie.</p>
-      <p class="quote-source">— Pukib.pl · 18 500 razy potwierdzone</p>
-    </div>
-  </div>
-
-  <!-- ====================== CONTAINER SHOWCASE ====================== -->
-  <section class="section containers">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2 class="display section-title">Wybierz <em>swój</em> kontener.</h2>
-        <p class="section-intro">Cztery rozmiary, jasne ceny netto. Najedź lub kliknij, żeby zobaczyć kontener w skali.</p>
-      </div>
-
-      <div class="containers-stage">
-        <div class="containers-list reveal">
-          <div class="container-item active" data-size="7">
-            <div class="size">7<sup>m³</sup></div>
-            <div class="info">
-              <h4>Gruz</h4>
-              <p>Idealny pod remont łazienki, drobne wyburzenia</p>
-            </div>
-            <div class="price">900 zł<small>netto + 8% VAT</small></div>
-          </div>
-          <div class="container-item" data-size="7">
-            <div class="size">7<sup>m³</sup></div>
-            <div class="info">
-              <h4>Odpady mieszane</h4>
-              <p>Gruz + drewno + folia + opakowania</p>
-            </div>
-            <div class="price">1 300 zł<small>netto + 8% VAT</small></div>
-          </div>
-          <div class="container-item" data-size="10">
-            <div class="size">10<sup>m³</sup></div>
-            <div class="info">
-              <h4>Odpady mieszane</h4>
-              <p>Większy remont, generalny porządek</p>
-            </div>
-            <div class="price">1 800 zł<small>netto + 8% VAT</small></div>
-          </div>
-          <div class="container-item" data-size="36">
-            <div class="size">36<sup>m³</sup></div>
-            <div class="info">
-              <h4>Odpady mieszane</h4>
-              <p>Budowa, wyburzenie, opróżnianie domu</p>
-            </div>
-            <div class="price">3 700 zł<small>netto + 8% VAT</small></div>
-          </div>
-        </div>
-
-        <div class="container-3d" aria-hidden="true">
-          <div class="cube" data-size="7">
-            <div class="cube-face front"></div>
-            <div class="cube-face back"></div>
-            <div class="cube-face left"></div>
-            <div class="cube-face right"></div>
-            <div class="cube-face top"></div>
-            <div class="cube-face bottom"></div>
-          </div>
-          <div class="cube-shadow"></div>
-        </div>
-      </div>
-
-      <div style="margin-top: 48px; display:flex; gap:14px; flex-wrap:wrap;">
-        <a href="cennik.html#zamow" class="btn btn-primary">
-          Zamów online
-          <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a href="tel:503759504" class="btn btn-ghost">
-          Zadzwoń · 503 759 504
-        </a>
-      </div>
+    <div class="interstitial-overlay"></div>
+    <div class="interstitial-content">
+      <div class="kicker">/ W terenie</div>
+      <h2>Niewidzialna logistyka.<br>Widoczne efekty.</h2>
     </div>
   </section>
 
-  <!-- ====================== WHY US ====================== -->
-  <section class="why">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2 class="display section-title">Dlaczego <em>my</em>.</h2>
-        <p class="section-intro">14 lat na rynku, 300 stałych partnerów biznesowych i 18 500 odebranych kontenerów — bez nadmiernej autoreklamy, ale z liczbami, które mówią same za siebie.</p>
-      </div>
-
-      <div class="why-grid">
-        <div class="why-feature-list reveal-stagger">
-          <div class="why-feature">
-            <div class="num">01</div>
-            <div>
-              <h4>Szybkie podstawienie</h4>
-              <p>Zamówienie obsługujemy w ciągu 24 godzin, a często jeszcze tego samego dnia — zależnie od dostępności i strefy.</p>
-            </div>
-          </div>
-          <div class="why-feature">
-            <div class="num">02</div>
-            <div>
-              <h4>Uczciwe ceny</h4>
-              <p>Cennik dostępny publicznie. Brak ukrytych kosztów, brak doliczania „za godzinę pracy ładowarki". Płacisz to, co widzisz.</p>
-            </div>
-          </div>
-          <div class="why-feature">
-            <div class="num">03</div>
-            <div>
-              <h4>Pełna legalność</h4>
-              <p>Wpis BDO 000011532, wszystkie odpady trafiają do legalnych instalacji odzysku i utylizacji. Wystawiamy KPO i faktury.</p>
-            </div>
-          </div>
-          <div class="why-feature">
-            <div class="num">04</div>
-            <div>
-              <h4>Elastyczne terminy</h4>
-              <p>Standardowo 5 dni dzierżawy bez dodatkowych opłat. Potrzebujesz dłużej? Bez problemu — 25 zł / 24h.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="reveal" style="position:relative;">
-          <img src="assets/img/truck.jpg" alt="Samochód PUKiB z kontenerem" style="width:100%; border:1px solid var(--line); aspect-ratio: 4/5; object-fit:cover;">
-          <div style="position:absolute; bottom:24px; left:24px; right:24px; background: var(--ink); color: var(--paper); padding: 18px 20px;">
-            <div class="mono" style="font-size:11px; letter-spacing:.15em; text-transform:uppercase; color: var(--paper-3); margin-bottom:6px;">FLOTA / Mercedes Atego</div>
-            <div class="display" style="font-size:24px;">Bramowiec / hakowiec</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ====================== COVERAGE / MAP ====================== -->
+  <!-- Coverage — Cały Śląsk (no map, pure typography) -->
   <section class="coverage">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2 class="display section-title">Cały <em>Śląsk</em>.</h2>
-        <p class="section-intro">Trzy strefy cenowe — od 100 zł netto za transport. Sprawdź, w której strefie jest Twój adres.</p>
+    <div class="coverage-inner">
+      <div class="section-head">
+        <div>
+          <div class="kicker">03 — Obszar działania</div>
+          <h2 class="section-title">Cały <em>Śląsk.</em><br>Bez wyjątków.</h2>
+        </div>
+        <p class="section-intro">Trzy strefy transportu — im bliżej naszej bazy w Jastrzębiu-Zdroju, tym tańszy dojazd. Pełna lista miejscowości w cenniku.</p>
       </div>
 
-      <div class="coverage-grid">
-        <div class="reveal">
-          <div class="kicker" style="margin-bottom:16px;">Strefa I · 100 zł netto</div>
-          <div class="coverage-cities" style="margin-bottom:32px;">
-            <span class="highlight">Jastrzębie-Zdrój</span>
-            <span class="highlight">Rybnik</span>
-            <span class="highlight">Żory</span>
-            <span>Mszana</span>
-            <span>Godów</span>
-            <span>Gorzyce</span>
-            <span>Świerklany</span>
-            <span>Wodzisław Śląski</span>
-            <span>Pawłowice</span>
-            <span>Suszec</span>
-            <span>Strumień</span>
-            <span>Zebrzydowice</span>
-            <span>Hażlach</span>
-          </div>
-
-          <div class="kicker" style="margin-bottom:16px;">Strefa II · 200 zł netto</div>
-          <div class="coverage-cities" style="margin-bottom:32px;">
-            <span>Pszczyna</span>
-            <span>Skoczów</span>
-            <span>Knurów</span>
-            <span>Czerwionka-Leszczyny</span>
-            <span>Orzesze</span>
-            <span>Radlin</span>
-            <span>Pszów</span>
-            <span>Pilchowice</span>
-            <span>Dębowiec</span>
-            <span>Chybie</span>
-            <span>Goczałkowice-Zdrój</span>
-            <span>Gierałtowice</span>
-          </div>
-
-          <div class="kicker" style="margin-bottom:16px;">Strefa III · 300 zł netto</div>
-          <div class="coverage-cities">
-            <span class="highlight">Katowice</span>
-            <span class="highlight">Gliwice</span>
-            <span class="highlight">Bielsko-Biała</span>
-            <span>Cieszyn</span>
-            <span>Tychy</span>
-            <span>Mikołów</span>
-            <span>Zabrze</span>
-            <span>Ruda Śląska</span>
-            <span>Mysłowice</span>
-            <span>Bieruń</span>
-            <span>Lędziny</span>
-            <span>Racibórz</span>
-            <span>Czechowice-Dziedzice</span>
-            <span>Ustroń</span>
-            <span>Jasienica</span>
-            <span>Goleszów</span>
-            <span>Kobiór</span>
-            <span>Bojszowy</span>
-            <span>Kornowac</span>
-            <span>Krzanowice</span>
-            <span>Nędza</span>
-            <span>Wyry</span>
-            <span>Miedźna</span>
-          </div>
+      <div class="zones reveal">
+        <div class="zone">
+          <div class="zone-num">/ STREFA 01</div>
+          <div class="zone-name">100 zł</div>
+          <div class="zone-price">netto · transport</div>
+          <ul class="zone-cities">
+            <li class="bold">Jastrzębie-Zdrój</li>
+            <li>Rybnik · Żory</li>
+            <li>Wodzisław Śląski</li>
+            <li>Pawłowice · Suszec</li>
+            <li>Mszana · Godów · Gorzyce</li>
+            <li>Świerklany · Strumień</li>
+            <li>Hażlach · Zebrzydowice</li>
+          </ul>
         </div>
-
-        <div class="coverage-map reveal" aria-hidden="true">
-          <!-- stylised silesia map -->
-          <svg viewBox="0 0 400 460" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse">
-                <circle cx="2" cy="2" r="1.2" fill="#1a1a1a" opacity="0.2"/>
-              </pattern>
-            </defs>
-            <!-- silesia outline (stylised) -->
-            <path d="M120,40 L260,30 L320,80 L350,160 L340,250 L320,340 L260,400 L180,420 L100,380 L60,300 L50,200 L80,110 Z"
-                  fill="url(#dots)" stroke="#1a1a1a" stroke-width="1.5" opacity="0.85"/>
-
-            <!-- city dots -->
-            <!-- Katowice (center) -->
-            <circle cx="220" cy="230" r="14" fill="#dc2626"/>
-            <text x="240" y="234" font-family="JetBrains Mono" font-size="11" font-weight="700" fill="#0a0a0a">KATOWICE</text>
-
-            <!-- Gliwice -->
-            <circle cx="160" cy="200" r="10" fill="#dc2626"/>
-            <text x="100" y="195" font-family="JetBrains Mono" font-size="10" fill="#0a0a0a">Gliwice</text>
-
-            <!-- Rybnik -->
-            <circle cx="160" cy="290" r="10" fill="#0a0a0a"/>
-            <text x="100" y="295" font-family="JetBrains Mono" font-size="10" fill="#0a0a0a">Rybnik</text>
-
-            <!-- Jastrzębie -->
-            <circle cx="180" cy="340" r="11" fill="#0a0a0a"/>
-            <text x="100" y="360" font-family="JetBrains Mono" font-size="10" fill="#0a0a0a">Jastrzębie</text>
-
-            <!-- Bielsko -->
-            <circle cx="290" cy="370" r="10" fill="#dc2626"/>
-            <text x="240" y="395" font-family="JetBrains Mono" font-size="10" fill="#0a0a0a">Bielsko-Biała</text>
-
-            <!-- Cieszyn -->
-            <circle cx="240" cy="380" r="7" fill="#0a0a0a"/>
-            <text x="200" y="410" font-family="JetBrains Mono" font-size="9" fill="#0a0a0a">Cieszyn</text>
-
-            <!-- Tychy -->
-            <circle cx="240" cy="280" r="8" fill="#0a0a0a"/>
-            <text x="252" y="284" font-family="JetBrains Mono" font-size="10" fill="#0a0a0a">Tychy</text>
-
-            <!-- Pszczyna -->
-            <circle cx="250" cy="320" r="7" fill="#0a0a0a"/>
-            <text x="262" y="324" font-family="JetBrains Mono" font-size="9" fill="#0a0a0a">Pszczyna</text>
-
-            <!-- Zabrze -->
-            <circle cx="190" cy="220" r="8" fill="#0a0a0a"/>
-
-            <!-- HQ marker -->
-            <g transform="translate(180,340)">
-              <circle r="22" fill="none" stroke="#dc2626" stroke-width="2" opacity="0.5">
-                <animate attributeName="r" values="14;28;14" dur="2.5s" repeatCount="indefinite"/>
-                <animate attributeName="opacity" values="0.6;0;0.6" dur="2.5s" repeatCount="indefinite"/>
-              </circle>
-            </g>
-
-            <!-- compass -->
-            <g transform="translate(330,40)" font-family="JetBrains Mono" font-size="9" fill="#0a0a0a">
-              <line x1="0" y1="-12" x2="0" y2="12" stroke="#0a0a0a" stroke-width="1"/>
-              <line x1="-12" y1="0" x2="12" y2="0" stroke="#0a0a0a" stroke-width="1"/>
-              <text x="-3" y="-15">N</text>
-            </g>
-
-            <!-- legend -->
-            <g transform="translate(20,440)" font-family="JetBrains Mono" font-size="8" fill="#0a0a0a">
-              <text>BAZA TRANSPORTOWA · JASTRZĘBIE-ZDRÓJ</text>
-            </g>
-          </svg>
+        <div class="zone">
+          <div class="zone-num">/ STREFA 02</div>
+          <div class="zone-name">200 zł</div>
+          <div class="zone-price">netto · transport</div>
+          <ul class="zone-cities">
+            <li class="bold">Pszczyna · Cieszyn</li>
+            <li>Knurów · Orzesze</li>
+            <li>Czerwionka-Leszczyny</li>
+            <li>Pszów · Pilchowice</li>
+            <li>Skoczów · Chybie</li>
+            <li>Goczałkowice-Zdrój</li>
+            <li>Dębowiec · Gierałtowice</li>
+            <li>Radlin</li>
+          </ul>
+        </div>
+        <div class="zone">
+          <div class="zone-num">/ STREFA 03</div>
+          <div class="zone-name">300 zł</div>
+          <div class="zone-price">netto · transport</div>
+          <ul class="zone-cities">
+            <li class="bold">Katowice · Gliwice</li>
+            <li class="bold">Bielsko-Biała · Tychy</li>
+            <li>Mikołów · Zabrze</li>
+            <li>Ruda Śląska · Mysłowice</li>
+            <li>Bieruń · Lędziny · Wyry</li>
+            <li>Czechowice-Dziedzice</li>
+            <li>Goleszów · Ustroń · Jasienica</li>
+            <li>Racibórz · Krzanowice · Nędza</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ====================== CTA STRIP ====================== -->
+  <!-- FAQ embedded on home (no separate page) -->
+  <section class="faq-home">
+    <div class="faq-home-inner">
+      <div class="faq-home-head">
+        <div class="kicker">04 — Najczęstsze pytania</div>
+        <h2>Co warto <em>wiedzieć</em> przed zamówieniem.</h2>
+        <p>Sześć pytań, które klienci zadają nam najczęściej. Jeśli nie znajdziesz tu odpowiedzi — zadzwoń, mamy mało czasu na e-maile, ale telefon zawsze odbieramy.</p>
+        <div class="contact-line">
+          / NIE ZNALAZŁEŚ ODPOWIEDZI?
+          <a href="tel:503759504">503 759 504</a>
+        </div>
+      </div>
+
+      <div class="faq-list" data-faq>
+        <div class="faq-item">
+          <button class="faq-q" data-faq-q aria-expanded="false">
+            <span class="num">/ 01</span>
+            <span class="question">Jak zamówić kontener?</span>
+            <span class="toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><p>Najszybciej — telefonicznie pod numerem <a href="tel:503759504" style="color:var(--red);font-weight:700;">503 759 504</a>. Możesz też napisać na <a href="mailto:kontenery@pukib.pl" style="color:var(--red);font-weight:700;">kontenery@pukib.pl</a> lub skorzystać z formularza zamówienia w zakładce Cennik. Zwykle odpowiadamy w ciągu godziny w dni robocze.</p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" data-faq-q aria-expanded="false">
+            <span class="num">/ 02</span>
+            <span class="question">Jak długo mogę trzymać kontener?</span>
+            <span class="toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><p>Kontener może stać na Twojej posesji do <strong>5 dni roboczych bez dodatkowych opłat</strong>. Jeśli potrzebujesz na dłużej, doliczamy 25 zł netto za każde rozpoczęte 24 godziny dzierżawy.</p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" data-faq-q aria-expanded="false">
+            <span class="num">/ 03</span>
+            <span class="question">Jakie odpady można wrzucać?</span>
+            <span class="toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><p>Odpady budowlane, gruz, śmieci przemysłowe, wielkogabarytowe, zielone (gałęzie, trawa). Odbieramy też papę, styropian, wełnę mineralną, makulaturę, tworzywa, szkło — w tych przypadkach prosimy o kontakt w celu indywidualnej wyceny.</p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" data-faq-q aria-expanded="false">
+            <span class="num">/ 04</span>
+            <span class="question">Czy dostarczacie tego samego dnia?</span>
+            <span class="toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><p>Tak — w miarę dostępności floty. Dla zgłoszeń odebranych w godzinach porannych zwykle udaje nam się podstawić kontener jeszcze tego samego dnia. W pozostałych przypadkach realizujemy zamówienie następnego dnia roboczego.</p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" data-faq-q aria-expanded="false">
+            <span class="num">/ 05</span>
+            <span class="question">Jak wygląda płatność?</span>
+            <span class="toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><p>Płatność przelewem na podstawie faktury VAT, wystawianej po wykonaniu usługi. Akceptujemy także płatności online. Dla stałych klientów biznesowych — ramówki i odroczone terminy płatności.</p></div></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q" data-faq-q aria-expanded="false">
+            <span class="num">/ 06</span>
+            <span class="question">Co jeśli kontener się zapełni?</span>
+            <span class="toggle" aria-hidden="true"></span>
+          </button>
+          <div class="faq-a"><div class="faq-a-inner"><p>Zadzwoń pod <a href="tel:503759504" style="color:var(--red);font-weight:700;">503 759 504</a> w celu umówienia odbioru i wymiany na pusty. W większości przypadków wymianę realizujemy tego samego lub następnego dnia roboczego.</p></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Facebook section (replaces blog) -->
+  <section class="fb-section">
+    <div class="fb-inner">
+      <div class="section-head">
+        <div>
+          <div class="kicker">05 — Aktualności</div>
+          <h2 class="section-title">Znajdź nas <em>na Facebooku.</em></h2>
+        </div>
+        <p class="section-intro">Tam publikujemy zdjęcia z realizacji, ciekawostki branżowe i okazjonalne promocje. Tutaj — fragment naszych ostatnich kampanii informacyjnych.</p>
+      </div>
+
+      <div class="fb-grid reveal">
+        <div class="fb-statement">
+          <div class="fb-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+          </div>
+          <h3>Najświeższe wpisy <em>prosto z FB.</em></h3>
+          <p>Pracujemy nad bezpośrednią integracją z Facebookiem, żeby posty pojawiały się tu automatycznie. Tymczasem — śledź nasz profil bezpośrednio na FB.</p>
+          <a href="https://www.facebook.com/people/PUKiB-Sp-zoo/61550223431423/" class="fb-handle" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            facebook.com / PUKiB
+          </a>
+        </div>
+
+        <div class="fb-mosaic">
+          <a class="fb-mosaic-item tall" href="https://www.facebook.com/people/PUKiB-Sp-zoo/61550223431423/" target="_blank" rel="noopener">
+            <span class="fb-tag">Facebook</span>
+            <img src="assets/img/poster-kontenery.jpg" alt="Kontenery na odpady">
+          </a>
+          <a class="fb-mosaic-item" href="https://www.facebook.com/people/PUKiB-Sp-zoo/61550223431423/" target="_blank" rel="noopener">
+            <span class="fb-tag">Facebook</span>
+            <img src="assets/img/poster-mandat.jpg" alt="Możesz dostać mandat za źle wyrzucone odpady">
+          </a>
+          <a class="fb-mosaic-item" href="https://www.facebook.com/people/PUKiB-Sp-zoo/61550223431423/" target="_blank" rel="noopener">
+            <span class="fb-tag">Facebook</span>
+            <img src="assets/img/poster-budowa.jpg" alt="Ciekawostka budowlana — ile waży gruz">
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
   <section class="cta-strip">
-    <h2>Potrzebujesz <em>kontenera</em>?</h2>
-    <p>Zamów online w 60 sekund albo zadzwoń — pomożemy dobrać rozmiar i powiemy, kiedy go podstawimy.</p>
-    <div class="actions">
-      <a href="cennik.html#zamow" class="btn btn-primary">
-        Zamów teraz
-        <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </a>
-      <a href="tel:503759504" class="btn btn-ghost">
-        503 759 504
-      </a>
-    </div>
-  </section>
-
-  <!-- ====================== BLOG PREVIEW ====================== -->
-  <section class="section blog-preview">
-    <div class="container">
-      <div class="section-head reveal">
-        <h2 class="display section-title">Z <em>bazy</em>.</h2>
-        <p class="section-intro">Praktyczne ciekawostki o odpadach budowlanych, kontenerach i obowiązujących przepisach.</p>
+    <div class="cta-strip-inner">
+      <div>
+        <div class="kicker" style="color: var(--paper-3); margin-bottom:16px;">/ GOTOWY?</div>
+        <h2>Pora zamówić kontener.</h2>
+        <p>Wybierz rozmiar, podaj adres i preferowany termin. Odzwonimy potwierdzić szczegóły — najczęściej w ciągu godziny w dni robocze.</p>
       </div>
-
-      <div class="blog-preview-grid reveal-stagger">
-        <article class="blog-card">
-          <img src="assets/img/poster-mandat.jpg" alt="" class="blog-card-img">
-          <div class="blog-card-body">
-            <div class="meta">CIEKAWOSTKA · PRAWO</div>
-            <h4>Wyrzucasz gruz do zwykłego pojemnika? Możesz dostać mandat.</h4>
-            <a href="blog.html" class="read">Czytaj <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <img src="assets/img/poster-budowa.jpg" alt="" class="blog-card-img">
-          <div class="blog-card-body">
-            <div class="meta">CIEKAWOSTKA · BUDOWA</div>
-            <h4>Podczas remontu może powstać nawet kilka ton odpadów.</h4>
-            <a href="blog.html" class="read">Czytaj <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-        </article>
-
-        <article class="blog-card">
-          <img src="assets/img/poster-kontenery.jpg" alt="" class="blog-card-img">
-          <div class="blog-card-body">
-            <div class="meta">USŁUGI · KONTENERY</div>
-            <h4>Kontenery na odpady — prosty sposób na duży problem.</h4>
-            <a href="blog.html" class="read">Czytaj <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          </div>
-        </article>
+      <div class="cta-buttons">
+        <a href="cennik.html#zamow" class="btn btn-primary">Zamów kontener</a>
+        <a href="tel:503759504" class="btn btn-ghost">503 759 504</a>
       </div>
     </div>
   </section>
 
-  <!-- ====================== FOOTER ====================== -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
@@ -515,9 +577,7 @@
           <ul>
             <li><a href="o-firmie.html">O firmie</a></li>
             <li><a href="dla-biznesu.html">Dla biznesu</a></li>
-            <li><a href="cennik.html">Cennik</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="cennik.html">Cennik · Zamów</a></li>
             <li><a href="kontakt.html">Kontakt</a></li>
           </ul>
         </div>
