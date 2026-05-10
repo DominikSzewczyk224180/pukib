@@ -318,7 +318,7 @@
     </div>
   </section>
 
-  <!-- Facebook section: live Page Plugin only -->
+  <!-- Facebook section: 2-col — info + live iframe -->
   <section class="fb-section" id="fb">
     <div class="fb-inner">
       <div class="section-head">
@@ -329,24 +329,41 @@
         <p class="section-intro">Najnowsze realizacje, ciekawostki branżowe i okazjonalne promocje prosto z naszego Facebooka.</p>
       </div>
 
-      <div class="fb-embed">
-        <iframe
-          src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpracowniamebla&tabs=timeline&width=500&height=700&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
-          width="500" height="700"
-          style="border:none;overflow:hidden;max-width:100%;"
-          scrolling="no" frameborder="0"
-          allowfullscreen="true"
-          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          loading="lazy"
-          title="PUKiB na Facebooku — najnowsze posty"></iframe>
-      </div>
+      <div class="fb-grid">
+        <!-- LEFT: info + CTA -->
+        <div class="fb-info">
+          <div class="fb-mark">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+          </div>
 
-      <div class="fb-cta-wrap">
-        <a href="https://www.facebook.com/people/PUKiB-Sp-zoo/61550223431423/" target="_blank" rel="noopener" class="fb-cta">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          Obserwuj nas na Facebooku
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+          <h3>Co znajdziesz <em>na profilu.</em></h3>
+
+          <ul class="fb-list">
+            <li><span class="num">/ 01</span><span class="txt">Realizacje z budów i remontów</span></li>
+            <li><span class="num">/ 02</span><span class="txt">Sezonowe promocje na kontenery</span></li>
+            <li><span class="num">/ 03</span><span class="txt">Ciekawostki o gospodarce odpadami</span></li>
+            <li><span class="num">/ 04</span><span class="txt">Aktualne godziny i dostępność floty</span></li>
+          </ul>
+
+          <a href="https://www.facebook.com/people/PUKiB-Sp-zoo/61550223431423/" target="_blank" rel="noopener" class="fb-cta">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            Obserwuj nas na Facebooku
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- RIGHT: live FB Page Plugin iframe -->
+        <div class="fb-feed-frame">
+          <iframe
+            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpeople%2FPUKiB-Sp-zoo%2F61550223431423%2F&tabs=timeline&width=500&height=700&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
+            width="500" height="700"
+            style="border:none;overflow:hidden;max-width:100%;"
+            scrolling="no" frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            loading="lazy"
+            title="PUKiB na Facebooku — najnowsze posty"></iframe>
+        </div>
       </div>
     </div>
   </section>
