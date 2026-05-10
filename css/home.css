@@ -678,7 +678,7 @@
 
 .fb-section {
   background: var(--paper-2);
-  padding: clamp(64px, 8vw, 120px) var(--pad-x);
+  padding: clamp(48px, 6vw, 88px) var(--pad-x);
   border-block: 1px solid var(--line-soft);
 }
 
@@ -1094,49 +1094,49 @@
 
 .fb-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 480px) 1fr;
   gap: 64px;
-  align-items: center;
-  margin-top: 56px;
+  align-items: start;
+  margin-top: 32px;
 }
 
 @media (max-width: 1100px) {
   .fb-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 36px;
     align-items: stretch;
   }
 }
 
 /* LEFT info column */
 .fb-info {
-  padding-top: 4px;
+  padding-top: 0;
   max-width: 480px;
 }
 
 .fb-mark {
-  width: 60px;
-  height: 60px;
+  width: 56px;
+  height: 56px;
   background: var(--ink);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .fb-mark svg {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   fill: var(--paper);
 }
 
 .fb-info h3 {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(28px, 2.8vw, 40px);
+  font-size: clamp(28px, 2.6vw, 38px);
   text-transform: uppercase;
   line-height: 0.95;
-  margin-bottom: 36px;
+  margin-bottom: 24px;
 }
 
 .fb-info h3 em {
@@ -1147,7 +1147,7 @@
 .fb-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 36px 0;
+  margin: 0 0 28px 0;
   border-top: 1px solid var(--line-soft);
 }
 
@@ -1155,7 +1155,7 @@
   display: flex;
   align-items: flex-start;
   gap: 18px;
-  padding: 16px 0;
+  padding: 14px 0;
   border-bottom: 1px solid var(--line-soft);
 }
 
@@ -1203,15 +1203,32 @@
   flex-shrink: 0;
 }
 
+.fb-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fb-meta .fb-dot {
+  color: var(--red);
+  font-weight: 700;
+}
+
 /* RIGHT feed column */
 .fb-feed-frame {
   width: 100%;
-  max-width: 500px;
-  justify-self: start;
+  max-width: 600px;
+  justify-self: end;
 }
 
 @media (max-width: 1100px) {
-  .fb-feed-frame { justify-self: stretch; max-width: 500px; margin: 0 auto; }
+  .fb-feed-frame { justify-self: stretch; max-width: 600px; margin: 0 auto; }
 }
 
 .fb-feed-frame iframe {
