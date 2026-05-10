@@ -199,59 +199,19 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 10px 14px;
-  border-radius: var(--radius);
+  padding: 10px 16px;
   position: relative;
-  transition: color 0.2s, background 0.2s;
+  transition: background 0.2s, color 0.2s;
 }
 
-.nav a:not(.nav-cta):not(.nav-cennik)::after {
-  content: '';
-  position: absolute;
-  left: 14px;
-  right: 14px;
-  bottom: 6px;
-  height: 1.5px;
-  background: var(--red);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.25s ease;
-}
-
-.nav a:not(.nav-cta):not(.nav-cennik):hover {
-  color: var(--red);
-}
-
-.nav a:not(.nav-cta):not(.nav-cennik):hover::after {
-  transform: scaleX(1);
-}
-
-.nav a.active:not(.nav-cta):not(.nav-cennik) {
-  color: var(--red);
-}
-
-.nav a.active:not(.nav-cta):not(.nav-cennik)::after {
-  transform: scaleX(1);
-}
-
-/* Cennik link distinct: bordered chip styling, sets it apart from anchors */
-.nav-cennik {
-  border: 1px solid var(--ink);
-  font-weight: 700 !important;
-  margin-right: 4px;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-}
-
-.nav-cennik:hover {
+.nav a:not(.nav-cta):hover {
   background: var(--ink);
   color: var(--paper);
-  border-color: var(--ink);
 }
 
-.nav-cennik.active {
+.nav a.active:not(.nav-cta) {
   background: var(--ink);
   color: var(--paper);
-  border-color: var(--ink);
 }
 
 .nav-cta {
@@ -267,8 +227,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .nav-cta:hover { background: var(--red-deep); transform: translateY(-1px); color: var(--paper) !important; }
-
-.nav-cta::after { display: none !important; }
 
 .nav-cta svg { width: 14px; height: 14px; }
 
