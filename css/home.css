@@ -1022,40 +1022,37 @@
   max-width: 640px;
 }
 
-/* GRID: info left + iframe right */
+/* GRID: info left + iframe right (flex, no empty cells) */
 .fb-grid {
-  display: grid;
-  grid-template-columns: 1fr 700px;
-  gap: 72px;
-  align-items: start;
-}
-
-@media (max-width: 1200px) {
-  .fb-grid {
-    grid-template-columns: 1fr 600px;
-    gap: 48px;
-  }
+  display: flex;
+  gap: 64px;
+  align-items: flex-start;
 }
 
 @media (max-width: 1024px) {
   .fb-grid {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     gap: 48px;
   }
 }
 
-/* LEFT info column — natural flow, no push */
+/* LEFT info column — fixed narrow width, hugs the iframe */
 .fb-info {
-  max-width: 520px;
+  width: 480px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1024px) {
+  .fb-info { width: 100%; max-width: 540px; }
 }
 
 .fb-sub {
   font-family: var(--font-display);
   font-weight: 900;
-  font-size: clamp(24px, 2.2vw, 32px);
+  font-size: clamp(22px, 1.8vw, 28px);
   line-height: 1;
   text-transform: uppercase;
-  letter-spacing: 0.005em;
+  letter-spacing: 0;
   margin-bottom: 24px;
   padding-bottom: 20px;
   border-bottom: 2px solid var(--ink);
@@ -1128,9 +1125,10 @@
   flex-shrink: 0;
 }
 
-/* RIGHT iframe column */
+/* RIGHT iframe column — flex grow to fill remaining width */
 .fb-feed-frame {
-  width: 100%;
+  flex: 1 1 0;
+  min-width: 0;
   border: 1px solid var(--line);
   background: var(--paper);
   box-shadow: 0 1px 0 var(--line-soft), 0 16px 48px -20px rgba(0,0,0,0.22);
@@ -1144,7 +1142,12 @@
 }
 
 @media (max-width: 1024px) {
-  .fb-feed-frame { max-width: 700px; margin: 0 auto; }
+  .fb-feed-frame {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+  }
   .fb-feed-frame iframe { height: 680px; }
 }
 
