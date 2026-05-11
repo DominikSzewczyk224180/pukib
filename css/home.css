@@ -977,9 +977,15 @@
    FB section: editorial banner + 2-col content
    ========================================================= */
 
-/* TOP banner: large title + intro */
+/* LEFT column wrapper (contains header + info, sits next to iframe) */
+.fb-left {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+/* TOP block inside left col: kicker + big title + intro */
 .fb-header {
-  margin-bottom: clamp(40px, 4.5vw, 64px);
+  margin-bottom: 48px;
 }
 
 .fb-kicker {
@@ -1022,7 +1028,7 @@
   max-width: 640px;
 }
 
-/* GRID: info left (grows) + iframe right (fixed 500px = FB plugin max) */
+/* GRID: left column (header + info) + iframe (full height on right) */
 .fb-grid {
   display: flex;
   gap: 80px;
@@ -1037,14 +1043,9 @@
   }
 }
 
-/* LEFT info column — grows to fill remaining space */
+/* fb-info now just spacing within the left column */
 .fb-info {
-  flex: 1 1 auto;
-  min-width: 0;
-}
-
-@media (max-width: 1024px) {
-  .fb-info { max-width: 540px; }
+  /* no width — fills the left column */
 }
 
 .fb-sub {
