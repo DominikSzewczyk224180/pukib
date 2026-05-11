@@ -318,25 +318,19 @@
     </div>
   </section>
 
-  <!-- Facebook section: 2-col — info + live iframe -->
+  <!-- Facebook section: unified 2-col composition -->
   <section class="fb-section" id="fb">
     <div class="fb-inner">
-      <div class="section-head">
-        <div>
-          <div class="kicker">05 / Aktualności</div>
-          <h2 class="section-title">Bądź <em>na bieżąco.</em></h2>
-        </div>
-        <p class="section-intro">Najnowsze realizacje, ciekawostki branżowe i okazjonalne promocje prosto z naszego Facebooka.</p>
-      </div>
-
       <div class="fb-grid">
-        <!-- LEFT: info + CTA -->
+        <!-- LEFT: title + info + CTA (all one column) -->
         <div class="fb-info">
-          <div class="fb-mark">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
-          </div>
+          <div class="fb-kicker">05 / Aktualności</div>
+          <h2 class="fb-title">Bądź <em>na bieżąco.</em></h2>
+          <p class="fb-intro">Najnowsze realizacje, ciekawostki branżowe i okazjonalne promocje prosto z naszego Facebooka.</p>
 
-          <h3>Co znajdziesz <em>na profilu.</em></h3>
+          <div class="fb-divider"></div>
+
+          <h3 class="fb-sub">Co znajdziesz <em>na profilu.</em></h3>
 
           <ul class="fb-list">
             <li><span class="num">/ 01</span><span class="txt">Realizacje z budów i remontów</span></li>
@@ -350,15 +344,13 @@
             Obserwuj nas na Facebooku
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </a>
-
-          <p class="fb-meta">facebook.com/pukib<span class="fb-dot">·</span>aktualizujemy regularnie</p>
         </div>
 
-        <!-- RIGHT: live FB Page Plugin iframe -->
+        <!-- RIGHT: live FB Page Plugin iframe (large, fills its column) -->
         <div class="fb-feed-frame">
           <iframe
-            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fp%2FPUKiB-Sp-zoo-61550223431423%2F&tabs=timeline&width=600&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-            width="600" height="600"
+            src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fp%2FPUKiB-Sp-zoo-61550223431423%2F&tabs=timeline&width=600&height=780&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+            width="600" height="780"
             style="border:none;overflow:hidden;max-width:100%;"
             scrolling="no" frameborder="0"
             allowfullscreen="true"
