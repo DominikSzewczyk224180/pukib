@@ -1022,10 +1022,10 @@
   max-width: 640px;
 }
 
-/* GRID: info left + iframe right (flex, no empty cells) */
+/* GRID: info left (grows) + iframe right (fixed 500px = FB plugin max) */
 .fb-grid {
   display: flex;
-  gap: 64px;
+  gap: 80px;
   align-items: flex-start;
 }
 
@@ -1033,17 +1033,18 @@
   .fb-grid {
     flex-direction: column;
     gap: 48px;
+    align-items: stretch;
   }
 }
 
-/* LEFT info column — fixed narrow width, hugs the iframe */
+/* LEFT info column — grows to fill remaining space */
 .fb-info {
-  width: 480px;
-  flex-shrink: 0;
+  flex: 1 1 auto;
+  min-width: 0;
 }
 
 @media (max-width: 1024px) {
-  .fb-info { width: 100%; max-width: 540px; }
+  .fb-info { max-width: 540px; }
 }
 
 .fb-sub {
@@ -1125,10 +1126,10 @@
   flex-shrink: 0;
 }
 
-/* RIGHT iframe column — flex grow to fill remaining width */
+/* RIGHT iframe column — FIXED 500px (FB Page Plugin renders max 500px wide) */
 .fb-feed-frame {
-  flex: 1 1 0;
-  min-width: 0;
+  flex: 0 0 500px;
+  width: 500px;
   border: 1px solid var(--line);
   background: var(--paper);
   box-shadow: 0 1px 0 var(--line-soft), 0 16px 48px -20px rgba(0,0,0,0.22);
@@ -1137,20 +1138,20 @@
 .fb-feed-frame iframe {
   display: block;
   width: 100%;
-  height: 720px;
+  height: 800px;
   border: none;
 }
 
 @media (max-width: 1024px) {
   .fb-feed-frame {
-    flex: 0 0 auto;
+    flex: none;
     width: 100%;
-    max-width: 700px;
+    max-width: 500px;
     margin: 0 auto;
   }
-  .fb-feed-frame iframe { height: 680px; }
+  .fb-feed-frame iframe { height: 700px; }
 }
 
 @media (max-width: 600px) {
-  .fb-feed-frame iframe { height: 580px; }
+  .fb-feed-frame iframe { height: 600px; }
 }
