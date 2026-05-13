@@ -132,6 +132,11 @@
   overflow: hidden;
   border: 1px solid var(--ink);
   box-shadow: 12px 12px 0 var(--ink);
+  margin-top: 80px;
+}
+
+@media (max-width: 1000px) {
+  .hero-video-frame { margin-top: 0; }
 }
 
 .hero-video-frame video,
@@ -1153,6 +1158,7 @@
   border: 1px solid var(--line);
   background: var(--paper);
   box-shadow: 0 1px 0 var(--line-soft), 0 16px 48px -20px rgba(0,0,0,0.22);
+  margin-top: 30px;
 }
 
 .fb-feed-frame iframe {

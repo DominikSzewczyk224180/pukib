@@ -394,6 +394,10 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin-bottom: 64px;
 }
 
+.section-head .kicker {
+  margin-bottom: 24px;
+}
+
 .section-title {
   font-family: var(--font-display);
   font-weight: 900;
