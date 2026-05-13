@@ -204,20 +204,28 @@
       }
     }
 
-    // File upload handling - shows filename in label after selection
+    // File upload - trzymamy obiekt File globalnie zeby przekazac do backendu
     const fileInput = orderForm.querySelector('[data-form-file]');
     const fileLabel = orderForm.querySelector('[data-upload-label]');
-    let attachedFileName = '';
+    window.PUKiB_ORDER_FILE = null;
     if (fileInput && fileLabel) {
       const defaultLabel = fileLabel.textContent;
       fileInput.addEventListener('change', () => {
         const f = fileInput.files && fileInput.files[0];
         if (f) {
-          attachedFileName = f.name;
+          if (f.size > 5 * 1024 * 1024) {
+            alert('Plik za duży, maksymalnie 5 MB.');
+            fileInput.value = '';
+            window.PUKiB_ORDER_FILE = null;
+            fileLabel.textContent = defaultLabel;
+            fileLabel.parentElement.classList.remove('has-file');
+            return;
+          }
+          window.PUKiB_ORDER_FILE = f;
           fileLabel.textContent = f.name;
           fileLabel.parentElement.classList.add('has-file');
         } else {
-          attachedFileName = '';
+          window.PUKiB_ORDER_FILE = null;
           fileLabel.textContent = defaultLabel;
           fileLabel.parentElement.classList.remove('has-file');
         }
@@ -231,13 +239,13 @@
         e.preventDefault();
         const p = getPrice(state.product);
         const t = getTransport(state.transport);
-        const name = orderForm.querySelector('[name="name"]')?.value || '';
-        const phone = orderForm.querySelector('[name="phone"]')?.value || '';
-        const email = orderForm.querySelector('[name="email"]')?.value || '';
+        const name    = orderForm.querySelector('[name="name"]')?.value || '';
+        const phone   = orderForm.querySelector('[name="phone"]')?.value || '';
+        const email   = orderForm.querySelector('[name="email"]')?.value || '';
         const address = orderForm.querySelector('[name="address"]')?.value || '';
-        const date = orderForm.querySelector('[name="date"]')?.value || '';
-        const city = orderForm.querySelector('[name="city"]')?.value || '';
-        const notes = orderForm.querySelector('[name="notes"]')?.value || '';
+        const date    = orderForm.querySelector('[name="date"]')?.value || '';
+        const city    = orderForm.querySelector('[name="city"]')?.value || '';
+        const notes   = orderForm.querySelector('[name="notes"]')?.value || '';
 
         if (!phone || !email || !city) {
           alert('Wypełnij obowiązkowe pola: telefon, e-mail i miejscowość.');
@@ -245,31 +253,60 @@
         }
 
         const total = Math.round((p.net + t.net) * 1.08);
-        const subject = `Zamówienie kontenera, ${p.label}`;
-        const attachInfo = attachedFileName
-          ? `${attachedFileName} (klient ma plik formularza, ustal sposób przesłania)`
-          : '-';
 
-        // Payload dla FormSubmit (AJAX endpoint, dostarcza maila na kontenery@pukib.pl)
-        const payload = {
-          _subject: subject,
-          _template: 'table',
-          _captcha: 'false',
-          'Kontener': `${p.label} - ${fmt(p.net)} zł netto`,
-          'Transport': `${t.label} - ${fmt(t.net)} zł netto`,
-          'RAZEM z VAT 8%': `${fmt(total)} zł brutto`,
-          'Imię i nazwisko': name || '-',
-          'Telefon': phone,
-          'E-mail': email,
-          'Adres podstawienia': address || '-',
-          'Miejscowość': city,
-          'Preferowany termin': date || '-',
-          'Uwagi': notes || '-',
-          'Dołączony formularz': attachInfo,
-        };
+        // FormData zeby moc dolaczyc PDF jako multipart
+        const fd = new FormData();
+        fd.append('subject', `Zamówienie kontenera, ${p.label}`);
+        fd.append('container', `${p.label} - ${fmt(p.net)} zł netto`);
+        fd.append('transport', `${t.label} - ${fmt(t.net)} zł netto`);
+        fd.append('total', `${fmt(total)} zł brutto`);
+        fd.append('name', name);
+        fd.append('phone', phone);
+        fd.append('email', email);
+        fd.append('address', address);
+        fd.append('city', city);
+        fd.append('date', date);
+        fd.append('notes', notes);
 
-        // Plain text body jako fallback do mailto
-        const plainBody =
+        // Dolacz wgrany formularz PDF jesli istnieje (przechowywany w window.PUKiB_ORDER_FILE)
+        if (window.PUKiB_ORDER_FILE instanceof File) {
+          fd.append('attachment', window.PUKiB_ORDER_FILE);
+        }
+
+        // Status UI
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Wysyłanie...';
+        submitBtn.classList.add('is-loading');
+
+        try {
+          if (!window.PUKiB_API) throw new Error('Backend API niedostępne (admin.js nie załadowane)');
+          const result = await window.PUKiB_API.sendOrder(fd);
+
+          submitBtn.textContent = '✓ Wysłano';
+          submitBtn.classList.remove('is-loading');
+          submitBtn.classList.add('is-success');
+          const attachMsg = result.attachment_count > 0 ? ' z załączonym formularzem PDF' : '';
+          showOrderStatus('Dziękujemy, zamówienie wysłane' + attachMsg + ' na kontenery@pukib.pl. Skontaktujemy się z Tobą wkrótce.', 'success');
+
+          // Wyczysc wgrany plik po sukcesie
+          window.PUKiB_ORDER_FILE = null;
+          const fileLabel = orderForm.querySelector('[data-upload-label]');
+          if (fileLabel) fileLabel.textContent = 'Wgraj wypełniony PDF';
+
+          setTimeout(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = initialBtnText;
+            submitBtn.classList.remove('is-success');
+          }, 6000);
+
+        } catch (err) {
+          console.warn('Backend send failed, fallback mailto:', err);
+          submitBtn.disabled = false;
+          submitBtn.textContent = initialBtnText;
+          submitBtn.classList.remove('is-loading');
+
+          // Fallback do mailto jesli backend nie odpowiada
+          const plainBody =
 `Dzień dobry,
 
 Chciał(a)bym zamówić kontener:
@@ -288,54 +325,15 @@ Dane kontaktowe:
 
 Dodatkowe informacje:
 ${notes || '-'}
-${attachedFileName ? '\n[!] Dołączam formularz: ' + attachedFileName + '\n' : ''}
+
 Pozdrawiam.`;
-
-        // Wyłącz przycisk, pokaż "Wysyłanie..."
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Wysyłanie...';
-        submitBtn.classList.add('is-loading');
-
-        try {
-          const response = await fetch('https://formsubmit.co/ajax/kontenery@pukib.pl', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'Accept': 'application/json',
-            },
-            body: JSON.stringify(payload),
-          });
-
-          if (!response.ok) throw new Error('HTTP ' + response.status);
-          const data = await response.json().catch(() => ({}));
-          if (data && data.success === 'false') throw new Error(data.message || 'FormSubmit error');
-
-          // Sukces
-          submitBtn.textContent = '✓ Wysłano';
-          submitBtn.classList.remove('is-loading');
-          submitBtn.classList.add('is-success');
-          showOrderStatus('Dziękujemy, zamówienie wysłane na kontenery@pukib.pl. Skontaktujemy się z Tobą wkrótce.' + (attachedFileName ? ' Wyślij formularz PDF osobno na ten sam adres.' : ''), 'success');
-
-          // Reset po chwili
-          setTimeout(() => {
-            submitBtn.disabled = false;
-            submitBtn.textContent = initialBtnText;
-            submitBtn.classList.remove('is-success');
-          }, 6000);
-
-        } catch (err) {
-          console.warn('Direct send failed, fallback to mailto:', err);
-          submitBtn.disabled = false;
-          submitBtn.textContent = initialBtnText;
-          submitBtn.classList.remove('is-loading');
-          showOrderStatus('Bezpośrednia wysyłka nie powiodła się. Otwieramy klient pocztowy z gotowym zamówieniem.', 'warn');
-          const mailto = `mailto:kontenery@pukib.pl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(plainBody)}`;
-          setTimeout(() => { window.location.href = mailto; }, 600);
+          showOrderStatus('Bezpośrednia wysyłka nie powiodła się (' + err.message + '). Otwieramy klient pocztowy z gotowym zamówieniem.', 'warn');
+          const mailto = 'mailto:kontenery@pukib.pl?subject=' + encodeURIComponent(`Zamówienie kontenera, ${p.label}`) + '&body=' + encodeURIComponent(plainBody);
+          setTimeout(() => { window.location.href = mailto; }, 800);
         }
       });
     }
 
-    // Pomocnik do pokazywania statusu pod przyciskiem
     function showOrderStatus(msg, level) {
       let bar = orderForm.querySelector('[data-order-status]');
       if (!bar) {
