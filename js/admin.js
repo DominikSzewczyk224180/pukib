@@ -145,16 +145,15 @@
       }
     });
 
-    // Nagłówki kolumn cen, klikalne
+    // Nagłówki kolumn cen - segmented control z widocznymi netto i brutto
     document.querySelectorAll('[data-pukib-price-header]').forEach(el => {
       const isBrutto = mode === 'brutto';
-      el.innerHTML = (isBrutto ? 'Cena brutto' : 'Cena netto') +
-        ' <span class="price-header-mode" aria-hidden="true">' +
-        (isBrutto ? '(z VAT)' : '') + '</span>' +
-        '<span class="price-header-swap" aria-hidden="true">⇄</span>';
-      el.title = isBrutto ? 'Przełącz na ceny netto' : 'Przełącz na ceny brutto (z VAT 8%)';
-      el.setAttribute('role', 'button');
-      el.setAttribute('tabindex', '0');
+      el.innerHTML =
+        '<span class="price-header-label">Cena:</span>' +
+        '<span class="price-mode-switch" role="group">' +
+          '<button type="button" data-pukib-mode="netto" class="' + (!isBrutto ? 'active' : '') + '" aria-pressed="' + (!isBrutto) + '">netto</button>' +
+          '<button type="button" data-pukib-mode="brutto" class="' + (isBrutto ? 'active' : '') + '" aria-pressed="' + isBrutto + '">brutto</button>' +
+        '</span>';
     });
 
     // Ceny stref
@@ -603,18 +602,12 @@
         openModal();
       });
     });
-    // Klik w nagłówek "Cena netto / brutto" przełącza tryb wszystkich tabel
+    // Segmented switch netto/brutto w nagłówku tabeli - delegacja eventu
     document.querySelectorAll('[data-pukib-price-header]').forEach(el => {
-      const toggle = () => {
-        const current = getPriceMode();
-        setPriceMode(current === 'brutto' ? 'netto' : 'brutto');
-      };
-      el.addEventListener('click', toggle);
-      el.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          toggle();
-        }
+      el.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-pukib-mode]');
+        if (!btn) return;
+        setPriceMode(btn.dataset.pukibMode);
       });
     });
   }

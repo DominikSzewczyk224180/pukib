@@ -461,47 +461,72 @@
 }
 
 /* =========================================================
-   Klikalny nagłówek "Cena netto / brutto" w tabeli cennika
+   Segmented switch "Cena: netto / brutto" w nagłówku tabeli
    ========================================================= */
 
-[data-pukib-price-header] {
-  cursor: pointer;
-  user-select: none;
-  position: relative;
-  transition: color 0.2s;
-  outline: none;
-}
-
-[data-pukib-price-header]:hover,
-[data-pukib-price-header]:focus-visible {
-  color: var(--red) !important;
-}
-
-[data-pukib-price-header]:focus-visible {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.price-header-mode {
-  font-size: 0.85em;
-  opacity: 0.55;
-  margin-left: 4px;
-  letter-spacing: 0.12em;
-}
-
-.price-header-swap {
-  display: inline-block;
-  margin-left: 8px;
-  font-size: 1.1em;
-  font-weight: 400;
+.pricing-table th[data-pukib-price-header] {
+  text-align: right;
+  vertical-align: middle;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  text-transform: none;
   letter-spacing: 0;
-  color: var(--red);
-  opacity: 0.7;
-  transform: translateY(1px);
-  transition: opacity 0.2s, transform 0.25s;
+  font-size: inherit;
+  color: inherit;
+  white-space: nowrap;
 }
 
-[data-pukib-price-header]:hover .price-header-swap {
-  opacity: 1;
-  transform: translateY(1px) rotate(180deg);
+.price-header-label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-right: 14px;
+  vertical-align: middle;
+}
+
+.price-mode-switch {
+  display: inline-flex;
+  align-items: stretch;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  overflow: hidden;
+  vertical-align: middle;
+  background: var(--paper);
+  box-shadow: 0 2px 0 var(--ink);
+}
+
+.price-mode-switch button {
+  background: transparent;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding: 10px 22px;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  line-height: 1;
+  position: relative;
+}
+
+.price-mode-switch button:hover:not(.active) {
+  color: var(--ink);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.price-mode-switch button.active {
+  background: var(--red);
+  color: var(--paper);
+  cursor: default;
+}
+
+/* Responsywnie: na wąskim ekranie zmniejsz, ale nadal czytelnie */
+@media (max-width: 700px) {
+  .price-header-label { font-size: 11px; margin-right: 8px; }
+  .price-mode-switch button { padding: 8px 14px; font-size: 11px; letter-spacing: 0.12em; }
 }
