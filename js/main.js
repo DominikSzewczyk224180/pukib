@@ -112,9 +112,9 @@
 
     const PRICE = {
       'gruz-7':       { net: 900,  label: 'Gruz · 7 m³' },
-      'mix-7':        { net: 1300, label: 'Odpady mieszane · 7 m³' },
-      'mix-10':       { net: 1800, label: 'Odpady mieszane · 10 m³' },
-      'mix-36':       { net: 3700, label: 'Odpady mieszane · 36 m³' },
+      'mix-7':        { net: 1300, label: 'Odpady budowlane zmieszane · 7 m³' },
+      'mix-10':       { net: 1800, label: 'Odpady budowlane zmieszane · 10 m³' },
+      'mix-36':       { net: 3700, label: 'Odpady budowlane zmieszane · 36 m³' },
     };
 
     const TRANSPORT = {

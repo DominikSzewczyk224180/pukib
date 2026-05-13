@@ -1045,7 +1045,7 @@
 
 /* fb-info now just spacing within the left column */
 .fb-info {
-  /* no width — fills the left column */
+  /* no width, fills the left column */
 }
 
 .fb-sub {
@@ -1127,7 +1127,7 @@
   flex-shrink: 0;
 }
 
-/* RIGHT iframe column — FIXED 500px (FB Page Plugin renders max 500px wide) */
+/* RIGHT iframe column, FIXED 500px (FB Page Plugin renders max 500px wide) */
 .fb-feed-frame {
   flex: 0 0 500px;
   width: 500px;
@@ -1155,4 +1155,151 @@
 
 @media (max-width: 600px) {
   .fb-feed-frame iframe { height: 600px; }
+}
+
+/* =========================================================
+   Partnerzy biznesowi (w sekcji Aktualności, pod CTA Facebooka)
+   ========================================================= */
+
+.fb-partners {
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid var(--line-soft);
+}
+
+.fb-partners-head {
+  margin-bottom: 24px;
+}
+
+.fb-partners-head .fb-kicker {
+  margin-bottom: 12px;
+}
+
+.fb-partners-head .fb-sub {
+  margin-bottom: 12px;
+}
+
+.fb-partners-note {
+  font-size: 14px;
+  color: var(--ink-3);
+  line-height: 1.55;
+  max-width: 44ch;
+}
+
+.fb-partners-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+@media (max-width: 700px) {
+  .fb-partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.fb-partner-slot {
+  aspect-ratio: 1 / 1;
+  border: 1px dashed var(--line-soft);
+  background: var(--paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.fb-partner-slot::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 6px;
+  height: 6px;
+  background: var(--line-soft);
+}
+
+.fb-partner-slot span {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  opacity: 0.55;
+}
+
+/* =========================================================
+   Nasze realizacje (osobna sekcja pod Aktualnościami)
+   ========================================================= */
+
+.section-realizacje {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.realizacje-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1100px) {
+  .realizacje-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .realizacje-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.realizacja-slot {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: var(--paper-2);
+  border: 1px solid var(--line-soft);
+  overflow: hidden;
+}
+
+.realizacja-slot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(10,10,10,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(10,10,10,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.realizacja-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px;
+  z-index: 1;
+}
+
+.rp-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.rp-label {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(28px, 3vw, 40px);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 0.9;
+  color: var(--ink);
+  opacity: 0.35;
 }
