@@ -225,7 +225,9 @@
     }
 
     if (submitBtn) {
-      submitBtn.addEventListener('click', (e) => {
+      const initialBtnText = submitBtn.textContent;
+
+      submitBtn.addEventListener('click', async (e) => {
         e.preventDefault();
         const p = getPrice(state.product);
         const t = getTransport(state.transport);
@@ -244,10 +246,30 @@
 
         const total = Math.round((p.net + t.net) * 1.08);
         const subject = `Zamówienie kontenera, ${p.label}`;
-        const attachLine = attachedFileName
-          ? `\n\n[!] Dołączam wypełniony formularz: ${attachedFileName}\n    (Pamiętaj o dodaniu pliku jako załącznika w kliencie pocztowym.)\n`
-          : '';
-        const body =
+        const attachInfo = attachedFileName
+          ? `${attachedFileName} (klient ma plik formularza, ustal sposób przesłania)`
+          : '-';
+
+        // Payload dla FormSubmit (AJAX endpoint, dostarcza maila na kontenery@pukib.pl)
+        const payload = {
+          _subject: subject,
+          _template: 'table',
+          _captcha: 'false',
+          'Kontener': `${p.label} - ${fmt(p.net)} zł netto`,
+          'Transport': `${t.label} - ${fmt(t.net)} zł netto`,
+          'RAZEM z VAT 8%': `${fmt(total)} zł brutto`,
+          'Imię i nazwisko': name || '-',
+          'Telefon': phone,
+          'E-mail': email,
+          'Adres podstawienia': address || '-',
+          'Miejscowość': city,
+          'Preferowany termin': date || '-',
+          'Uwagi': notes || '-',
+          'Dołączony formularz': attachInfo,
+        };
+
+        // Plain text body jako fallback do mailto
+        const plainBody =
 `Dzień dobry,
 
 Chciał(a)bym zamówić kontener:
@@ -265,13 +287,69 @@ Dane kontaktowe:
 - Preferowany termin: ${date || '-'}
 
 Dodatkowe informacje:
-${notes || '-'}${attachLine}
-
+${notes || '-'}
+${attachedFileName ? '\n[!] Dołączam formularz: ' + attachedFileName + '\n' : ''}
 Pozdrawiam.`;
 
-        const mailto = `mailto:kontenery@pukib.pl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-        window.location.href = mailto;
+        // Wyłącz przycisk, pokaż "Wysyłanie..."
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Wysyłanie...';
+        submitBtn.classList.add('is-loading');
+
+        try {
+          const response = await fetch('https://formsubmit.co/ajax/kontenery@pukib.pl', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json',
+            },
+            body: JSON.stringify(payload),
+          });
+
+          if (!response.ok) throw new Error('HTTP ' + response.status);
+          const data = await response.json().catch(() => ({}));
+          if (data && data.success === 'false') throw new Error(data.message || 'FormSubmit error');
+
+          // Sukces
+          submitBtn.textContent = '✓ Wysłano';
+          submitBtn.classList.remove('is-loading');
+          submitBtn.classList.add('is-success');
+          showOrderStatus('Dziękujemy, zamówienie wysłane na kontenery@pukib.pl. Skontaktujemy się z Tobą wkrótce.' + (attachedFileName ? ' Wyślij formularz PDF osobno na ten sam adres.' : ''), 'success');
+
+          // Reset po chwili
+          setTimeout(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = initialBtnText;
+            submitBtn.classList.remove('is-success');
+          }, 6000);
+
+        } catch (err) {
+          console.warn('Direct send failed, fallback to mailto:', err);
+          submitBtn.disabled = false;
+          submitBtn.textContent = initialBtnText;
+          submitBtn.classList.remove('is-loading');
+          showOrderStatus('Bezpośrednia wysyłka nie powiodła się. Otwieramy klient pocztowy z gotowym zamówieniem.', 'warn');
+          const mailto = `mailto:kontenery@pukib.pl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(plainBody)}`;
+          setTimeout(() => { window.location.href = mailto; }, 600);
+        }
       });
+    }
+
+    // Pomocnik do pokazywania statusu pod przyciskiem
+    function showOrderStatus(msg, level) {
+      let bar = orderForm.querySelector('[data-order-status]');
+      if (!bar) {
+        bar = document.createElement('div');
+        bar.setAttribute('data-order-status', '');
+        bar.className = 'order-status-bar';
+        const submitWrap = submitBtn.parentNode;
+        submitWrap.insertBefore(bar, submitBtn.nextSibling);
+      }
+      bar.textContent = msg;
+      bar.dataset.level = level || 'info';
+      bar.classList.add('visible');
+      clearTimeout(showOrderStatus._t);
+      showOrderStatus._t = setTimeout(() => bar.classList.remove('visible'), 10000);
     }
 
     recalc();

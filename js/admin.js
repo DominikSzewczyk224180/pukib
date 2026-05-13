@@ -6,7 +6,9 @@
 
   const STORAGE_KEY = 'pukib_admin_config_v1';
   const SESSION_KEY = 'pukib_admin_session_v1';
+  const PRICE_MODE_KEY = 'pukib_price_mode_v1';
   const ADMIN_PASSWORD = 'pukib2026@';
+  const VAT_RATE = 0.08;
 
   // Pełna domyślna konfiguracja, zsynchronizowana z HTML
   const DEFAULT_CONFIG = {
@@ -110,10 +112,32 @@
     return String(price.value);
   }
 
+  /* ===== TRYB CEN NETTO / BRUTTO ===== */
+
+  function getPriceMode() {
+    return localStorage.getItem(PRICE_MODE_KEY) === 'brutto' ? 'brutto' : 'netto';
+  }
+
+  function setPriceMode(mode) {
+    if (mode !== 'netto' && mode !== 'brutto') return;
+    localStorage.setItem(PRICE_MODE_KEY, mode);
+    applyConfig();
+    syncToggleUI();
+  }
+
+  function syncToggleUI() {
+    const mode = getPriceMode();
+    document.querySelectorAll('[data-price-toggle] [data-price-mode]').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.priceMode === mode);
+    });
+  }
+
   /* ===== STOSOWANIE KONFIGURACJI DO DOM ===== */
 
   function applyConfig() {
     const cfg = window.PUKiB_CONFIG;
+    const mode = getPriceMode();
+    const factor = mode === 'brutto' ? (1 + VAT_RATE) : 1;
 
     // Ceny ogólne
     document.querySelectorAll('[data-pukib-price]').forEach(el => {
@@ -121,7 +145,17 @@
       const price = cfg.prices[key];
       if (!price) return;
       const suffix = el.dataset.pukibSuffix || '';
-      el.textContent = formatPrice(price, suffix);
+      if (typeof price.value === 'number') {
+        const v = Math.round(price.value * factor);
+        el.textContent = fmtNum(v) + ' zł' + suffix;
+      } else {
+        el.textContent = String(price.value);
+      }
+    });
+
+    // Nagłówki kolumn cen
+    document.querySelectorAll('[data-pukib-price-header]').forEach(el => {
+      el.textContent = mode === 'brutto' ? 'Cena brutto' : 'Cena netto';
     });
 
     // Ceny stref
@@ -137,7 +171,6 @@
       const key = el.dataset.pukibZoneName;
       const zone = cfg.zones[key];
       if (!zone) return;
-      // Zachowaj uppercase tam gdzie pierwotnie był (zone-num)
       const isUpper = el.textContent === el.textContent.toUpperCase() && el.textContent.length > 0;
       el.textContent = isUpper ? zone.name.toUpperCase() : zone.name;
     });
@@ -565,11 +598,16 @@
 
   function init() {
     applyConfig();
+    syncToggleUI();
     document.querySelectorAll('[data-admin-trigger]').forEach(b => {
       b.addEventListener('click', (e) => {
         e.preventDefault();
         openModal();
       });
+    });
+    // Przełącznik netto/brutto na cenniku
+    document.querySelectorAll('[data-price-toggle] [data-price-mode]').forEach(btn => {
+      btn.addEventListener('click', () => setPriceMode(btn.dataset.priceMode));
     });
   }
 

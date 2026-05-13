@@ -349,7 +349,7 @@
           <button class="summary-submit" data-submit type="submit">
             Wyślij zamówienie →
           </button>
-          <p class="summary-note">Otworzymy Twój klient pocztowy z gotowym zamówieniem.<br>Albo zadzwoń: <a href="tel:503759504" style="color:var(--paper); border-bottom:1px solid var(--paper);">503 759 504</a> lub <a href="tel:502195472" style="color:var(--paper); border-bottom:1px solid var(--paper);">502 195 472</a></p>
+          <p class="summary-note">Wyślemy zamówienie prosto na kontenery@pukib.pl.<br>Albo zadzwoń: <a href="tel:503759504" style="color:var(--paper); border-bottom:1px solid var(--paper);">503 759 504</a> lub <a href="tel:502195472" style="color:var(--paper); border-bottom:1px solid var(--paper);">502 195 472</a></p>
         </aside>
       </form>
     </div>
@@ -362,12 +362,18 @@
       <div class="kicker" style="margin-bottom:16px;">/ 01 / Kontenery</div>
       <h2 class="display" style="font-size:clamp(36px,5vw,64px); margin-bottom:32px; max-width:18ch;">Cennik <em style="font-style:normal;color:var(--red);">kontenerów</em>.</h2>
 
+      <div class="price-toggle" data-price-toggle>
+        <span class="price-toggle-label">/ Wyświetl ceny:</span>
+        <button type="button" data-price-mode="netto" class="active">Netto</button>
+        <button type="button" data-price-mode="brutto">Brutto (z VAT 8%)</button>
+      </div>
+
       <table class="pricing-table">
         <thead>
           <tr>
             <th>Rodzaj odpadów</th>
             <th>Wielkość</th>
-            <th style="text-align:right;">Cena netto</th>
+            <th style="text-align:right;" data-pukib-price-header>Cena netto</th>
           </tr>
         </thead>
         <tbody>
@@ -414,7 +420,7 @@
           <tr>
             <th>Rodzaj odpadów</th>
             <th>Wielkość</th>
-            <th style="text-align:right;">Cena netto</th>
+            <th style="text-align:right;" data-pukib-price-header>Cena netto</th>
           </tr>
         </thead>
         <tbody>
