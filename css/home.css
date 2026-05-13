@@ -1194,9 +1194,9 @@
 
 .fb-partners-list li {
   display: flex;
-  align-items: center;
-  gap: 24px;
-  padding: 18px 0;
+  align-items: baseline;
+  gap: 20px;
+  padding: 10px 0;
   border-bottom: 1px solid var(--line-soft);
 }
 
@@ -1204,30 +1204,30 @@
   border-top: 1px solid var(--line-soft);
 }
 
-.fb-partners-list .pp-num {
+.fb-partners-list .num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--red);
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  min-width: 36px;
+}
+
+.fb-partners-list .txt {
+  font-size: 15px;
+  line-height: 1.4;
+  color: var(--ink-2);
+  flex: 1;
+}
+
+.fb-partners-list .txt-placeholder {
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-3);
-  flex: 0 0 48px;
-}
-
-.fb-partners-list .pp-name {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(18px, 1.8vw, 22px);
-  line-height: 1.1;
-  text-transform: uppercase;
-  letter-spacing: -0.005em;
-  color: var(--ink);
-}
-
-.fb-partners-list .pp-line {
+  opacity: 0.55;
   flex: 1;
-  height: 0;
-  border-top: 1px dashed var(--line-soft);
-  opacity: 0.7;
 }
 
 /* =========================================================
