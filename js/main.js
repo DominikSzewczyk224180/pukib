@@ -181,6 +181,26 @@
       }
     }
 
+    // File upload handling - shows filename in label after selection
+    const fileInput = orderForm.querySelector('[data-form-file]');
+    const fileLabel = orderForm.querySelector('[data-upload-label]');
+    let attachedFileName = '';
+    if (fileInput && fileLabel) {
+      const defaultLabel = fileLabel.textContent;
+      fileInput.addEventListener('change', () => {
+        const f = fileInput.files && fileInput.files[0];
+        if (f) {
+          attachedFileName = f.name;
+          fileLabel.textContent = f.name;
+          fileLabel.parentElement.classList.add('has-file');
+        } else {
+          attachedFileName = '';
+          fileLabel.textContent = defaultLabel;
+          fileLabel.parentElement.classList.remove('has-file');
+        }
+      });
+    }
+
     if (submitBtn) {
       submitBtn.addEventListener('click', (e) => {
         e.preventDefault();
@@ -194,13 +214,16 @@
         const city = orderForm.querySelector('[name="city"]')?.value || '';
         const notes = orderForm.querySelector('[name="notes"]')?.value || '';
 
-        if (!name || !phone) {
-          alert('Wypełnij imię i numer telefonu, bez tego nie zamówimy kontenera.');
+        if (!phone || !email || !city) {
+          alert('Wypełnij obowiązkowe pola: telefon, e-mail i miejscowość.');
           return;
         }
 
         const total = Math.round((p.net + t.net) * 1.08);
         const subject = `Zamówienie kontenera, ${p.label}`;
+        const attachLine = attachedFileName
+          ? `\n\n[!] Dołączam wypełniony formularz: ${attachedFileName}\n    (Pamiętaj o dodaniu pliku jako załącznika w kliencie pocztowym.)\n`
+          : '';
         const body =
 `Dzień dobry,
 
@@ -211,15 +234,15 @@ Chciał(a)bym zamówić kontener:
 - RAZEM Z VAT 8%: ${fmt(total)} zł brutto
 
 Dane kontaktowe:
-- Imię i nazwisko: ${name}
+- Imię i nazwisko: ${name || '-'}
 - Telefon: ${phone}
 - E-mail: ${email}
-- Adres podstawienia: ${address}
+- Adres podstawienia: ${address || '-'}
 - Miejscowość: ${city}
-- Preferowany termin: ${date}
+- Preferowany termin: ${date || '-'}
 
 Dodatkowe informacje:
-${notes || '-'}
+${notes || '-'}${attachLine}
 
 Pozdrawiam.`;
 

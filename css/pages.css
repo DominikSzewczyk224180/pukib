@@ -842,3 +842,96 @@
 .order-viz-mini-svg .stage.active {
   opacity: 1;
 }
+
+/* =========================================================
+   Order step 4 - download/upload form (cennik)
+   ========================================================= */
+
+.order-form-intro {
+  color: var(--paper-3);
+  font-size: 14px;
+  line-height: 1.55;
+  margin-bottom: 16px;
+  max-width: 60ch;
+}
+
+.form-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 600px) {
+  .form-actions { grid-template-columns: 1fr; }
+}
+
+.form-download-btn,
+.form-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px;
+  border: 1px dashed rgba(244,241,234,0.35);
+  background: transparent;
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+  border-radius: var(--radius);
+  text-decoration: none;
+  min-width: 0;
+}
+
+.form-download-btn:hover,
+.form-upload-btn:hover {
+  border-color: var(--red);
+  border-style: solid;
+  background: rgba(220,38,38,0.06);
+}
+
+.form-download-btn svg,
+.form-upload-btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.form-upload-btn input[type="file"] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.form-upload-btn span {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.form-upload-btn.has-file {
+  border-style: solid;
+  border-color: var(--red);
+  background: rgba(220,38,38,0.08);
+}
+
+.form-upload-hint {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--paper-3);
+  line-height: 1.55;
+}
+
+.form-upload-hint strong {
+  color: var(--paper);
+  font-weight: 700;
+}

@@ -136,8 +136,8 @@
             <h3 data-step="3">Twoje dane</h3>
             <div class="field-row">
               <div class="field">
-                <label for="f-name">Imię i nazwisko *</label>
-                <input id="f-name" name="name" type="text" required placeholder="Jan Kowalski">
+                <label for="f-name">Imię i nazwisko</label>
+                <input id="f-name" name="name" type="text" placeholder="Jan Kowalski">
               </div>
               <div class="field">
                 <label for="f-phone">Telefon *</label>
@@ -146,8 +146,8 @@
             </div>
             <div class="field-row">
               <div class="field">
-                <label for="f-email">E-mail</label>
-                <input id="f-email" name="email" type="email" placeholder="jan@example.pl">
+                <label for="f-email">E-mail *</label>
+                <input id="f-email" name="email" type="email" required placeholder="jan@example.pl">
               </div>
               <div class="field">
                 <label for="f-date">Preferowany termin</label>
@@ -166,8 +166,26 @@
             </div>
             <div class="field" style="margin-top:14px;">
               <label for="f-notes">Dodatkowe informacje</label>
-              <textarea id="f-notes" name="notes" rows="4" placeholder="Np. dostęp od strony podwórka, brama o szerokości 3 m, planowana zawartość…"></textarea>
+              <textarea id="f-notes" name="notes" rows="4" placeholder="Np. dostęp od strony podwórka, brama o szerokości 3 m, planowana zawartość..."></textarea>
             </div>
+          </div>
+
+          <!-- Step 4 - downloadable form / upload -->
+          <div class="order-step">
+            <h3 data-step="4">Formularz dodatkowy <span style="font-size:13px; font-weight:400; text-transform:none; letter-spacing:0; color:var(--paper-3); margin-left:8px;">(opcjonalnie)</span></h3>
+            <p class="order-form-intro">Z wypełnionym formularzem realizujemy zamówienie szybciej. Pobierz, wypełnij, dołącz do zgłoszenia.</p>
+            <div class="form-actions">
+              <a href="assets/forms/formularz-zamowienia.pdf" download class="form-download-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg>
+                Pobierz formularz PDF
+              </a>
+              <label class="form-upload-btn" for="f-form-file">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21V9M7 14l5-5 5 5M5 3h14"/></svg>
+                <span data-upload-label>Dołącz wypełniony formularz</span>
+                <input id="f-form-file" name="formfile" type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" data-form-file>
+              </label>
+            </div>
+            <p class="form-upload-hint">Po wysłaniu zamówienia otworzy się Twój klient pocztowy. <strong>Pamiętaj o dołączeniu pliku do wiadomości.</strong></p>
           </div>
         </div>
 
@@ -325,7 +343,7 @@
           <button class="summary-submit" data-submit type="submit">
             Wyślij zamówienie →
           </button>
-          <p class="summary-note">Otworzymy Twój klient pocztowy z gotowym zamówieniem.<br>Albo zadzwoń: <a href="tel:503759504" style="color:var(--paper); border-bottom:1px solid var(--paper);">503 759 504</a></p>
+          <p class="summary-note">Otworzymy Twój klient pocztowy z gotowym zamówieniem.<br>Albo zadzwoń: <a href="tel:503759504" style="color:var(--paper); border-bottom:1px solid var(--paper);">503 759 504</a> lub <a href="tel:502195472" style="color:var(--paper); border-bottom:1px solid var(--paper);">502 195 472</a></p>
         </aside>
       </form>
     </div>

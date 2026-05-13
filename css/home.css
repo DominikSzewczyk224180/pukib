@@ -933,6 +933,7 @@
 
 .location-map {
   margin: 0 -32px;
+  margin-top: auto;
   height: 280px;
   background: var(--ink-3);
   position: relative;
