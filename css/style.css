@@ -394,7 +394,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .section-title {
+  font-family: var(--font-display);
+  font-weight: 900;
   font-size: clamp(48px, 7vw, 110px);
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
   max-width: 16ch;
 }
 
