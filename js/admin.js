@@ -1,6 +1,6 @@
 /* PUKiB Admin Panel + Config Loader
    Backend: https://api.pukib.pl/pukib_backend/
-   Konfig prices/zones odczytywany z /config.php, edycje zapisywane przez admin endpointy. */
+   Konfig prices/zones odczytywany z /config, edycje zapisywane przez admin endpointy. */
 (function () {
   'use strict';
 
@@ -82,12 +82,12 @@
   }
 
   async function apiGetConfig() {
-    const r = await fetch(API_BASE + '/config.php', { cache: 'no-cache' });
+    const r = await fetch(API_BASE + '/config', { cache: 'no-cache' });
     if (!r.ok) throw new Error('GET config HTTP ' + r.status);
     return r.json();
   }
   async function apiLogin(password) {
-    const r = await fetch(API_BASE + '/admin/login.php', {
+    const r = await fetch(API_BASE + '/admin/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ password }),
@@ -100,7 +100,7 @@
     const token = getToken();
     if (!token) return;
     try {
-      await fetch(API_BASE + '/admin/logout.php', { method: 'POST', headers: { 'X-Admin-Token': token } });
+      await fetch(API_BASE + '/admin/logout', { method: 'POST', headers: { 'X-Admin-Token': token } });
     } catch (e) {}
     clearToken();
   }
@@ -111,7 +111,7 @@
       prices: Object.fromEntries(Object.entries(config.prices).map(([k, v]) => [k, { value: v.value }])),
       zones: Object.fromEntries(Object.entries(config.zones).map(([k, v]) => [k, { name: v.name, price: v.price, cities: v.cities }])),
     };
-    const r = await fetch(API_BASE + '/admin/config.php', {
+    const r = await fetch(API_BASE + '/admin/config', {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json', 'X-Admin-Token': token },
       body: JSON.stringify(payload),
@@ -128,7 +128,7 @@
     if (!token) throw new Error('Brak tokenu admina');
     const fd = new FormData();
     fd.append('pdf', file);
-    const r = await fetch(API_BASE + '/admin/pdf-upload.php', {
+    const r = await fetch(API_BASE + '/admin/pdf-upload', {
       method: 'POST',
       headers: { 'X-Admin-Token': token },
       body: fd,
@@ -453,7 +453,7 @@
     const current = pdfInfo.available
       ? 'Aktualny PDF na serwerze: <strong>' + Math.round((pdfInfo.size || 0) / 1024) + ' KB</strong>' +
         (pdfInfo.updated_at ? ' (wgrany ' + new Date(pdfInfo.updated_at).toLocaleString('pl-PL') + ')' : '') +
-        ' &nbsp; <a href="' + API_BASE + '/formularz.php" target="_blank" style="color:var(--red); border-bottom:1px solid var(--red);">Podgląd</a>'
+        ' &nbsp; <a href="' + API_BASE + '/formularz" target="_blank" style="color:var(--red); border-bottom:1px solid var(--red);">Podgląd</a>'
       : 'Backend nie ma jeszcze wgranego PDF. Używany jest lokalny fallback.';
     root.innerHTML =
       '<p class="admin-panel-intro">Wgraj nowy plik PDF, który zastąpi formularz zamówienia. Plik trafia na serwer, dostępny dla wszystkich odwiedzających.</p>' +
@@ -535,7 +535,7 @@
   window.PUKiB_API = {
     base: API_BASE,
     sendOrder: async function (formData) {
-      const r = await fetch(API_BASE + '/send-order.php', { method: 'POST', body: formData });
+      const r = await fetch(API_BASE + '/send-order', { method: 'POST', body: formData });
       const data = await r.json().catch(() => ({}));
       if (!r.ok) throw new Error(data.error || 'HTTP ' + r.status);
       return data;
