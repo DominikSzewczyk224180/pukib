@@ -7,7 +7,7 @@
   background: var(--paper);
   color: var(--ink);
   position: relative;
-  padding: 56px var(--pad-x) 80px;
+  padding: 12px var(--pad-x) 80px;
   overflow: hidden;
 }
 
