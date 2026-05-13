@@ -122,14 +122,6 @@
     if (mode !== 'netto' && mode !== 'brutto') return;
     localStorage.setItem(PRICE_MODE_KEY, mode);
     applyConfig();
-    syncToggleUI();
-  }
-
-  function syncToggleUI() {
-    const mode = getPriceMode();
-    document.querySelectorAll('[data-price-toggle] [data-price-mode]').forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.priceMode === mode);
-    });
   }
 
   /* ===== STOSOWANIE KONFIGURACJI DO DOM ===== */
@@ -153,9 +145,16 @@
       }
     });
 
-    // Nagłówki kolumn cen
+    // Nagłówki kolumn cen, klikalne
     document.querySelectorAll('[data-pukib-price-header]').forEach(el => {
-      el.textContent = mode === 'brutto' ? 'Cena brutto' : 'Cena netto';
+      const isBrutto = mode === 'brutto';
+      el.innerHTML = (isBrutto ? 'Cena brutto' : 'Cena netto') +
+        ' <span class="price-header-mode" aria-hidden="true">' +
+        (isBrutto ? '(z VAT)' : '') + '</span>' +
+        '<span class="price-header-swap" aria-hidden="true">⇄</span>';
+      el.title = isBrutto ? 'Przełącz na ceny netto' : 'Przełącz na ceny brutto (z VAT 8%)';
+      el.setAttribute('role', 'button');
+      el.setAttribute('tabindex', '0');
     });
 
     // Ceny stref
@@ -598,16 +597,25 @@
 
   function init() {
     applyConfig();
-    syncToggleUI();
     document.querySelectorAll('[data-admin-trigger]').forEach(b => {
       b.addEventListener('click', (e) => {
         e.preventDefault();
         openModal();
       });
     });
-    // Przełącznik netto/brutto na cenniku
-    document.querySelectorAll('[data-price-toggle] [data-price-mode]').forEach(btn => {
-      btn.addEventListener('click', () => setPriceMode(btn.dataset.priceMode));
+    // Klik w nagłówek "Cena netto / brutto" przełącza tryb wszystkich tabel
+    document.querySelectorAll('[data-pukib-price-header]').forEach(el => {
+      const toggle = () => {
+        const current = getPriceMode();
+        setPriceMode(current === 'brutto' ? 'netto' : 'brutto');
+      };
+      el.addEventListener('click', toggle);
+      el.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggle();
+        }
+      });
     });
   }
 
