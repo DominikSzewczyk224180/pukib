@@ -3,6 +3,28 @@
 (function () {
   'use strict';
 
+  /* ============== Working hours indicator (topbar dot + label) ==============
+     Praca: pn-pt 6:00-15:30. Poza tym czasem dioda zmienia kolor na czerwony,
+     a etykieta "Pracujemy" zostaje zastąpiona przez "Po godzinach". */
+  const hoursDots = document.querySelectorAll('[data-hours-dot]');
+  const hoursLabels = document.querySelectorAll('[data-hours-label]');
+  if (hoursDots.length || hoursLabels.length) {
+    const updateWorkStatus = () => {
+      const now = new Date();
+      const day = now.getDay(); // 0 = niedziela, 1 = pn, ... 6 = sob
+      const minutes = now.getHours() * 60 + now.getMinutes();
+      const startMin = 6 * 60;        // 6:00
+      const endMin   = 15 * 60 + 30;  // 15:30
+      const isWeekday = day >= 1 && day <= 5;
+      const isWorking = isWeekday && minutes >= startMin && minutes < endMin;
+      hoursDots.forEach(d => d.classList.toggle('off-hours', !isWorking));
+      hoursLabels.forEach(l => { l.textContent = isWorking ? 'Pracujemy' : 'Po godzinach'; });
+    };
+    updateWorkStatus();
+    // Odświeżaj co minutę na wypadek długo otwartej karty
+    setInterval(updateWorkStatus, 60 * 1000);
+  }
+
   /* ============== Mobile menu toggle ============== */
   const navToggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('.nav');

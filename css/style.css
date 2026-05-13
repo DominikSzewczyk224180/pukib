@@ -130,6 +130,21 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   margin-right: 8px;
   box-shadow: 0 0 8px #2eea7e;
   animation: pulse 2s infinite;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+.topbar-dot.off-hours {
+  background: var(--red);
+  box-shadow: 0 0 8px var(--red);
+}
+
+.topbar-link {
+  color: var(--paper);
+  transition: color 0.2s;
+}
+
+.topbar-link:hover {
+  color: var(--red);
 }
 
 @keyframes pulse {
@@ -138,7 +153,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 @media (max-width: 800px) {
-  .topbar-left .topbar-hide-mobile { display: none; }
+  .topbar-hide-mobile { display: none; }
   .topbar { font-size: 10px; gap: 12px; }
 }
 
