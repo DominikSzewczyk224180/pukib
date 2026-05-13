@@ -120,7 +120,8 @@
     const TRANSPORT = {
       strefa1: { net: 100, label: 'Strefa I, Jastrzębie · Rybnik · Żory' },
       strefa2: { net: 200, label: 'Strefa II, Pszczyna · Cieszyn · Knurów' },
-      strefa3: { net: 300, label: 'Strefa III, Katowice · Gliwice · Bielsko' },
+      strefa3: { net: 300, label: 'Strefa III, Gliwice · Bielsko · Tychy' },
+      strefa4: { net: 400, label: 'Strefa IV, Katowice' },
     };
 
     let state = {

@@ -165,15 +165,18 @@
 
 .zones-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   margin-bottom: 64px;
 }
 
-@media (max-width: 900px) { .zones-grid { grid-template-columns: 1fr; } }
+@media (max-width: 1100px) { .zones-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .zones-grid { grid-template-columns: 1fr; } }
 
 /* ---------- Order form ---------- */
 .order-section { background: var(--ink); color: var(--paper); position: relative; overflow: hidden; }
+
+.order-section .section-intro { color: var(--paper-3); }
 
 .order-section::before {
   content: 'ZAMÓWIENIE';
@@ -292,11 +295,12 @@
 
 .zone-row {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 8px;
 }
 
-@media (max-width: 700px) { .zone-row { grid-template-columns: 1fr; } }
+@media (max-width: 700px) { .zone-row { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 400px) { .zone-row { grid-template-columns: 1fr; } }
 
 .zone-btn {
   background: transparent;
@@ -868,9 +872,11 @@
 
 .form-download-btn,
 .form-upload-btn {
-  display: inline-flex;
+  display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
+  width: 100%;
   padding: 16px 18px;
   border: 1px dashed rgba(244,241,234,0.35);
   background: transparent;
@@ -884,7 +890,8 @@
   transition: border-color 0.2s, background 0.2s, color 0.2s;
   border-radius: var(--radius);
   text-decoration: none;
-  min-width: 0;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .form-download-btn:hover,
@@ -909,8 +916,9 @@
   pointer-events: none;
 }
 
-.form-upload-btn span {
-  flex: 1;
+.form-upload-btn > span,
+.form-download-btn > span {
+  flex: 0 1 auto;
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
