@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/home.css">
   <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/admin.css">
   <link rel="icon" type="image/png" href="assets/img/logo.png">
 </head>
 <body>
@@ -596,11 +597,12 @@
       <div class="footer-mega" aria-hidden="true">PUKiB</div>
       <div class="footer-bottom">
         <span>© <span id="year">2026</span> PUKiB · NIP 631 262 02 53 · BDO 000011532</span>
-        <span>KRS 0003645589 · Kapitał 100 000 PLN</span>
+        <span>KRS 0003645589 · <button type="button" class="admin-trigger" data-admin-trigger>Panel admina</button></span>
       </div>
     </div>
   </footer>
 
+  <script src="js/admin.js"></script>
   <script src="js/main.js"></script>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>

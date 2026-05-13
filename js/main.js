@@ -110,19 +110,41 @@
     const totalEl = orderForm.querySelector('[data-summary-total]');
     const submitBtn = orderForm.querySelector('[data-submit]');
 
-    const PRICE = {
-      'gruz-7':       { net: 900,  label: 'Gruz · KP 7' },
-      'mix-7':        { net: 1300, label: 'Odpady budowlane zmieszane · KP 7' },
-      'mix-10':       { net: 1800, label: 'Odpady budowlane zmieszane · KP 10' },
-      'mix-36':       { net: 3700, label: 'Odpady budowlane zmieszane · KP 36' },
-    };
+    // Ceny i strefy pobierane dynamicznie z konfiguracji admina (window.PUKiB_CONFIG).
+    // Jeśli konfig nie istnieje, padają domyślne wartości.
+    function getCfg() { return window.PUKiB_CONFIG || null; }
 
-    const TRANSPORT = {
-      strefa1: { net: 100, label: 'Strefa I, Jastrzębie · Rybnik · Żory' },
-      strefa2: { net: 200, label: 'Strefa II, Pszczyna · Cieszyn · Knurów' },
-      strefa3: { net: 300, label: 'Strefa III, Gliwice · Bielsko · Tychy' },
-      strefa4: { net: 400, label: 'Strefa IV, Katowice' },
-    };
+    function getPrice(key) {
+      const cfg = getCfg();
+      if (cfg && cfg.prices && cfg.prices[key]) {
+        const p = cfg.prices[key];
+        return { net: typeof p.value === 'number' ? p.value : 0, label: p.label };
+      }
+      // Fallback domyślne
+      const FALLBACK = {
+        'gruz-7':  { net: 900,  label: 'Gruz · KP 7' },
+        'mix-7':   { net: 1300, label: 'Odpady budowlane zmieszane · KP 7' },
+        'mix-10':  { net: 1800, label: 'Odpady budowlane zmieszane · KP 10' },
+        'mix-36':  { net: 3700, label: 'Odpady budowlane zmieszane · KP 36' },
+      };
+      return FALLBACK[key] || { net: 0, label: key };
+    }
+
+    function getTransport(key) {
+      const cfg = getCfg();
+      if (cfg && cfg.zones && cfg.zones[key]) {
+        const z = cfg.zones[key];
+        const sampleCities = z.cities.slice(0, 3).join(' · ');
+        return { net: z.price, label: `${z.name}, ${sampleCities || z.name}` };
+      }
+      const FALLBACK = {
+        strefa1: { net: 100, label: 'Strefa I' },
+        strefa2: { net: 200, label: 'Strefa II' },
+        strefa3: { net: 300, label: 'Strefa III' },
+        strefa4: { net: 400, label: 'Strefa IV' },
+      };
+      return FALLBACK[key] || { net: 0, label: key };
+    }
 
     let state = {
       product: 'gruz-7',
@@ -132,8 +154,8 @@
     const fmt = (n) => new Intl.NumberFormat('pl-PL').format(n);
 
     const recalc = () => {
-      const p = PRICE[state.product];
-      const t = TRANSPORT[state.transport];
+      const p = getPrice(state.product);
+      const t = getTransport(state.transport);
       if (!p || !t) return;
       summarySize && (summarySize.textContent = p.label);
       summaryPrice && (summaryPrice.textContent = fmt(p.net) + ' zł');
@@ -205,8 +227,8 @@
     if (submitBtn) {
       submitBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        const p = PRICE[state.product];
-        const t = TRANSPORT[state.transport];
+        const p = getPrice(state.product);
+        const t = getTransport(state.transport);
         const name = orderForm.querySelector('[name="name"]')?.value || '';
         const phone = orderForm.querySelector('[name="phone"]')?.value || '';
         const email = orderForm.querySelector('[name="email"]')?.value || '';
