@@ -212,6 +212,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .nav a {
   font-family: var(--font-mono);
   font-size: 12px;
+  font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   padding: 10px 16px;
