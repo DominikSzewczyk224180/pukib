@@ -4,7 +4,7 @@
 (function () {
   'use strict';
 
-  const API_BASE = 'https://api.pukib.pl/pukib_backend';
+  const API_BASE = 'https://api.pukib.pl';
 
   const CONFIG_CACHE_KEY = 'pukib_config_cache_v2';
   const TOKEN_KEY = 'pukib_admin_token_v1';
