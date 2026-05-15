@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /assets/forms/
+
+Sitemap: https://pukib.pl/sitemap.xml
