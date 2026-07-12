@@ -104,6 +104,34 @@
       line-height: 1.6;
       color: var(--ink-2);
     }
+
+    /* Baner: strona w trakcie tworzenia */
+    .draft-banner {
+      background: var(--red);
+      color: var(--paper);
+      padding: 16px 24px;
+      margin-bottom: 32px;
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .draft-banner span.dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--paper);
+      flex-shrink: 0;
+      animation: draftpulse 1.6s ease-in-out infinite;
+    }
+    @keyframes draftpulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
     .legal-updated {
       font-family: var(--font-mono);
       font-size: 13px;
@@ -170,11 +198,16 @@
     <div class="container">
       <div class="legal-wrap">
 
+        <div class="draft-banner">
+          <span class="dot"></span>
+          Wersja robocza · Strona w trakcie tworzenia
+        </div>
+
         <div class="legal-intro-note">
-          UWAGA (do usunięcia przed publikacją): Poniżej znajduje się szkielet klauzuli
-          zgodny z art. 13 RODO. Fragmenty oznaczone na czerwono wymagają uzupełnienia lub
-          zatwierdzenia przez administratora danych. Ostateczną treść należy skonsultować
-          z osobą odpowiedzialną za ochronę danych w firmie.
+          UWAGA: Poniżej znajduje się szkielet klauzuli zgodny z art. 13 RODO.
+          Fragmenty oznaczone na czerwono wymagają uzupełnienia lub zatwierdzenia przez
+          administratora danych. Ostateczną treść należy skonsultować z osobą odpowiedzialną
+          za ochronę danych w firmie.
         </div>
 
         <p>Zgodnie z art. 13 ust. 1 i 2 Rozporządzenia Parlamentu Europejskiego i Rady (UE)
@@ -288,6 +321,7 @@
             <li><a href="index.html#biznes">Dla biznesu</a></li>
             <li><a href="cennik.html">Cennik · Zamów</a></li>
             <li><a href="index.html#kontakt">Kontakt</a></li>
+            <li><a href="rodo.html">Klauzula RODO</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -310,7 +344,7 @@
       <div class="footer-mega" aria-hidden="true">PUKiB</div>
       <div class="footer-bottom">
         <span>© <span id="year">2026</span> PUKiB · NIP 631 262 02 53 · BDO 000011532</span>
-        <span>KRS 0003645589 · <a href="rodo.html">Klauzula RODO</a> · <button type="button" class="admin-trigger" data-admin-trigger>Panel admina</button></span>
+        <span>KRS 0003645589 · <button type="button" class="admin-trigger" data-admin-trigger>Panel admina</button></span>
       </div>
     </div>
   </footer>
